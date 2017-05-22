@@ -1,0 +1,24 @@
+.*Getting Started*
+* link:{\{root}}/general/to-get-anypoint-platform.html[Welcome]
+
+.*Mule Runtime*
+* link:{\{root}}/mule-runtime/3.8/index.html[Introduction]
+* link:{\{root}}/mule-runtime/3.8/shared-resources/domain-project-shared-resources.html[Shared Resources]
+
+.*Anypoint Studio*
+* link:{\{root}}/anypoint-studio/6/studio-visual-debugger.html[Visual Debugger]
+
+.*Cloudhub*
+* link:{\{root}}/anypoint-platform/cloudhub/cloudhub.html[About CloudHub]
+* link:{\{root}}/anypoint-platform/cloudhub/deploy-to-cloudhub.html[Deploy to CloudHub]
+
+.*Mule Management Console*
+* link:{\{root}}/mule-management-console/3.8/persisting-mmc-data-to-postgresql.html[Persisting MMC Data to PostgreSQL]
+
+.*Anypoint Connector DevKit*
+* link:{\{root}}/anypoint-connector-devkit/3.8/devkit-tutorial.html[Anypoint Connector DevKit Tutorial]
+
+.*Release Notes*
+* link:{\{root}}/general/release-notes/index.html[Directory]
+* link:{\{root}}/general/release-notes/mule-runtime/3.8.4-release-notes.html[Mule Runtime (Latest)]
+* link:{\{root}}/general/release-notes/anypoint-studio/6.2-with-3.8.4-runtime-update-site-4-release-notes.html[Anypoint Studio (Latest)]
