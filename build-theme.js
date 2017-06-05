@@ -34,6 +34,8 @@ del.sync('build')
 
 merge([
 
+  vfs.src('scripts/**/*.js', srcOptions),
+
   vfs.src('stylesheets/theme.css', srcOptions)
     .pipe(postcss(postcssPlugins)),
 
