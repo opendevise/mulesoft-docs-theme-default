@@ -8,6 +8,7 @@ const map = require('map-stream')
 const merge = require('merge-stream')
 const minimatch = require('minimatch')
 
+const imagemin = require('gulp-imagemin')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const postcssImport = require('postcss-import')
@@ -33,6 +34,9 @@ const srcOptions = { base: __dirname, cwd: __dirname }
 del.sync('build')
 
 merge([
+
+  vfs.src('images/**/*.svg', srcOptions)
+    .pipe(imagemin()),
 
   vfs.src('scripts/**/*.js', srcOptions),
 
