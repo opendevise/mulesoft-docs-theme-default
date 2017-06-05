@@ -1,6 +1,12 @@
 {
   "dependencies": {
+    "autoprefixer": "^7.1.1",
+    "cssnano": "^3.10.0",
+    "del": "^2.2.2",
+    "gulp-postcss": "^7.0.0",
+    "postcss-import": "^10.0.0",
     "typeface-open-sans": "^0.0.22",
-    "typeface-pt-sans": "^0.0.22"
+    "typeface-pt-sans": "^0.0.22",
+    "vinyl-fs": "^2.4.4"
   }
 }
