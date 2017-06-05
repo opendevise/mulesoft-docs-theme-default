@@ -4,7 +4,11 @@
     "cssnano": "^3.10.0",
     "del": "^2.2.2",
     "gulp-postcss": "^7.0.0",
+    "map-stream": "^0.0.7",
+    "merge-stream": "^1.0.1",
+    "minimatch": "^3.0.4",
     "postcss-import": "^10.0.0",
+    "postcss-url": "^7.0.0",
     "typeface-open-sans": "^0.0.22",
     "typeface-pt-sans": "^0.0.22",
     "vinyl-fs": "^2.4.4"
