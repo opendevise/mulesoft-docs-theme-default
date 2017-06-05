@@ -43,5 +43,8 @@ merge([
       file.dirname = path.join(file.base, 'fonts')
       next(null, file)
     })),
+
+  vfs.src('layouts/*.hbs', srcOptions),
+  vfs.src('partials/*.hbs', srcOptions),
 ])
   .pipe(vfs.dest('build/_theme'))
