@@ -52,5 +52,6 @@ merge([
 
   vfs.src('layouts/*.hbs', srcOptions),
   vfs.src('partials/*.hbs', srcOptions),
+  vfs.src('nav/**/*.adoc', srcOptions),
 ])
   .pipe(vfs.dest('build/_theme'))
