@@ -22,3 +22,15 @@ You can build this static page with the templates included in the theme with thi
 
 [source, bash]
 gulp build-preview
+
+== Development setup
+
+If you work on the theme assets (CSS, JS, fonts...), it's often better to avoid building the preview manually.
+This project includes a small HTTP server and a live build-reload setup.
+You just have to run this:
+
+[source, bash]
+gulp serve
+
+Once this is running in your terminal, each change to stylesheets, scripts, templates... will trigger a reload in your browser.
+You can browser the preview page here: `http://localhost:8080`.

@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.12",
+    "chokidar": "^1.7.0",
     "convict": "^3.0.0",
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
@@ -8,6 +10,7 @@
     "gulp-postcss": "^7.0.0",
     "handlebars": "^4.0.10",
     "js-yaml": "^3.8.4",
+    "lodash.debounce": "^4.0.8",
     "map-stream": "^0.0.7",
     "merge-stream": "^1.0.1",
     "minimatch": "^3.0.4",

@@ -6,6 +6,7 @@ const gulp = require('gulp')
 
 const buildTheme = require('./tasks/build-theme')
 const buildPreview = require('./tasks/build-preview')
+const serve = require('./tasks/serve')
 
 const config = require('./config')
 try {
@@ -32,4 +33,8 @@ gulp.task('build-theme', () => {
 
 gulp.task('build-preview', ['build-theme'], () => {
   return buildPreview(src, dest, destTheme)
+})
+
+gulp.task('serve', ['build-preview'], () => {
+  return serve(dest, () => gulp.start('build-preview'))
 })
