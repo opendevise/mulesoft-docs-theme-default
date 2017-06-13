@@ -1,2 +1,3 @@
-name: mulesoft-default
-version: 1.0.0
+destination: build
+theme_destination: _theme
+

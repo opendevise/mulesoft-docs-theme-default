@@ -3,7 +3,6 @@
 const path = require('path')
 
 const vfs = require('vinyl-fs')
-const del = require('del')
 const map = require('map-stream')
 const merge = require('merge-stream')
 const minimatch = require('minimatch')
@@ -29,29 +28,30 @@ const postcssPlugins = [
   cssnano(),
 ]
 
-const srcOptions = { base: __dirname, cwd: __dirname }
+module.exports = (src, dest) => {
 
-del.sync('build')
+  const srcOptions = { base: src, cwd: src }
 
-merge([
+  return merge([
 
-  vfs.src('images/**/*.svg', srcOptions)
-    .pipe(imagemin()),
+    vfs.src('images/**/*.svg', srcOptions)
+      .pipe(imagemin()),
 
-  vfs.src('scripts/**/*.js', srcOptions),
+    vfs.src('scripts/**/*.js', srcOptions),
 
-  vfs.src('stylesheets/theme.css', srcOptions)
-    .pipe(postcss(postcssPlugins)),
+    vfs.src('stylesheets/theme.css', srcOptions)
+      .pipe(postcss(postcssPlugins)),
 
-  vfs.src('node_modules/typeface-*/**/*.{svg,eot,woff,woff2}', srcOptions)
-    .pipe(map((file, next) => {
-      // move font files to fonts (without any subfolder)
-      file.dirname = path.join(file.base, 'fonts')
-      next(null, file)
-    })),
+    vfs.src('node_modules/typeface-*/**/*.{svg,eot,woff,woff2}', srcOptions)
+      .pipe(map((file, next) => {
+        // move font files to fonts (without any subfolder)
+        file.dirname = path.join(file.base, 'fonts')
+        next(null, file)
+      })),
 
-  vfs.src('layouts/*.hbs', srcOptions),
-  vfs.src('partials/*.hbs', srcOptions),
-  vfs.src('nav/**/*.adoc', srcOptions),
-])
-  .pipe(vfs.dest('build/_theme'))
+    vfs.src('layouts/*.hbs', srcOptions),
+    vfs.src('partials/*.hbs', srcOptions),
+    vfs.src('nav/**/*.adoc', srcOptions),
+  ])
+    .pipe(vfs.dest(dest))
+}

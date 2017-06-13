@@ -1,0 +1,16 @@
+= mulesoft-docs-theme-default
+
+== Prerequisites
+
+First, you will need node, yarn and gulp. Once you have those CLI tools, you can run this to get the latest dependencies:
+
+[source, bash]
+yarn install
+
+== Building the theme
+
+To build the different assets of the theme, run this:
+[source, bash]
+gulp build-theme
+
+All the source files will be processed and optimized into `build/_theme`.
