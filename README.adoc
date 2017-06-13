@@ -14,3 +14,11 @@ To build the different assets of the theme, run this:
 gulp build-theme
 
 All the source files will be processed and optimized into `build/_theme`.
+
+== Building the preview page
+
+In order to preview the theme without doing a full build of the site, this project includes a fake static page: `preview-site/index.html`.
+You can build this static page with the templates included in the theme with this:
+
+[source, bash]
+gulp build-preview

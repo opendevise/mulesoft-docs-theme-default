@@ -5,6 +5,7 @@ const path = require('path')
 const gulp = require('gulp')
 
 const buildTheme = require('./tasks/build-theme')
+const buildPreview = require('./tasks/build-preview')
 
 const config = require('./config')
 try {
@@ -27,4 +28,8 @@ const destTheme = path.join(dest, config.get('theme_destination'))
 
 gulp.task('build-theme', () => {
   return buildTheme(src, destTheme)
+})
+
+gulp.task('build-preview', ['build-theme'], () => {
+  return buildPreview(src, dest, destTheme)
 })
