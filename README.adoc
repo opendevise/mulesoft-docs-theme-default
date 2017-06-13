@@ -34,3 +34,12 @@ gulp serve
 
 Once this is running in your terminal, each change to stylesheets, scripts, templates... will trigger a reload in your browser.
 You can browser the preview page here: `http://localhost:8080`.
+
+== Creating a release
+
+You can trigger a release with this command but you shouldn't have to do it by yourself locally:
+
+[source, bash]
+gulp serve
+
+It should be automatically triggered by the CI server on master merge.

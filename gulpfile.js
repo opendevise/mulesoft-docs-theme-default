@@ -7,6 +7,7 @@ const gulp = require('gulp')
 const buildTheme = require('./tasks/build-theme')
 const buildPreview = require('./tasks/build-preview')
 const serve = require('./tasks/serve')
+const release = require('./tasks/release')
 
 const config = require('./config')
 try {
@@ -37,4 +38,14 @@ gulp.task('build-preview', ['build-theme'], () => {
 
 gulp.task('serve', ['build-preview'], () => {
   return serve(dest, () => gulp.start('build-preview'))
+})
+
+gulp.task('release', ['build-theme'], () => {
+  return release({
+    owner: config.get('repository.owner'),
+    repo: config.get('repository.name'),
+    token: config.get('github_token'),
+    dest,
+    destTheme,
+  })
 })

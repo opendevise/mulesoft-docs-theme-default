@@ -28,6 +28,25 @@ const conf = convict({
     format: String,
     default: null,
   },
+  github_token: {
+    doc: 'Token for Github auth',
+    format: String,
+    default: 'f4ket0k3n',
+    env: 'GITHUB_TOKEN',
+    arg: 'github-token',
+  },
+  repository: {
+    owner: {
+      doc: 'Organization name of the Github repository',
+      format: String,
+      default: null,
+    },
+    name: {
+      doc: 'Project name of the Github repository',
+      format: String,
+      default: null,
+    },
+  },
 })
 
 const ymlFile = fs.readFileSync(conf.get('config_file')).toString()
