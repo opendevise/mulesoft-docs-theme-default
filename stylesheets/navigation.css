@@ -1,0 +1,42 @@
+.navigation-wrapper {
+  display: none;
+}
+
+@media (min-width: 80rem) {
+  .navigation-wrapper {
+    display: block;
+  }
+}
+
+.navigation {
+  background-color: #f4f5f6;
+  border-right: 1px solid var(--color-b);
+  box-sizing: border-box;
+  height: calc(100vh - var(--header-height));
+  overflow: auto;
+  padding: 1rem;
+  position: sticky;
+  top: 4rem;
+  width: 22rem;
+  z-index: 3;
+  font-size: 0.85em;
+}
+
+.navigation a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0.75em 1em;
+}
+
+.navigation li p {
+  margin: 0.75em 0;
+}

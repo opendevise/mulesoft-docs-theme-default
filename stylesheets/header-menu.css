@@ -1,0 +1,88 @@
+/*
+`menu` CSS class is used in the header and the footer :-(
+This stylesheet needs a .header in all selectors not to be in conflict with the footer "menu"
+ */
+
+/* MENU 0+ */
+.header .menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* MENU 1+ */
+.header .menu .menu {
+  background-color: #191919;
+  display: none;
+  min-width: 250px;
+  padding: 0.5rem 0;
+  position: absolute;
+}
+
+/* MENU 1+ ::before */
+.header .menu .menu::before {
+  border-bottom: 12px solid #191919;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  content: "";
+  display: inline-block;
+  height: 0;
+  left: 25px;
+  position: absolute;
+  top: -12px;
+  width: 0;
+}
+
+/* MENU 1+ inside hovered MENU-ITEM */
+.header .menu__item:hover > .menu {
+  display: block;
+}
+
+/* MENU 2+ */
+.header .menu .menu .menu {
+  left: 250px;
+  top: -0.5rem;
+}
+
+/* MENU 2+ ::before */
+.header .menu .menu .menu:before {
+  display: none;
+}
+
+/* MENU-ITEM 0+ */
+.header .menu__item {
+  /* goes with position:absolute of (.menu .menu) */
+  position: relative;
+}
+
+/* LINK 0+ */
+.header .menu a {
+  color: #fff;
+  display: block;
+  font-family: "PT Sans", sans-serif;
+  font-size: 0.85rem;
+  height: var(--header-height);
+  line-height: var(--header-height);
+  padding: 0 0.6rem;
+  text-decoration: none;
+}
+
+/* LINK 0+ in hovered MENU-ITEM */
+.header .menu .menu__item:hover > a {
+  color: var(--color-b);
+}
+
+/* LINK 1+ */
+.header .menu .menu a {
+  color: #99999a;
+  font-size: 15px;
+  height: auto;
+  line-height: 1.6;
+  padding: 0.35rem 1rem;
+}
+
+/* LINK 1+ in hovered MENU-ITEM */
+.header .menu .menu .menu__item:hover > a {
+  color: #fff;
+}

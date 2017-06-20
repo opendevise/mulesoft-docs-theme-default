@@ -1,0 +1,17 @@
+/*https://css-tricks.com/examples/WebKitScrollbars/*/
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: transparent;
+}

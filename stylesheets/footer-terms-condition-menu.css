@@ -1,0 +1,26 @@
+/*
+`menu` CSS class is used in the header and the footer :-(
+This stylesheet needs a .footer and .terms-conditions in all selectors not to be in conflict with the header "menu" and the other footer "menu"
+ */
+
+.footer .terms-conditions .menu {
+  display: flex;
+  list-style: none;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+}
+
+.footer .terms-conditions .menu a {
+  color: #fff;
+  display: block;
+  font-family: "PT Sans", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+/* last item is the phone number */
+.footer .terms-conditions .menu__item:last-child a {
+  color: var(--color-b);
+}

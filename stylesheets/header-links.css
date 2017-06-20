@@ -1,0 +1,27 @@
+.top-nav-ctas .try,
+.top-nav-ctas .dev {
+  color: #00a2df;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 0.2rem;
+  padding: 0.2rem 0.6rem;
+  text-decoration: none;
+}
+
+.top-nav-ctas .try:hover,
+.top-nav-ctas .dev:hover {
+  color: #fff;
+}
+
+.top-nav-ctas .try {
+  border: 1px solid #00a2df;
+}
+
+.top-nav-ctas .dev {
+  /* same size as .try */
+  border: 1px solid transparent;
+}
+
+.top-nav-ctas .try:hover {
+  background-color: #00a2df;
+}

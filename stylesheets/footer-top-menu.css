@@ -1,0 +1,45 @@
+/*
+`menu` CSS class is used in the header and the footer :-(
+This stylesheet needs a .footer__top in all selectors not to be in conflict with the header "menu"
+ */
+
+/* MENU 0+ */
+.footer__top .menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* MENU 1+ */
+.footer__top .menu .menu {
+  display: block;
+}
+
+/* MENU-ITEM 0+ */
+.footer__top .menu__item {
+  /*flex: 1 1 0;*/
+}
+
+/* LINK 0+ */
+.footer__top .menu a {
+  color: #fff;
+  cursor: default;
+  display: block;
+  font-family: "PT Sans", sans-serif;
+  font-size: 20px;
+  margin-right: 3rem;
+  margin-bottom: 10px;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+/* LINK 1+ */
+.footer__top .menu .menu a {
+  color: var(--color-b);
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  margin-bottom: 0;
+  pointer-events: auto;
+}

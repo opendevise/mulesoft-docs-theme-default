@@ -1,0 +1,56 @@
+body {
+  --header-height: 4.4rem;
+  padding-top: var(--header-height);
+}
+
+.header {
+  background-color: var(--color-aaaa);
+  box-sizing: border-box;
+  color: #fff;
+  font-family: 'PT Sans', sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  word-wrap: break-word;
+  z-index: 4;
+}
+
+.header__wrapper {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  /*justify-content: center;*/
+  margin: 0 auto;
+  /* for sites that don't take the full width of the page */
+  /*max-width: 60rem;*/
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* temporary */
+.header__top-wrapper {
+  display: none;
+}
+
+.header__logo--primary-nav {
+  display: flex;
+}
+
+.header__logo {
+  /*margin-right: 1.8rem;*/
+}
+
+.header__logo-image {
+  display: block;
+  height: 2.5rem;
+  margin: 0.95rem 0;
+}
+
+.tcat-logo-text,
+.brand-logo-text,
+.block__title,
+.block-title {
+  display: none;
+}
+

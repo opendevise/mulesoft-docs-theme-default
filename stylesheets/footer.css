@@ -1,0 +1,52 @@
+.footer {
+  background-color: var(--color-aaaa);
+  color: #fff;
+  padding-top: 3rem;
+}
+
+.footer__wrapper {
+  margin: 0 auto;
+  /* for sites that don't take the full width of the page */
+  max-width: 60rem;
+}
+
+.footer__top {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer .terms-conditions {
+  color: #6d6e71;
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+  margin: 2.5rem 0;
+}
+
+.footer .terms-conditions a {
+  color: var(--color-b);
+  text-decoration: none;
+}
+
+.footer .brand-terms-conditions {
+  display: none;
+}
+
+.footer-end {
+  background: #424143;
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.footer .copyright {
+  color: #00a2df;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: right;
+}
