@@ -1,10 +1,31 @@
 <main role="main" class="main-wrapper">
   <div class="navigation-wrapper">
     <nav role="navigation" class="navigation">
-      {{> static-nav }}
+      <div class="search">
+        <input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
+      </div>
+      <div class="inner-nav">
+        {{> static-nav }}
+      </div>
     </nav>
   </div>
   <article class="primary-content">
+    <header class="article-header">
+      <div class="breadcrumb">
+        <a class="breadcrumb-item" href="">Documentation root</a> /
+        <a class="breadcrumb-item" href="">Breadcrumb item XXX</a> /
+        <select class="breadcrumb-select">
+          <option>v1.1</option>
+          <option>v2.2</option>
+          <option>v3.3</option>
+        </select> /
+        <a class="breadcrumb-item" href="">Breadcrumb item YYY</a> /
+        <span class="breadcrumb-item">{{title}}</span>
+      </div>
+      <div class="edit-on-github">
+        <a href="{{github-edit-url}}">Edit on Github</a>
+      </div>
+    </header>
     <h1>{{title}}</h1>
     {{{contents}}}
   </article>

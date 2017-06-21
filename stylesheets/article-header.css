@@ -1,0 +1,18 @@
+.article-header {
+  background-color: #f4f5f6;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+
+.article-header,
+.breadcrumb-select {
+  font-size: 0.8rem;
+}
+
+.breadcrumb-item,
+.breadcrumb-select {
+  margin: 0 0.5rem;
+}

@@ -12,14 +12,38 @@
   background-color: #f4f5f6;
   border-right: 1px solid var(--color-b);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85em;
   height: calc(100vh - var(--header-height));
-  overflow: auto;
-  padding: 1rem;
   position: sticky;
-  top: 4rem;
+  top: var(--header-height);
   width: 22rem;
   z-index: 3;
-  font-size: 0.85em;
+}
+
+.search-input {
+  background-color: var(--color-b);
+  border: none;
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  font-size: 0.85rem;
+  height: 100%;
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+.search-input::placeholder {
+  color: #ddd;
+}
+
+.inner-nav {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 1rem;
 }
 
 .navigation a {

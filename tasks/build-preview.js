@@ -23,6 +23,7 @@ module.exports = async (src, dest, destTheme) => {
       const mockModel = {
         'keywords': 'key, words, many, of, them',
         'canonical-url': 'https://example.com/index.html',
+        'github-edit-url': 'https://github.com/mulesoft/mulesoft-docs',
         'theme-path': relativeThemePath,
         'title': 'Shared Resources',
         'contents': file.contents.toString(),
