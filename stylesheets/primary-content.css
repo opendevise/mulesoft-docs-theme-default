@@ -170,13 +170,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 0.00 .99rem;
+  margin-bottom: 0.9rem;
   margin-top: 0.9rem;
 }
 
 .primary-content .paragraph .image {
   display: inline-block;
-  margin-bottom: 00.99rem;
+  margin-bottom: 0.9rem;
   margin-top: 0.9rem;
 }
 
