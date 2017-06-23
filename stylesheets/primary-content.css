@@ -125,6 +125,15 @@
   margin-bottom: 0.9rem;
 }
 
+.primary-content .admonitionblock .icon i {
+  display: inline-block;
+  font-style: normal;
+}
+
+.primary-content .admonitionblock .icon i:after {
+  content: attr(title);
+}
+
 .primary-content .admonitionblock.important {
   --color-accent: var(--color-b);
 }
@@ -363,4 +372,38 @@
 .primary-content .dlist dd {
   margin-left: 1.5rem;
   margin-bottom: 0.3rem;
+}
+
+/* CALLOUTS */
+
+.primary-content pre .conum[data-value] {
+  position: relative;
+  top: -.125em;
+}
+
+.primary-content .conum[data-value] {
+  background-color: var(--color-b);
+  border-radius: 100px;
+  color: #fff !important;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: .75em;
+  font-style: normal;
+  font-weight: bold;
+  height: 1.67em;
+  line-height: 1.67em;
+  text-align: center;
+  width: 1.67em;
+}
+
+.primary-content .conum[data-value]:after {
+  content: attr(data-value);
+}
+
+.primary-content .conum[data-value] + b {
+  display: none;
+}
+
+.colist > table tr > td:first-of-type {
+  padding: 0 .75em;
 }
