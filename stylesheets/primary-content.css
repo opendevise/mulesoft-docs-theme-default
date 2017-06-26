@@ -46,7 +46,7 @@
 .primary-content h4,
 .primary-content h5,
 .primary-content h6,
-/* [id=preamble] instead of #preamble to decrease specificity */
+  /* [id=preamble] instead of #preamble to decrease specificity */
 .primary-content [id=preamble] > .sectionbody > :not([class^="sect"]),
 .primary-content .sect1 > .sectionbody > :not([class^="sect"]),
 .primary-content .sect2 > :not([class^="sect"]),
@@ -349,4 +349,18 @@
 
 .primary-content .listingblock.wrap pre.highlight code {
   white-space: pre-wrap;
+}
+
+.primary-content .dlist dt {
+  color: var(--color-b);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.primary-content .dlist dt::after {
+  content: ':'
+}
+.primary-content .dlist dd {
+  margin-left: 1.5rem;
+  margin-bottom: 0.3rem;
 }

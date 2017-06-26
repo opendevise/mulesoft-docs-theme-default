@@ -7,6 +7,34 @@
         <strong>Mule Domain Project</strong> and then reference it on each of the projects that are meant to use the elements in it. Once defined, any Mule application associated with a particular domain can access resources in this file. Note that Mule applications can be associated with only one domain at a time.
       </p>
     </div>
+    <div class="dlist">
+      <dl>
+        <dt class="hdlist1">From</dt>
+        <dd>
+          <p>Who the transmission came from</p>
+        </dd>
+        <dt class="hdlist1">To</dt>
+        <dd>
+          <p>Who it was sent to</p>
+        </dd>
+        <dt class="hdlist1">Date</dt>
+        <dd>
+          <p>Date and time at which the event occurred</p>
+        </dd>
+        <dt class="hdlist1">Direction</dt>
+        <dd>
+          <p>Either <strong>Inbound</strong> or <strong>Outbound</strong></p>
+        </dd>
+        <dt class="hdlist1">Transmission Type</dt>
+        <dd>
+          <p>What it was sent over</p>
+        </dd>
+        <dt class="hdlist1">Label</dt>
+        <dd>
+          <p>Any label associated with the transmission</p>
+        </dd>
+      </dl>
+    </div>
     <div class="paragraph">
       <p>Shared resources allow multiple development teams to work in parallel using the same set of reusable connectors. Defining these connectors as shared resources at the domain level allows the team to:</p>
     </div>
@@ -34,6 +62,54 @@
     <div class="paragraph">
       <p>This document assumes that you are using Anypoint Studio with Mule runtime 3.6 or newer, or that you are building your applications outside Studio and deploying them to Mule Standalone
         <strong>3.5.0</strong> runtime or newer.</p>
+    </div>
+    <div class="listingblock">
+      <div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">flow</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"exampleFlow"</span>&gt;</span>                                                                                                 <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="hljs-tag">&lt;<span class="hljs-name">http:listener</span> <span class="hljs-attr">config-ref</span>=<span class="hljs-string">"HTTP_Listener_Configuration"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">allowedMethods</span>=<span class="hljs-string">"GET"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"HTTP"</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#[message.inboundProperties['http.query.params']['url_key']]"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Original Payload"</span>/&gt;</span>   <i class="conum" data-value="2"></i><b>(2)</b>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">flow-ref</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"exampleFlow2"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"exampleFlow2"</span>/&gt;</span>                                                               <i class="conum" data-value="3"></i><b>(3)</b>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">choice</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Choice"</span>&gt;</span>                                                                                            <i class="conum" data-value="4"></i><b>(4)</b>
+        <span class="hljs-tag">&lt;<span class="hljs-name">when</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"#[flowVars['my_variable'].equals('var_value_1')]"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#['response_payload_1']"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Response Payload"</span>/&gt;</span>                                <i class="conum" data-value="5"></i><b>(5)</b>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">when</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">otherwise</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#['response_payload_2']"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Response Payload"</span>/&gt;</span>                                <i class="conum" data-value="6"></i><b>(6)</b>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">otherwise</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">choice</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">flow</span>&gt;</span></code></pre>
+      </div>
+    </div>
+    <div class="colist arabic">
+      <table>
+        <tbody><tr>
+          <td><i class="conum" data-value="1"></i><b>1</b></td>
+          <td>Main Flow, <code>exampleFlow</code>.</td>
+        </tr>
+        <tr>
+          <td><i class="conum" data-value="2"></i><b>2</b></td>
+          <td>Take data from the HTTP request.</td>
+        </tr>
+        <tr>
+          <td><i class="conum" data-value="3"></i><b>3</b></td>
+          <td>Make call to <code>exampleFlow2</code> for further processing.</td>
+        </tr>
+        <tr>
+          <td><i class="conum" data-value="4"></i><b>4</b></td>
+          <td>Make a decision based on the value of the invocation variable <code>my_variable</code>, which was set by <code>exampleFlow2</code>.</td>
+        </tr>
+        <tr>
+          <td><i class="conum" data-value="5"></i><b>5</b></td>
+          <td>Creates <code>response payload 1</code>.</td>
+        </tr>
+        <tr>
+          <td><i class="conum" data-value="6"></i><b>6</b></td>
+          <td>Creates <code>response payload 2</code>.</td>
+        </tr>
+        </tbody></table>
     </div>
   </div>
 </div>
@@ -195,7 +271,7 @@
       <table>
         <tr>
           <td class="icon">
-            <div class="title">Note</div>
+            <i class="fa icon-note" title="Note"></i>
           </td>
           <td class="content">
             <div class="paragraph">
