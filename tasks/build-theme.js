@@ -51,7 +51,6 @@ module.exports = (src, dest) => {
 
     vfs.src('layouts/*.hbs', srcOptions),
     vfs.src('partials/*.hbs', srcOptions),
-    vfs.src('nav/**/*.adoc', srcOptions),
   ])
     .pipe(vfs.dest(dest))
 }

@@ -46,21 +46,23 @@
   padding: 1rem;
 }
 
-.navigation a {
+.navigation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-item {
+  margin-left: 1rem;
+}
+
+.navigation-link {
   color: inherit;
+  display: block;
+  padding: 0.2rem;
   text-decoration: none;
 }
 
-.navigation a:hover {
+.navigation-link:hover {
   text-decoration: underline;
-}
-
-.navigation ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0 0 0.75em 1em;
-}
-
-.navigation li p {
-  margin: 0.75em 0;
 }

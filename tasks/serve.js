@@ -6,7 +6,7 @@ const browserSync = require('browser-sync')
 const chokidar = require('chokidar')
 const debounce = require('lodash.debounce')
 
-const watchedDirs = ['images', 'layouts', 'nav', 'partials', 'preview-site', 'scripts', 'stylesheets']
+const watchedDirs = ['images', 'layouts', 'partials', 'preview-site', 'scripts', 'stylesheets']
 
 module.exports = (dest, buildCallback) => {
 

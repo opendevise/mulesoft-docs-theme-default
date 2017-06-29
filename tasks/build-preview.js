@@ -27,6 +27,50 @@ module.exports = async (src, dest, destTheme) => {
         'theme-path': relativeThemePath,
         'title': 'Shared Resources',
         'contents': file.contents.toString(),
+        'navigation': [
+          {
+            'title': 'Level 0 item 0',
+            'href': '/level-0-item-0.html',
+            'children': [
+              {
+                'title': 'Level 1 item 0',
+                'href': '/level-1-item-0.html',
+                'children': [],
+              },
+              {
+                'title': 'Level 1 item 1',
+                'href': '/level-1-item-1.html',
+                'children': [
+                  {
+                    'title': 'Level 2 item 0',
+                    'href': '/level-2-item-0.html',
+                    'children': [],
+                  },
+                  {
+                    'title': 'Level 2 item 1',
+                    'href': '/level-2-item-1.html',
+                    'children': [],
+                  },
+                  {
+                    'title': 'Level 2 item 2',
+                    'href': '/level-2-item-2.html',
+                    'children': [],
+                  },
+                ],
+              },
+              {
+                'title': 'Level 1 item 2',
+                'href': '/level-1-item-2.html',
+                'children': [],
+              },
+            ],
+          },
+          {
+            'title': 'Level 0 item 1',
+            'href': '/level-0-item-1.html',
+            'children': [],
+          },
+        ],
       }
       file.contents = new Buffer(compileLayout(mockModel))
       next(null, file)
@@ -38,7 +82,7 @@ function registerPartials(src) {
 
   return new Promise((resolve, reject) => {
 
-    vfs.src(['nav/*.adoc', 'partials/*.hbs'], { base: src, cwd: src })
+    vfs.src(['partials/*.hbs'], { base: src, cwd: src })
       .pipe(map((file, next) => {
         handlebars.registerPartial(file.stem, file.contents.toString())
         next(null, file)
