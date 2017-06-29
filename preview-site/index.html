@@ -68,21 +68,26 @@
     </div>
     <div class="listingblock">
       <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">flow</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"exampleFlow"</span>&gt;</span>                                                                                                 <i class="conum" data-value="1"></i><b>(1)</b>
-    <span class="hljs-tag">&lt;<span class="hljs-name">http:listener</span> <span class="hljs-attr">config-ref</span>=<span class="hljs-string">"HTTP_Listener_Configuration"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">allowedMethods</span>=<span class="hljs-string">"GET"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"HTTP"</span>/&gt;</span>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">flow</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"exampleFlow"</span>&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="hljs-tag">&lt;<span class="hljs-name">http:listener</span> <span class="hljs-attr">config-ref</span>=<span class="hljs-string">"HTTP_Listener_Configuration"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/"</span>
+      <span class="hljs-attr">allowedMethods</span>=<span class="hljs-string">"GET"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"HTTP"</span>/&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#[message.inboundProperties['http.query.params']['url_key']]"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Original Payload"</span>/&gt;</span>   <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span>
+      <span class="hljs-attr">value</span>=<span class="hljs-string">"#[message.inboundProperties['http.query.params']['url_key']]"</span>
+      <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Original Payload"</span>/&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">flow-ref</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"exampleFlow2"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"exampleFlow2"</span>/&gt;</span>                                                               <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="hljs-tag">&lt;<span class="hljs-name">flow-ref</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"exampleFlow2"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"exampleFlow2"</span>/&gt;</span> <i class="conum" data-value="3"></i><b>(3)</b>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">choice</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Choice"</span>&gt;</span>                                                                                            <i class="conum" data-value="4"></i><b>(4)</b>
-        <span class="hljs-tag">&lt;<span class="hljs-name">when</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"#[flowVars['my_variable'].equals('var_value_1')]"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#['response_payload_1']"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Response Payload"</span>/&gt;</span>                                <i class="conum" data-value="5"></i><b>(5)</b>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">when</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">otherwise</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#['response_payload_2']"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Response Payload"</span>/&gt;</span>                                <i class="conum" data-value="6"></i><b>(6)</b>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">otherwise</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">choice</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">choice</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Choice"</span>&gt;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+    <span class="hljs-tag">&lt;<span class="hljs-name">when</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"#[flowVars['my_variable'].equals('var_value_1')]"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">"#['response_payload_1']"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Response Payload"</span>/&gt;</span> <i class="conum" data-value="5"></i><b>(5)</b>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">when</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">otherwise</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">set-payload</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">"#['response_payload_2']"</span> <span class="hljs-attr">doc:name</span>=<span class="hljs-string">"Set Response Payload"</span>/&gt;</span> <i class="conum" data-value="6"></i><b>(6)</b>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">otherwise</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">choice</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">flow</span>&gt;</span></code></pre>
       </div>
     </div>
