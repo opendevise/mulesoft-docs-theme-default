@@ -2,8 +2,12 @@
   <div class="navigation-wrapper">
     <nav role="navigation" class="navigation">
       <div class="search">
-        <input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
+        <form id="st-search-form">
+          <input id="st-search-input" name="q" type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
+          <input type="submit" value="Submit" style="display: none">
+        </form>
       </div>
+      <div id="st-autocomplete-panel"></div>
       <div class="inner-nav">
         {{> navigation }}
       </div>
