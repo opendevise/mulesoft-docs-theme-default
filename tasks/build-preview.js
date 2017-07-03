@@ -1,5 +1,6 @@
 'use strict'
 
+const fs = require('fs')
 const path = require('path')
 
 const vfs = require('vinyl-fs')
@@ -17,61 +18,15 @@ module.exports = async (src, dest, destTheme) => {
     registerPartials(src),
   ])
 
+  const mockModelPath = path.resolve(__dirname, '../preview-site/mock-model.json')
+  const mockModelJson = fs.readFileSync(mockModelPath)
+  const mockModel = JSON.parse(mockModelJson.toString())
+
   vfs.src(['preview-site/*.html'])
     .pipe(map((file, next) => {
       const compileLayout = layoutsIndex['index.hbs']
-      const mockModel = {
-        'keywords': 'key, words, many, of, them',
-        'canonical-url': 'https://example.com/index.html',
-        'github-edit-url': 'https://github.com/mulesoft/mulesoft-docs',
-        'theme-path': relativeThemePath,
-        'title': 'Shared Resources',
-        'contents': file.contents.toString(),
-        'navigation': [
-          {
-            'title': 'Level 0 item 0',
-            'href': '/level-0-item-0.html',
-            'children': [
-              {
-                'title': 'Level 1 item 0',
-                'href': '/level-1-item-0.html',
-                'children': [],
-              },
-              {
-                'title': 'Level 1 item 1',
-                'href': '/level-1-item-1.html',
-                'children': [
-                  {
-                    'title': 'Level 2 item 0',
-                    'href': '/level-2-item-0.html',
-                    'children': [],
-                  },
-                  {
-                    'title': 'Level 2 item 1',
-                    'href': '/level-2-item-1.html',
-                    'children': [],
-                  },
-                  {
-                    'title': 'Level 2 item 2',
-                    'href': '/level-2-item-2.html',
-                    'children': [],
-                  },
-                ],
-              },
-              {
-                'title': 'Level 1 item 2',
-                'href': '/level-1-item-2.html',
-                'children': [],
-              },
-            ],
-          },
-          {
-            'title': 'Level 0 item 1',
-            'href': '/level-0-item-1.html',
-            'children': [],
-          },
-        ],
-      }
+      mockModel['theme-path'] = relativeThemePath
+      mockModel['contents'] = file.contents.toString()
       file.contents = new Buffer(compileLayout(mockModel))
       next(null, file)
     }))
