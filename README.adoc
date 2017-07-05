@@ -1,45 +1,470 @@
-= mulesoft-docs-theme-default
+= MuleSoft Docs: Default Theme Build
+// Settings
+:toc:
+:toc-title: Contents
+:idprefix:
+:idseparator: -
+// URIs
+:uri-repo: https://github.com/opendevise/mulesoft-docs-theme-default
+:uri-ci: https://travis-ci.org/opendevise/mulesoft-docs-theme-default
+:uri-node: https://nodejs.org
+:uri-gulp: http://gulpjs.com
+:uri-yarn: https://yarnpkg.com
+:uri-nvm: https://github.com/creationix/nvm
+:uri-nvm-install: https://github.com/creationix/nvm#installation
+:uri-hbs: http://handlebarsjs.com
+:uri-git: https://git-scm.com
+
+This repository builds and packages the default theme for the MuleSoft documentation site.
+It contains the theme artifacts (page templates, CSS, JavaScript, etc.) and a build.
+The build is used to preview the theme locally (featuring live updates) or to package and publish it to GitHub releases for consumption by the site generator.
+
+This guide covers the following:
+
+* Describes the files that make up a theme.
+* Identifies prerequisites you need to get started.
+* Teaches you how to launch a preview server to inspect the theme.
+* Proposes a development workflow for making changes to the theme.
+* Explains how new versions get packaged and published for production usage.
+
+== Theme Overview
+
+A theme consists of the following types of files used to lay out and style the pages of the documentation site:
+
+* Handlebars "`view`" templates (layouts and partials)
+* CSS (enhanced using postcss)
+* JavaScript (UI scripts)
+* Images / Graphics (specific to the theme)
+* Fonts
+* HTML (sample content for previewing the theme)
+
+The theme exists in two states: raw and pre-compiled.
+The master branch of the git repository contains the files in raw form while the tags store the files in pre-compiled form.
+These two states are explained later in this section.
+
+To understand how the theme works, let's begin by surveying the technologies used in the theme.
+
+=== Technology Survey
+
+Handlebars (file extension: `.hbs`)::
+{uri-hbs}[Handlebars] is a "`logic-less`" templating engine used to create HTML from template files.
+Templates contain placeholders (i.e., mustache expressions) into which content is injected from a model.
+They also accommodate simple logic expressions for repeating content or making it conditional.
+
+Gulp (script file: [.path]_gulpfile.js_)::
+{uri-gulp}[Gulp] is a build tool for JavaScript projects.
+It configures a collection of tasks that can be used to perform automated tasks such as compiling files, running a preview server, or publishing a release.
+
+Yarn (command: `yarn`)::
+{uri-yarn}[Yarn] fetches and manages software packages (aka software dependencies) published to npmjs.com.
+The theme uses Yarn to fetch libraries that handle compilation as well as shared assets such as font files, which are distributed as npm packages.
+(While npm is often used to install Yarn, we do not use npm for any other purpose).
+
+package.json:::
+This file keeps track of the dependencies that Yarn should fetch.
+
+yarn.lock:::
+This file contains a report of which dependencies Yarn resolved.
+It guarantees that the process that fetches the dependencies is reproducible.
+
+node_modules/:::
+Local cache of resolved dependencies that are fetched by Yarn.
+
+=== Theme Compilation
+
+Although these assets are served statically in the production site, they're stored in a pre-compiled state in this project to simplify maintenance.
+This project uses a local build to partially compile (interpret, consolidate, and/or minimize) the assets.
+This process is taken to completion by the site generator, namely to populate and interpret the Handlebars templates.
+
+As such, the responsibility of compiling the theme is shared between the theme project and the site generator.
+The theme project compiles assets that don't rely on the content model so the site generator doesn't have to worry about doing them.
+It then publishes this theme as a bundle.
+The site generator picks up the bundle, extracts it, and takes compilation to completion by weaving the content model into the templates to make the pages and auxiliary data files and copies the remaining assets as is.
+
+=== Repository Structure (master branch)
+
+You should think of the master branch as the theme workspace.
+It contains the recipe and raw materials for creating a theme.
+It includes a build, source files, project files, and dependency information.
+
+Here's how these files are structured within this project:
+
+....
+gulpfile.js
+package.json
+yarn.lock
+images/
+  mulesoft-dev-logo.svg
+layouts/
+  page.hbs
+partials/
+  footer.hbs
+  header.hbs
+  head.hbs
+  navigation.hbs
+  primary-content.hbs
+preview-site/
+  index.html
+scripts/
+  highlight.pack.js
+stylesheets/
+  article-header.css
+  footer.css
+  footer-terms-condition-menu.css
+  footer-top-menu.css
+  github.css
+  header.css
+  header-links.css
+  header-menu.css
+  main.css
+  navigation.css
+  primary-content.css
+  scrollbars.css
+  theme.css
+....
+
+A Gulp build is used to compile and assemble these files to produce a distributable theme.
+When the files are built, they are assembled inside the [.path]_build_ directory, which is safe to remove.
+
+The benefit of building the theme files is that the files can be optimized for static inclusion in the site without that optimization getting in the way of theme development.
+For example, the theme build can optimize SVGs or add vendor prefixes to the CSS.
+Since this optimization is applied only to the pre-compiled files, it does not interfere with the designer's workflow.
+
+=== Theme Bundle Structure (releases)
+
+A theme bundle, which is a distributable archive, gets attached to every tag in the git repository on GitHub.
+The tag is created automatically by the release build, described in <<Publishing a Release>>.
+The theme bundle provides files which are ready to be used by the site generator.
+
+The contents of the bundle resembles the contents of the master branch, except it doesn't contain any files other than the ones that make up the theme.
+Some of the files present have been compiled or aggregated.
+
+....
+fonts/
+  ...
+images/
+  mulesoft-logo.svg
+  mulesoft-dev-logo.svg
+layouts/
+  page.hbs
+partials/
+  footer.hbs
+  head.hbs
+  header.hbs
+  navigation.hbs
+  primary-content.hbs
+scripts/
+  highlight.pack.js
+stylesheets/
+  theme.css
+....
+
+This is the content that is used by the site generator.
+
+Now that you have a general idea of the files that make up the theme and how it gets assembled, let's go over how to set up the project, build the theme, and preview it.
 
 == Prerequisites
 
-First, you will need node, yarn and gulp. Once you have those CLI tools, you can run this to get the latest dependencies:
+This project is based on tools built atop Node.js (herein Node), namely {uri-node}[Node] (command: `node`), {uri-yarn}[Yarn] (command: `yarn`), and {uri-gulp}[Gulp] (command: `gulp`).
+You also need {uri-git}[git] (command: `git`) to pull the project and push updates to it.
 
-[source, bash]
-yarn install
+First, make sure you have git installed.
 
-== Building the theme
+ $ git --version
 
-To build the different assets of the theme, run this:
-[source, bash]
-gulp build-theme
+If not, https://git-scm.com/downloads[download and install] the git package for your system.
 
-All the source files will be processed and optimized into `build/_theme`.
+Next, make sure that you have Node 7.8.0 or better installed.
+While you can install Node from the official packages, we strongly recommend that you use {uri-nvm}[nvm] (Node Version Manager) to install and manage Node.
+Follow the {uri-nvm-install}[installation instructions] to set up nvm on your machine.
 
-== Building the preview page
+Once you've installed nvm, open a new terminal and install the stable version of Node using the following command:
 
-In order to preview the theme without doing a full build of the site, this project includes a fake static page: `preview-site/index.html`.
-You can build this static page with the templates included in the theme with this:
+ $ nvm install node
 
-[source, bash]
-gulp build-preview
+You can switch to this version of Node at any time using the following command:
 
-== Development setup
+ $ nvm use node
 
-If you work on the theme assets (CSS, JS, fonts...), it's often better to avoid building the preview manually.
-This project includes a small HTTP server and a live build-reload setup.
-You just have to run this:
+Check the version to verify you are using Node 7.8.0 or better.
 
-[source, bash]
-gulp serve
+ $ node --version
 
-Once this is running in your terminal, each change to stylesheets, scripts, templates... will trigger a reload in your browser.
-You can browser the preview page here: `http://localhost:8080`.
+Next, you'll need the Gulp CLI.
+This is a simple wrapper that provides the `gulp` command and executes the version of Gulp used by the project.
+You should install the Gulp CLI globally (which is actually just a location in your user directory if you are using nvm) using the following command:
 
-== Creating a release
+ $ npm install -g gulp-cli
 
-You can trigger a release with this command but you shouldn't have to do it by yourself locally:
+Finally, you will need Yarn, which is the preferred package manager for the Node ecosystem.
+You'll need to use the `npm` command to install Yarn, though this is the last time you'll use that command.
+You should install Yarn globally (which is actually just a location in your user directory if you are using nvm) using the following command:
 
-[source, bash]
-gulp serve
+ $ npm install -g yarn
 
-It should be automatically triggered by the CI server on master merge.
+Verify Yarn is installed by checking the version:
+
+ $ yarn --version
+
+Now that you have Node, Yarn, and Gulp installed, you're ready to initialize the project.
+
+== Setting Up the Project
+
+Before you can start working with the project, you need to grab the sources and initialize it.
+
+To start, clone the theme project using git:
+
+[subs=attributes+]
+ $ git clone {uri-repo} &&
+   cd "`basename $_`"
+
+Next, you'll need to initialize the project.
+Initializing the project basically means downloading and installing the dependencies into the project.
+That's the job of Yarn.
+
+In your terminal, execute the following command (while inside the project folder):
+
+ $ yarn install
+
+This command installs the dependencies that are listed in [.path]_package.json_.
+The dependencies are installed into the [.path]_node_modules_ folder.
+This folder does not get included in the theme bundle.
+The folder is safe to delete, though Yarn does a great job of managing it.
+
+You'll notice another file which seems to be relevant here, [.path]_yarn.lock_.
+Yarn uses this file to determine which specific version of a dependency to use, since versions in [.path]_package.json_ are typically just a range.
+The information in this file makes the build reproducible across different machines and runs.
+
+If a new dependency must be resolved that isn't yet listed in [.path]_yarn.lock_, Yarn will update this file with the new information when you run `yarn install`.
+Therefore, you're advised to commit this file into the repository whenever it changes.
+
+Now that the dependencies are installed, you should be able to run the `gulp` command to find out what tasks the build supports:
+
+ $ gulp --tasks-simple
+
+You should see:
+
+....
+build-theme
+build-preview
+serve
+build-release
+release
+....
+
+The next several sections explain what each of these tasks are for and when to use them.
+
+== Building for Preview
+
+The first thing you'll want to do is check out how the theme looks.
+That's what the preview site is for.
+The [.path]_preview-site_ folder contains HTML file fragments that provide a representative sample of content from the site.
+These files should give you an idea of how the theme will look when applied to the real site.
+
+The pages in the preview site are assembled using the Handlebars templates and link to the pre-compiled asset files (emulating the behavior of the site generator).
+Thus, to look at then, you need to run them through the theme build.
+
+There are two preview modes available.
+You can run the build once and examine the result or you can run the build continuously so that you can see changes as you make them.
+The next two sections explain how to use these modes.
+
+=== Build Once
+
+To build the theme once, then stop, execute the `build-theme` task using the following command:
+
+ $ gulp build-theme
+
+This task pre-compiles the theme files into the [.path]_build_ directory.
+To view the preview pages, navigate to the HTML pages in the [.path]_build_ directory using your browser (e.g., [.path]_build/index.html_).
+
+=== Build Continuously
+
+To avoid the need to run the `build-theme` task over and over, you can use the `serve` command instead to have it run continuously.
+This task also launches a local HTTP server so updates get synchronized with the browser (i.e., "`live reload`").
+
+To launch the preview server, execute the following command:
+
+ $ gulp serve
+
+You'll see two URLs listed in the output of this command:
+
+....
+[BS] Access URLs:
+ ----------------------------------
+    Local: http://localhost:36495
+ External: http://192.168.1.7:36495
+ ----------------------------------
+[BS] Serving files from: build
+[BS] Watching files...
+....
+
+Navigate to the first one to see the preview site.
+While this command is running, any changes you make to the source files will be instantly reflected in the browser.
+This works by monitoring the project for changes, running the `build-theme` task if a change is detected, and sending the updates to the browser.
+
+== Working on the Theme
+
+This section provides information about some of the theme files you'll be modifying and how to prepare and submit those changes.
+
+=== Development Workflow
+
+As described later in <<Publishing a Release>>, all changes pushed to the master branch trigger a new release.
+Therefore, you want to make your changes to a development branch and submit it as a pull request (PR) to be approved.
+Only when the PR is approved and merged will the new release be triggered.
+
+Use the following command to create a local development branch named `name-me`:
+
+ $ git checkout -b name-me -t origin/master
+
+You'll then apply your changes to the theme files.
+Once you're done making changes, commit those changes to the local branch:
+
+ $ git commit -a -m "describe your change"
+
+Then, push your branch to the remote repository:
+
+ $ git push origin name-me
+
+Finally, navigate to {uri-repo} in your browser and create a new pull request from this branch.
+
+The maintainer of the theme should review the changes.
+If the changes are acceptable, the maintainer will merge the pull request.
+As soon as the pull request is merged into master, an automated process will take over to publish a new release for the site generator to use.
+
+Now that you've got the process down, let's review some of the files you'll be working with in more detail.
+
+=== Handlebars Templates
+
+The handlebars templates are combined with the converted AsciiDoc content to make the pages in the site.
+These "`logic-less`" templates are mostly HTML with some special mustache tags sprinkled in where content is to be inserted.
+
+The layouts provide the main page structure.
+The partials fill in the different regions of the page.
+
+The templates read from a model that's populated by the site generator.
+Places in the template where the model is read are enclosed in `{{` and `}}` markers, aka mustaches (e.g., `+{{title}}+`).
+When the `{{` is immediately followed by `>`, that's where the result of a partial is inserted (e.g., `+{{>head}}+`.
+
+Here's an overview of the available model:
+
+.Variables available to the Handlebars templates
+[#template-variables,cols="1m,3"]
+|===
+| Name | Description
+
+| title
+| The document title (aka primary heading)
+
+| keywords
+| A comma-separated list of keywords defined in the AsciiDoc header.
+
+| theme-path
+| The path to the base of the theme directory.
+
+| canonical-url
+| The canonical URL for the current page.
+
+| github-edit-url
+| The URL to edit the current content page on GitHub.
+
+| contents
+| The main HTML content, typically AsciiDoc converted to HTML by the Asciidoctor processor.
+
+| navigation
+| A collection of navigation links for the current page.
+Each navigation item contains the property `text` as well as the optional properties `href` and (child) `items`.
+|===
+
+This model is likely to grow over time.
+
+=== Stylesheets
+
+The stylesheets are written in CSS.
+These stylesheets utilize CSS variables to keep the CSS DRY and easy to customize.
+
+Within this project, the files are separated into modules to help organize the rules and make them easier to find.
+These files get combined (and minified) into a single file by the theme build, named [.path]_theme.css_.
+At the same time, the CSS is enhanced using postcss in much the same way as a CSS preprocessor works, only the modifications are made to the CSS directly.
+The modifications mostly center around injecting vendor prefixes for compatibility or backporting new features to more broadly supported syntax.
+
+//FIXME: This section feels out of place
+=== Theme Configuration
+
+You'll notice there are a few other files in the root of the project.
+Those will be covered in later sections.
+Let's focus on the [.path]_theme.yml_ file.
+This is the main configuration file for the build.
+It defines the path where the files are assembled when built, which defaults to the [.path]_build_ folder.
+It also defines the path where the theme assets will reside in the production site, which defaults to [.path]__theme_.
+
+Now let's look at some specific use cases to help you understand how to update the theme.
+
+=== Use Case 1: Adding a new CSS rule
+
+Let's consider the case when you want to modify the font size of a section title.
+
+First, make sure you have set up the project and created a development branch.
+Next, open the file [.path]_stylesheets/main.css_ and modify the rule for the section title.
+
+[source,css]
+----
+.primary-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem
+}
+----
+
+Save the file, commit it to git, push the branch, and allow the approval workflow to play out.
+
+=== Use Case 2: Modifying a template
+
+Let's consider the case when you want to add a new meta tag inside the HTML head.
+
+First, make sure you have set up the project and created a development branch.
+Next, open the file [.path]_templates/partials/head.hbs_ and add your tag.
+
+[source,html]
+----
+<meta class="swiftype" name="title" data-type="string" content="{{ title }}">
+----
+
+Each template file has access to the template model, which exposes information about the current page through variable names.
+The variables currently available are listed in <<template-variables>>.
+
+Save the file, commit it to git, push the branch, and allow the approval workflow to play out.
+
+== Publishing a Release
+
+Once you're done making changes to the theme and want to roll out those changes, you'll need to publish a release.
+A release is a theme bundle in zip format attached to a tag in the git repository on GitHub.
+You can see all the past releases on the {uri-repo}/releases[releases page].
+
+Fortunately, you don't really have to think about how a release gets made.
+It's fully automated.
+All you have to do is commit files and push that commit to the master branch of the git repository.
+The {uri-ci}[CI server] detects the new commit and runs the `release` build task.
+That task creates a git tag{blank}footnote:[Tag names are sequential, so each tag uses a number that is one greater than the previous one (e.g., from v9 to v10).], runs the theme build, bundles the theme as a zip file, and uploads it to the release page (which is associated with that newly created tag).
+
+=== Configuring the Release Task
+
+The CI job (environment and script) is configured in [.path]_.travis.yml_.
+After running through the setup process described above, it runs the `gulp release` command.
+
+The release task relies on the following configuration properties:
+
+repository.owner:: The GitHub organization where the main repository (not a fork) is hosted.
+repository.name:: The name of the repository on GitHub.
+GITHUB_TOKEN:: The authentication token of the release user, granting write access to the CI job.
+
+The first two properties, `repository.owner` and `repository.name`, are defined in the [.path]_theme.yml_ file.
+The last property, `GITHUB_TOKEN`, is defined on the {uri-ci}/settings[settings page] for the CI job.
+
+These properties are already configured in the {uri-ci}[CI job], so there's nothing you need to do to make a release work.
+
+If you want to publish a release manually, you'll have to pass your GitHub token using the commandline flag `--github-token`.
+For example:
+
+ $ gulp release --github-token xyz
+
+However, we recommend always allowing the CI server to perform the release.
