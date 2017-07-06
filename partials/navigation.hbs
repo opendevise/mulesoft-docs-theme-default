@@ -1,8 +1,10 @@
-<ul class="navigation-list">
-  {{#each navigation}}
-    <li class="navigation-item">
-      <a class="navigation-link" href="{{this.href}}">{{this.title}}</a>
-      {{> navigation navigation=this.children }}
-    </li>
-  {{/each}}
-</ul>
+{{#if navigation.length}}
+  <ul class="navigation-list">
+    {{#each navigation}}
+      <li class="navigation-item">
+        <a class="navigation-link" href="{{this.href}}">{{this.title}}</a>
+        {{> navigation navigation=this.children }}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
