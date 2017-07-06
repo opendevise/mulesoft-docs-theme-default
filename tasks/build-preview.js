@@ -31,7 +31,7 @@ module.exports = async (src, dest, destTheme) => {
       const compileLayout = layoutsIndex['index.hbs']
       mockModel['theme-path'] = path.join(relativeToRoot, relativeThemePath)
       mockModel['contents'] = file.contents.toString()
-      mockModel['module-path'] = relativeToRoot
+      mockModel['navigation-link-prefix'] = relativeToRoot
       file.contents = new Buffer(compileLayout(mockModel))
       next(null, file)
     }))
