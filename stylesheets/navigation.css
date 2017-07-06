@@ -40,29 +40,44 @@
 }
 
 .inner-nav {
+  box-sizing: border-box;
   flex: 1 1 0;
   min-height: 0;
   overflow: auto;
-  padding: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
 .navigation-list {
+  flex: 1 1 100%;
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 0.5rem;
   padding: 0;
 }
 
-.navigation-item {
+.navigation-list .navigation-list {
   margin-left: 1rem;
 }
 
+.navigation-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .navigation-link {
+  box-sizing: border-box;
   color: inherit;
-  display: block;
+  display: inline-block;
+  flex: 1 1 0;
   padding: 0.2rem;
+  margin-left: 1.2rem;
   text-decoration: none;
 }
 
 .navigation-link:hover {
   text-decoration: underline;
+}
+
+.navigation-item[data-depth="0"] > .navigation-link {
+  font-weight: bold;
 }
