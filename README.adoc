@@ -78,9 +78,9 @@ This project uses a local build to partially compile (interpret, consolidate, an
 This process is taken to completion by the site generator, namely to populate and interpret the Handlebars templates.
 
 As such, the responsibility of compiling the theme is shared between the theme project and the site generator.
-The theme project compiles assets that don't rely on the content model so the site generator doesn't have to worry about doing them.
-It then publishes this theme as a bundle.
-The site generator picks up the bundle, extracts it, and takes compilation to completion by weaving the content model into the templates to make the pages and auxiliary data files and copies the remaining assets as is.
+The theme project build compiles assets that are agnostic to the content model so the site generator doesn't have to worry about that step.
+The build then publishes the theme as a bundle.
+The site generator then picks up the bundle, extracts it, and takes compilation to completion by weaving the content model into the templates to make the pages and auxiliary data files and copies the remaining assets as is.
 
 === Repository Structure (master branch)
 
@@ -88,7 +88,7 @@ You should think of the master branch as the theme workspace.
 It contains the recipe and raw materials for creating a theme.
 It includes a build, source files, project files, and dependency information.
 
-Here's how these files are structured within this project:
+Here's how the files are structured within this project:
 
 ....
 gulpfile.js
@@ -125,11 +125,12 @@ stylesheets/
 ....
 
 A Gulp build is used to compile and assemble these files to produce a (distributable) theme bundle.
-When the files are built, they are assembled inside the [.path]_build_ directory, which is safe to remove.
+When the files are built, they are assembled inside the [.path]_build_ directory.
+As this directory is generated, it is safe to remove.
 
 The benefit of building the theme files is that the files can be optimized for static inclusion in the site without that optimization getting in the way of theme development.
 For example, the theme build can optimize SVGs or add vendor prefixes to the CSS.
-Since this optimization is applied only to the pre-compiled files, it does not interfere with the designer's workflow.
+Since this optimization is only applied to the pre-compiled files, it does not interfere with the designer's workflow.
 
 === Theme Bundle Structure (releases)
 
@@ -137,7 +138,7 @@ The theme bundle--a distributable archive--gets attached to every tag in the git
 The tag is created automatically by the release build, described in <<Publishing a Release>>.
 The theme bundle provides files which are ready to be used by the site generator.
 
-The contents of the bundle resembles the contents of the master branch, except it doesn't contain any files other than the ones that make up the theme.
+The contents of the bundle mirrors the contents of the master branch, except it doesn't contain any files other than the ones that make up the theme.
 Some of the files present have been compiled or aggregated.
 
 ....
@@ -172,7 +173,7 @@ This project is based on tools built atop Node.js (herein Node), namely:
 * {uri-yarn}[Yarn] (command: `yarn`)
 * {uri-gulp}[Gulp] (command: `gulp`)
 
-You also need {uri-git}[git] (command: `git`) to pull the project and push updates to it.
+You also need {uri-git}[git] (command: `git`) to pull down the project and push updates to it.
 
 First, make sure you have git installed.
 
@@ -192,7 +193,7 @@ You can switch to this version of Node at any time using the following command:
 
  $ nvm use node
 
-Check the version to verify you are using Node 7.8.0 or better.
+Check the version to verify you're on Node 7.8.0 or better.
 
  $ node --version
 
@@ -203,7 +204,7 @@ You should install the Gulp CLI globally (which resolves to a location in your u
  $ npm install -g gulp-cli
 
 Finally, you will need Yarn, which is the preferred package manager for the Node ecosystem.
-You'll need to use the `npm` command to install Yarn, though this is the last time you'll use this command.
+You'll need to use the `npm` command to install Yarn, though this is the last time you'll use the `npm` command.
 You should install Yarn globally (which resolves to a location in your user directory if you're using nvm) using the following command:
 
  $ npm install -g yarn
@@ -216,7 +217,7 @@ Now that you have Node, Yarn, and Gulp installed, you're ready to set up the pro
 
 == Setting Up the Project
 
-Before you can start working with the project, you need to grab the sources and initialize it.
+Before you can start working on the theme, you need to grab the sources and initialize the project.
 
 To start, clone the theme project using git:
 
@@ -225,7 +226,7 @@ To start, clone the theme project using git:
    cd "`basename $_`"
 
 Next, you'll need to initialize the project.
-Initializing the project basically means downloading and installing the dependencies into the project.
+Initializing the project essentially means downloading and installing the dependencies into the project.
 That's the job of Yarn.
 
 In your terminal, execute the following command (while inside the project folder):
@@ -262,15 +263,15 @@ The next several sections explain what each of these tasks are for and when to u
 == Building for Preview
 
 The first thing you'll want to do is check out how the theme looks.
-That's what the preview site is for.
-The [.path]_preview-site_ folder contains HTML file fragments that provide a representative sample of content from the site.
-These files should give you an idea of how the theme will look when applied to the real site.
+That's what the files in the [.path]_preview-site_ folder are for.
+This folder contains HTML file fragments that provide a representative sample of content from the site (saving you from having to generate the whole site just to test the theme).
+These files should give you an idea of how the theme will look when applied to the actual site.
 
 The pages in the preview site are assembled using the Handlebars templates and link to the pre-compiled asset files (emulating the behavior of the site generator).
 Thus, to look at then, you need to run them through the theme build.
 
 There are two preview modes available.
-You can run the build once and examine the result or you can run the build continuously so that you can see changes as you make them.
+You can run the build once and examine the result or you can run the build continuously so you can see changes as you make them.
 The next two sections explain how to use these modes.
 
 === Build Once
