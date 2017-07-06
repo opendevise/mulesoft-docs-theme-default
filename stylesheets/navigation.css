@@ -58,10 +58,31 @@
   margin-left: 1rem;
 }
 
+.navigation-item[data-state="collapsed"] .navigation-list {
+  display: none;
+}
+
 .navigation-item {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.navigation-toggle {
+  background: transparent url(../images/triangle.svg) no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  height: 1rem;
+  margin: 0;
+  outline: none !important;
+  padding: 0;
+  width: 1rem;
+}
+
+.navigation-item[data-state="expanded"] > .navigation-toggle {
+  transform: rotate(90deg);
 }
 
 .navigation-link {
@@ -72,6 +93,10 @@
   padding: 0.2rem;
   margin-left: 1.2rem;
   text-decoration: none;
+}
+
+.navigation-toggle + .navigation-link {
+  margin-left: 0.2rem;
 }
 
 .navigation-link:hover {

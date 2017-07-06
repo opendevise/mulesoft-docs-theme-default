@@ -1,7 +1,10 @@
 {{#if navigation.length}}
   <ul class="navigation-list">
     {{#each navigation}}
-      <li class="navigation-item">
+      <li class="navigation-item" data-depth="{{this.depth}}" data-state="collapsed">
+        {{#if this.items.length}}
+          <button class="navigation-toggle"></button>
+        {{/if}}
         <a class="navigation-link" href="{{prefix-link ../module-path this.href}}" data-href="{{this.href}}">{{this.label}}</a>
         {{> navigation navigation=this.items module-path=../module-path }}
       </li>
