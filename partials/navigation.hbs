@@ -2,8 +2,8 @@
   <ul class="navigation-list">
     {{#each navigation}}
       <li class="navigation-item">
-        <a class="navigation-link" href="{{this.href}}">{{this.title}}</a>
-        {{> navigation navigation=this.children }}
+        <a class="navigation-link" href="{{this.href}}">{{this.label}}</a>
+        {{> navigation navigation=this.items }}
       </li>
     {{/each}}
   </ul>
