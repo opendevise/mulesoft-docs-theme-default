@@ -22,10 +22,12 @@ module.exports = async (src, dest, destTheme) => {
   const mockModelJson = fs.readFileSync(mockModelPath)
   const mockModel = JSON.parse(mockModelJson.toString())
 
-  vfs.src(['preview-site/*.html'])
+  vfs.src(['preview-site/**/*.html'])
     .pipe(map((file, next) => {
+      const previewSitePath = path.resolve('preview-site')
+      const relativeToRoot = path.relative(file.path, previewSitePath)
       const compileLayout = layoutsIndex['index.hbs']
-      mockModel['theme-path'] = relativeThemePath
+      mockModel['theme-path'] = path.join(relativeToRoot, relativeThemePath)
       mockModel['contents'] = file.contents.toString()
       file.contents = new Buffer(compileLayout(mockModel))
       next(null, file)
