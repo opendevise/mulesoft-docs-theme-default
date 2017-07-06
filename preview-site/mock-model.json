@@ -2,5 +2,93 @@
     "keywords": "key, words, many, of, them",
     "canonical-url": "https://example.com/index.html",
     "github-edit-url": "https://github.com/mulesoft/mulesoft-docs",
-    "title": "Shared Resources"
+    "title": "Shared Resources",
+    "navigation": [
+        {
+            "depth": 0,
+            "label": "Level 0 item 0",
+            "href": "./level-0-item-0.html",
+            "items": [
+                {
+                    "depth": 1,
+                    "label": "INDEX",
+                    "href": "./index.html",
+                    "items": []
+                },
+                {
+                    "depth": 1,
+                    "label": "FOO",
+                    "href": "./foo/foo-index.html",
+                    "items": []
+                },
+                {
+                    "depth": 1,
+                    "label": "BAR",
+                    "href": "./foo/bar/bar-index.html",
+                    "items": []
+                },
+                {
+                    "depth": 1,
+                    "label": "Level 1 item 0",
+                    "href": "./level-1-item-0.html",
+                    "items": []
+                },
+                {
+                    "depth": 1,
+                    "label": "Level 1 item 1",
+                    "href": "./level-1-item-1.html",
+                    "items": [
+                        {
+                            "depth": 2,
+                            "label": "Level 2 item 0",
+                            "href": "./level-2-item-0.html",
+                            "items": []
+                        },
+                        {
+                            "depth": 2,
+                            "label": "Level 2 item 1",
+                            "href": "./level-2-item-1.html",
+                            "items": []
+                        },
+                        {
+                            "depth": 2,
+                            "label": "Level 2 item 2",
+                            "href": "./level-2-item-2.html",
+                            "items": []
+                        }
+                    ]
+                },
+                {
+                    "depth": 1,
+                    "label": "Level 1 item 2",
+                    "href": "./level-1-item-2.html",
+                    "items": []
+                },
+                {
+                    "depth": 1,
+                    "label": "absolute link",
+                    "href": "/index.html",
+                    "items": []
+                },
+                {
+                    "depth": 1,
+                    "label": "HTTP link",
+                    "href": "http://covfefe.com",
+                    "items": []
+                },
+                {
+                    "depth": 1,
+                    "label": "HTTPS link",
+                    "href": "https://covfefe.com",
+                    "items": []
+                }
+            ]
+        },
+        {
+            "depth": 0,
+            "label": "Level 0 item 1",
+            "href": "./level-0-item-1.html",
+            "items": []
+        }
+    ]
 }
