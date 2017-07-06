@@ -16,3 +16,9 @@
 .breadcrumb-select {
   margin: 0 0.5rem;
 }
+
+.edit-on-github-link {
+  background: url(../images/github-logo.svg) no-repeat center left;
+  background-size: contain;
+  padding-left: 1.5rem;
+}
