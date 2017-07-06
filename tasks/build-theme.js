@@ -49,6 +49,7 @@ module.exports = (src, dest) => {
         next(null, file)
       })),
 
+    vfs.src('helpers/*.js', srcOptions),
     vfs.src('layouts/*.hbs', srcOptions),
     vfs.src('partials/*.hbs', srcOptions),
   ])

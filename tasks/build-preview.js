@@ -8,6 +8,7 @@ const map = require('map-stream')
 const merge = require('merge-stream')
 const minimatch = require('minimatch')
 const handlebars = require('handlebars')
+const requireFromString = require('require-from-string')
 
 module.exports = async (src, dest, destTheme) => {
 
@@ -16,6 +17,7 @@ module.exports = async (src, dest, destTheme) => {
   const [layoutsIndex] = await Promise.all([
     compileLayouts(src),
     registerPartials(src),
+    registerHelpers(src),
   ])
 
   const mockModelPath = path.resolve(__dirname, '../preview-site/mock-model.json')
@@ -42,6 +44,21 @@ function registerPartials(src) {
     vfs.src(['partials/*.hbs'], { base: src, cwd: src })
       .pipe(map((file, next) => {
         handlebars.registerPartial(file.stem, file.contents.toString())
+        next(null, file)
+      }))
+      .on('error', reject)
+      .on('end', resolve)
+  })
+}
+
+function registerHelpers(src) {
+
+  return new Promise((resolve, reject) => {
+
+    vfs.src(['helpers/*.js'], { base: src, cwd: src })
+      .pipe(map((file, next) => {
+        const helperFunction = requireFromString(file.contents.toString())
+        handlebars.registerHelper(file.stem, helperFunction)
         next(null, file)
       }))
       .on('error', reject)
