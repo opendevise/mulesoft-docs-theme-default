@@ -28,7 +28,7 @@ module.exports = async (src, dest, destTheme) => {
     .pipe(map((file, next) => {
       const previewSitePath = path.resolve('preview-site')
       const relativeToRoot = path.relative(file.path, previewSitePath)
-      const compileLayout = layoutsIndex['index.hbs']
+      const compileLayout = layoutsIndex['default.hbs']
       mockModel['theme-path'] = path.join(relativeToRoot, relativeThemePath)
       mockModel['contents'] = file.contents.toString()
       mockModel['navigation-link-prefix'] = relativeToRoot
