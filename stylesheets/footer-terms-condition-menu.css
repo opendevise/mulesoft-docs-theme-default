@@ -13,14 +13,9 @@ This stylesheet needs a .footer and .terms-conditions in all selectors not to be
 .footer .terms-conditions .menu a {
   color: #fff;
   display: block;
-  font-family: "PT Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 600;
   margin-right: 10px;
   text-decoration: none;
-}
-
-/* last item is the phone number */
-.footer .terms-conditions .menu__item:last-child a {
-  color: var(--color-b);
 }

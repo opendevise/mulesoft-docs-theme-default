@@ -1,7 +1,6 @@
 'use strict'
 
 const path = require('path')
-
 const gulp = require('gulp')
 
 const buildTheme = require('./tasks/build-theme')
@@ -9,6 +8,7 @@ const buildPreview = require('./tasks/build-preview')
 const buildRelease = require('./tasks/build-release')
 const serve = require('./tasks/serve')
 const release = require('./tasks/release')
+const updateSharedPartials = require('./tasks/update-shared-partials')
 
 const config = require('./config')
 try {
@@ -56,4 +56,8 @@ gulp.task('release', ['build-release'], () => {
     token: config.get('github_token'),
     dest,
   })
+})
+
+gulp.task('update-shared-partials', () => {
+  return updateSharedPartials()
 })

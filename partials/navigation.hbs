@@ -1,8 +1,8 @@
-{{#if navigation.length}}
+{{#if navigation.length }}
   <ul class="nav-lst">
-    {{#each navigation}}
+    {{#each navigation }}
       <li class="nav-itm" data-depth="{{this.depth}}" data-state="collapsed">
-        {{#if this.items.length}}
+        {{#if this.items.length }}
           <button class="nav-tgl"></button>
         {{/if}}
         <a class="nav-lnk" href="{{this.href}}">{{{this.label}}}</a>

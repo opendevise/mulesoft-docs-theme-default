@@ -19,36 +19,23 @@ body {
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
-  /*justify-content: center;*/
   margin: 0 auto;
-  /* for sites that don't take the full width of the page */
-  /*max-width: 60rem;*/
   padding: 0 1rem;
   width: 100%;
 }
 
-/* temporary */
-.header__top-wrapper {
-  display: none;
-}
-
 .header__logo--primary-nav {
   display: flex;
-}
-
-.header__logo {
-  /*margin-right: 1.8rem;*/
+  flex: 1 1 0;
+  justify-content: space-between;
 }
 
 .header__logo-image {
   display: block;
-  height: 2.5rem;
-  margin: 0.95rem 0;
+  height: 3.25rem;
+  margin: 0.5rem 0.5rem 0 0;
 }
 
-.tcat-logo-text,
-.brand-logo-text,
 .block__title,
 .block-title {
   display: none;

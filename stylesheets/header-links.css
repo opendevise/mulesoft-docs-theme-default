@@ -1,10 +1,14 @@
+.top-nav-ctas {
+  align-items: center;
+  display: flex;
+}
+
 .top-nav-ctas .try,
 .top-nav-ctas .dev {
   color: #00a2df;
-  display: inline-block;
+  display: block;
   font-size: 13px;
   margin: 0 0.2rem;
-  padding: 0.2rem 0.6rem;
   text-decoration: none;
 }
 
@@ -15,13 +19,23 @@
 
 .top-nav-ctas .try {
   border: 1px solid #00a2df;
+  padding: 0.2rem 0.6rem;
 }
 
 .top-nav-ctas .dev {
-  /* same size as .try */
-  border: 1px solid transparent;
+  padding: 0.2rem;
 }
 
 .top-nav-ctas .try:hover {
   background-color: #00a2df;
+}
+
+.top-nav-ctas a.icon-muletheme-phone {
+  background: url(../images/header_footer_sprite.svg) no-repeat -861px -28px;
+  /* this the the normal height of the image */
+  background-size: 1134px;
+  display: block;
+  height: 36px;
+  margin: 0;
+  width: 36px;
 }

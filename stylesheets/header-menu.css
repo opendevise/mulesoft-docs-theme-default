@@ -7,7 +7,7 @@ This stylesheet needs a .header in all selectors not to be in conflict with the 
 .header .menu {
   display: flex;
   list-style: none;
-  margin: 0;
+  margin: 0 1rem 0 0;
   padding: 0;
 }
 
@@ -15,6 +15,7 @@ This stylesheet needs a .header in all selectors not to be in conflict with the 
 .header .menu .menu {
   background-color: #191919;
   display: none;
+  margin: 0;
   min-width: 250px;
   padding: 0.5rem 0;
   position: absolute;
@@ -57,7 +58,8 @@ This stylesheet needs a .header in all selectors not to be in conflict with the 
 }
 
 /* LINK 0+ */
-.header .menu a {
+.header .menu a,
+.header .menu span.menu__link {
   color: #fff;
   display: block;
   font-family: "PT Sans", sans-serif;
