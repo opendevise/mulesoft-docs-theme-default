@@ -38,7 +38,7 @@ gulp.task('build-preview', ['build-theme'], () => {
 })
 
 gulp.task('serve', ['build-preview'], () => {
-  return serve(dest, () => gulp.start('build-preview'))
+  return serve({ dest, port: config.get('port') }, () => gulp.start('build-preview'))
 })
 
 gulp.task('build-release', ['build-theme'], () => {

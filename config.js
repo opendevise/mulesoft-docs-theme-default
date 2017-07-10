@@ -47,6 +47,12 @@ const conf = convict({
       default: null,
     },
   },
+  port: {
+    doc: 'HTTP port used for local preview',
+    format: Number,
+    default: 8080,
+    arg: 'port',
+  },
 })
 
 const ymlFile = fs.readFileSync(conf.get('config_file')).toString()

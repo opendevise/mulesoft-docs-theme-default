@@ -8,14 +8,14 @@ const debounce = require('lodash.debounce')
 
 const watchedDirs = ['helpers', 'images', 'layouts', 'partials', 'preview-site', 'scripts', 'stylesheets']
 
-module.exports = (dest, buildCallback) => {
+module.exports = ({ dest, port }, buildCallback) => {
 
   browserSync({
     files: dest,
     ghostMode: false,
     notify: false,
     open: false,
-    port: 8080,
+    port,
     reloadDelay: 200,
     reloadDebounce: 200,
     ui: false,

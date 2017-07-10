@@ -308,6 +308,10 @@ Navigate to the first one to see the preview site.
 While this command is running, any changes you make to the source files will be instantly reflected in the browser.
 This works by monitoring the project for changes, running the `build-theme` task if a change is detected, and sending the updates to the browser.
 
+The HTTP port used for the preview is configured in `theme.yml` but you can override it with the command line argument `--port` like this:
+
+  $ gulp serve --port 1337
+
 == Working on the Theme
 
 This section provides information about some of the theme files you'll be modifying and how to prepare and submit those changes.

@@ -3,3 +3,4 @@ theme_destination: _theme
 repository:
   owner: opendevise
   name: mulesoft-docs-theme-default
+port: 5252
