@@ -46,7 +46,9 @@
 .primary-content h4,
 .primary-content h5,
 .primary-content h6,
-  /* [id=preamble] instead of #preamble to decrease specificity */
+/* [id=preamble] instead of #preamble to decrease specificity */
+/* this specific line is for sectionless pages */
+.primary-content h1 ~ :not([class^="sect"]):not([id=preamble]),
 .primary-content [id=preamble] > .sectionbody > :not([class^="sect"]),
 .primary-content .sect1 > .sectionbody > :not([class^="sect"]),
 .primary-content .sect2 > :not([class^="sect"]),
