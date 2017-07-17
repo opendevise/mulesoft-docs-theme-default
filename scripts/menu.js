@@ -1,6 +1,6 @@
 'use strict'
 
-const $toggleButtons = Array.from(document.querySelectorAll('.navigation-toggle'))
+const $toggleButtons = Array.from(document.querySelectorAll('.nav-tgl'))
 
 $toggleButtons.forEach((btn) => {
 

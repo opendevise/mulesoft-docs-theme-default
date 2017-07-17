@@ -1,11 +1,11 @@
 {{#if navigation.length}}
-  <ul class="navigation-list">
+  <ul class="nav-lst">
     {{#each navigation}}
-      <li class="navigation-item" data-depth="{{this.depth}}" data-state="collapsed">
+      <li class="nav-itm" data-depth="{{this.depth}}" data-state="collapsed">
         {{#if this.items.length}}
-          <button class="navigation-toggle"></button>
+          <button class="nav-tgl"></button>
         {{/if}}
-        <a class="navigation-link" href="{{this.href}}">{{{this.label}}}</a>
+        <a class="nav-lnk" href="{{this.href}}">{{{this.label}}}</a>
         {{> navigation navigation=this.items }}
       </li>
     {{/each}}
