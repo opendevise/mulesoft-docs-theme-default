@@ -1,11 +1,13 @@
-'use strict'
+!(function () {
+  'use strict'
 
-const $toggleButtons = Array.from(document.querySelectorAll('.nav-tgl'))
+  const $toggleButtons = Array.from(document.querySelectorAll('.nav-tgl'))
 
-$toggleButtons.forEach((btn) => {
+  $toggleButtons.forEach((btn) => {
 
-  const li = btn.parentElement
-  btn.addEventListener('click', () => {
-    li.dataset.state = (li.dataset.state === 'collapsed') ? 'expanded' : 'collapsed'
+    const li = btn.parentElement
+    btn.addEventListener('click', () => {
+      li.dataset.state = (li.dataset.state === 'collapsed') ? 'expanded' : 'collapsed'
+    })
   })
-})
+})()
