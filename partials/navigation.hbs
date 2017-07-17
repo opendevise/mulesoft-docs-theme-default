@@ -5,7 +5,7 @@
         {{#if this.items.length}}
           <button class="navigation-toggle"></button>
         {{/if}}
-        <a class="navigation-link" href="{{this.href}}">{{this.label}}</a>
+        <a class="navigation-link" href="{{this.href}}">{{{this.label}}}</a>
         {{> navigation navigation=this.items }}
       </li>
     {{/each}}
