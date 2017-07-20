@@ -12,14 +12,20 @@
   <article class="primary-content">
     <header class="article-header">
       <div class="breadcrumb">
-        <a class="breadcrumb-item" href="">Documentation root</a> /
-        <a class="breadcrumb-item" href="">Breadcrumb item XXX</a> /
-        <select class="breadcrumb-select">
-          <option>v1.1</option>
-          <option>v2.2</option>
-          <option>v3.3</option>
-        </select> /
-        <a class="breadcrumb-item" href="">Breadcrumb item YYY</a> /
+        <select id="domain-version-selector">
+          {{#each domainVersionIndex }}
+            <optgroup label="{{this.domain}}">
+              {{#each this.versions }}
+                <option value="{{this.href}}"{{#if this.selected}} selected{{/if}}>
+                  {{../this.domain}} @ {{this.version}}
+                </option>
+              {{/each}}
+            </optgroup>
+          {{/each}}
+        </select>
+        {{#each breadcrumbs }}
+          <a class="breadcrumb-item" href="{{this.href}}">{{{this.label}}}</a> /
+        {{/each}}
         <span class="breadcrumb-item">{{title}}</span>
       </div>
       <div class="edit-on-github">
