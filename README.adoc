@@ -1,9 +1,14 @@
-= MuleSoft Docs: Default Theme Build
+= MuleSoft Docs: Default Theme
 // Settings
 :toc:
 :toc-title: Contents
 :idprefix:
 :idseparator: -
+ifndef::env-github[:icons: font]
+:hide-uri-scheme:
+ifdef::env-github[]
+:important-caption: :exclamation:
+endif::[]
 // URIs
 :uri-repo: https://github.com/opendevise/mulesoft-docs-theme-default
 :uri-ci: https://travis-ci.org/opendevise/mulesoft-docs-theme-default
@@ -11,36 +16,39 @@
 :uri-gulp: http://gulpjs.com
 :uri-yarn: https://yarnpkg.com
 :uri-nvm: https://github.com/creationix/nvm
-:uri-nvm-install: https://github.com/creationix/nvm#installation
+:uri-nvm-install: {uri-nvm}#installation
 :uri-hbs: http://handlebarsjs.com
 :uri-git: https://git-scm.com
+:uri-git-dl: {uri-git}/downloads
+:uri-npm: https://npmjs.com
 
 This repository builds and packages the default theme for the MuleSoft documentation site.
 It contains the theme artifacts (page templates, CSS, JavaScript, etc.) and a build.
 The build is used to preview the theme locally (featuring live updates) or to package and publish it to GitHub releases for consumption by the site generator.
 
-This guide covers the following:
+This guide documents how to develop and apply the theme.
+After reading this guide, you'll be able to:
 
-* Describes the files that make up a theme.
-* Identifies prerequisites you need to get started.
-* Teaches you how to launch a preview server to inspect the theme.
-* Proposes a development workflow for making changes to the theme.
-* Explains how new versions get packaged and published for production usage.
+* [x] Understand how the theme project is structured.
+* [x] Set up your environment to work on the theme project.
+* [x] Launch a preview server to visually inspect the theme.
+* [x] Adopt a development workflow to share and accept changes to the theme.
+* [x] Package and publish the theme for the site generator to use.
 
 == Theme Overview
 
-A theme consists of the following types of files used to lay out and style the pages of the documentation site:
+A theme consists of the following types of files used to structure and style the pages of the documentation site:
 
 * Handlebars "`page`" templates (layouts and partials)
-* CSS (enhanced using postcss)
+* CSS (enhanced using PostCSS)
 * JavaScript (UI scripts)
 * Images / Graphics (specific to the theme)
 * Fonts
 * HTML (sample content for previewing the theme)
 
-To understand how the theme works, let's begin by surveying the technologies used in the theme.
+To understand how the theme works, let's begin by surveying some the technologies used by the theme.
 
-=== Technology Survey
+=== Technology Brief
 
 Handlebars (file extension: `.hbs`)::
 {uri-hbs}[Handlebars] is a "`logic-less`" templating engine used to create HTML from template files.
@@ -52,35 +60,42 @@ Gulp (script file: [.path]_gulpfile.js_)::
 It configures a collection of tasks that can be used to perform automated tasks such as compiling files, running a preview server, or publishing a release.
 
 Yarn (command: `yarn`)::
-{uri-yarn}[Yarn] fetches and manages software packages (aka software dependencies) published to npmjs.com.
-The theme uses Yarn to fetch libraries that handle compilation as well as shared assets such as font files, which are distributed as npm packages.
-(While npm is often used to install Yarn, we do not use npm for any other purpose).
+{uri-yarn}[Yarn] manages software packages (i.e., software dependencies) that it downloads from {uri-npm}.
+The software this project uses includes libraries that handle compilation as well as shared assets such as font files that are distributed as npm packages.
+(While npm itself is often used to install Yarn, we do not use npm for any other purpose).
 
 package.json:::
-This file keeps track of the dependencies that Yarn should fetch.
+This file keeps track of the dependencies (described using fuzzy versions) that Yarn should fetch.
 
 yarn.lock:::
 This file contains a report of which dependencies Yarn resolved.
 This information ensures that the dependency resolution is reproducible.
 
 node_modules/:::
-Local cache of resolved dependencies that are fetched by Yarn.
+A local cache of resolved dependencies that Yarn (or npm) fetches.
+
+PostCSS::
+This project does not use a CSS preprocessor such as Sass or LESS.
+Instead, it relies on normal CSS which is enhanced by a series of postprocessors.
+The most common postprocessor backports newer CSS features to older browsers by injecting properties with vendor prefixes.
 
 === Theme Compilation
 
+Although the theme assets are served statically in the production site, they live in a source form in this project to accommodate development and simplify maintenance.
+When handed off to the site generator, the theme is in an interim, pre-compiled state.
+Specifically, the master branch of the git repository contains the files in source form while releases are used to distribute the files in pre-compiled form.
+These two states (source and pre-compiled) are explained in more detail in the next two sections.
 
-Although the theme assets are served statically in the production site, they're stored in a pre-compiled state in this project to simplify maintenance.
-In fact, the theme exists in two states: raw and pre-compiled.
-The master branch of the git repository contains the files in raw form while releases are used to distribute the files in pre-compiled form.
-These two states are explained in more detail in the next two sections.
+The responsibility of compiling the theme is shared between this project and the site generator.
+The theme project uses a local build to pre-compile (interpret, consolidate, and/or minimize) the assets.
+The pre-compiled files are those which are agnostic to the content model, relieving the site generator from having to deal with this part.
+It also allows the theme to be reused.
 
-This project uses a local build to partially compile (interpret, consolidate, and/or minimize) the assets.
-This process is taken to completion by the site generator, namely to populate and interpret the Handlebars templates.
+The theme build then publishes the pre-compiled theme as a bundle, which the site generator consumes.
+The site generator grabs the bundle, extracts it, and takes compilation to completion by weaving the content model into the Handlebars templates to make the pages and auxiliary data files.
+It then copies the remaining theme assets to the site output.
 
-As such, the responsibility of compiling the theme is shared between the theme project and the site generator.
-The theme project build compiles assets that are agnostic to the content model so the site generator doesn't have to worry about that step.
-The build then publishes the theme as a bundle.
-The site generator then picks up the bundle, extracts it, and takes compilation to completion by weaving the content model into the templates to make the pages and auxiliary data files and copies the remaining assets as is.
+Thus, the purpose of the theme project is to get the theme files into a state that the site generator can use and to make it reusable.
 
 === Repository Structure (master branch)
 
@@ -90,29 +105,40 @@ It includes a build, source files, project files, and dependency information.
 
 Here's how the files are structured within this project:
 
+[.output]
 ....
+README.adoc
+config.js
 gulpfile.js
 package.json
+theme.yml
 yarn.lock
 images/
+  github-logo.svg
+  header_footer_sprite.svg
   mulesoft-dev-logo.svg
+  triangle.svg
 layouts/
-  page.hbs
+  default.hbs
 partials/
   footer.hbs
+  footer-scripts.hbs
+  footer-shared.hbs
   header.hbs
+  header-shared.hbs
   head.hbs
   navigation.hbs
   primary-content.hbs
 preview-site/
   index.html
+  mock-model.json
 scripts/
   highlight.pack.js
+  menu.js
 stylesheets/
   article-header.css
   footer.css
   footer-terms-condition-menu.css
-  footer-top-menu.css
   github.css
   header.css
   header-links.css
@@ -122,11 +148,23 @@ stylesheets/
   primary-content.css
   scrollbars.css
   theme.css
+tasks/
+  build-preview.js
+  build-release.js
+  build-theme.js
+  release.js
+  serve.js
+  update-shared-partials.js
 ....
 
-A Gulp build is used to compile and assemble these files to produce a (distributable) theme bundle.
-When the files are built, they are assembled inside the [.path]_build_ directory.
-As this directory is generated, it is safe to remove.
+IMPORTANT: The [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files are automatically generated and therefore should not be modified directly.
+These areas of the page are not owned by the documentation team.
+Instead, the files are retrieved from the page header and footer endpoints provided by marketing.
+See <<Updating the Shared Partials>>.
+
+A Gulp build is used to compile and assemble these files to produce a (distributable) theme bundle, described in the next section.
+When the files are built, they are assembled under the [.path]_build_ directory.
+Since this directory is generated, it is safe to remove.
 
 The benefit of building the theme files is that the files can be optimized for static inclusion in the site without that optimization getting in the way of theme development.
 For example, the theme build can optimize SVGs or add vendor prefixes to the CSS.
@@ -138,25 +176,32 @@ The theme bundle--a distributable archive--gets attached to every tag in the git
 The tag is created automatically by the release build, described in <<Publishing a Release>>.
 The theme bundle provides files which are ready to be used by the site generator.
 
-The contents of the bundle mirrors the contents of the master branch, except it doesn't contain any files other than the ones that make up the theme.
+The contents of the bundle resembles the contents of the master branch, except it doesn't contain any files other than the ones that make up the theme.
 Some of the files present have been compiled or aggregated.
 
+[.output]
 ....
 fonts/
   ...
 images/
-  mulesoft-logo.svg
+  github-logo.svg
+  header_footer_sprite.svg
   mulesoft-dev-logo.svg
+  triangle.svg
 layouts/
-  page.hbs
+  default.hbs
 partials/
   footer.hbs
-  head.hbs
+  footer-scripts.hbs
+  footer-shared.hbs
   header.hbs
+  header-shared.hbs
+  head.hbs
   navigation.hbs
   primary-content.hbs
 scripts/
   highlight.pack.js
+  menu.js
 stylesheets/
   theme.css
 ....
@@ -179,7 +224,7 @@ First, make sure you have git installed.
 
  $ git --version
 
-If not, https://git-scm.com/downloads[download and install] the git package for your system.
+If not, {uri-git-dl}[download and install] the git package for your system.
 
 Next, make sure that you have Node 7.8.0 or better installed.
 While you can install Node from the official packages, we strongly recommend that you use {uri-nvm}[nvm] (Node Version Manager) to install and manage Node.
@@ -297,8 +342,8 @@ You'll see two URLs listed in the output of this command:
 ....
 [BS] Access URLs:
  ----------------------------------
-    Local: http://localhost:36495
- External: http://192.168.1.7:36495
+    Local: http://localhost:5252
+ External: http://192.168.1.7:5252
  ----------------------------------
 [BS] Serving files from: build
 [BS] Watching files...
@@ -308,7 +353,15 @@ Navigate to the first one to see the preview site.
 While this command is running, any changes you make to the source files will be instantly reflected in the browser.
 This works by monitoring the project for changes, running the `build-theme` task if a change is detected, and sending the updates to the browser.
 
-The HTTP port used for the preview is configured in `theme.yml` but you can override it with the command line argument `--port` like this:
+The HTTP port used for the preview is configured in `theme.yml`:
+
+[source,yaml]
+----
+# ...
+port: 5252
+----
+
+You can override this value using the command line flag `--port` like this:
 
   $ gulp serve --port 1337
 
@@ -394,8 +447,30 @@ These stylesheets utilize CSS variables to keep the CSS DRY and easy to customiz
 
 Within this project, the files are separated into modules to help organize the rules and make them easier to find.
 These files get combined (and minified) into a single file by the theme build, named [.path]_theme.css_.
-At the same time, the CSS is enhanced using postcss in much the same way as a CSS preprocessor works, only the modifications are made to the CSS directly.
+At the same time, the CSS is enhanced using PostCSS in much the same way as a CSS preprocessor works, only the modifications are made to the CSS directly.
 The modifications mostly center around injecting vendor prefixes for compatibility or backporting new features to more broadly supported syntax.
+
+=== Updating the Shared Partials
+
+Some of the page content is managed externally.
+In particular, the [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files include the header and footer content common to all the MuleSoft developer properties.
+The theme incorporates this content into the theme bundle to provide a certain level of control and stability.
+
+The question remains, how do these files get updated?
+That's the job of the `update-shared-partials` Gulp task.
+
+ $ gulp update-shared-partials
+
+The `update-shared-partials` task retrieves the shared header and footer content from the https://developer.mulesoft.com/markup/get/header[header] and https://developer.mulesoft.com/markup/get/footer[footer] endpoints, respectively.
+It then applies a little massaging to the content to make it compatible with the documentation site design.
+Finally, it writes the content to the [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files.
+
+If there were any changes to the upstream content, git will report the local files as changed.
+You can use the <<building-for-preview,theme preview>> to verify the changes are acceptable.
+If everything looks good, you should commit these changes to the git repository.
+
+You'll need to run the `update-shared-partials` task periodically to keep the theme in sync with upstream changes.
+You could have a CI job handle this task.
 
 //FIXME: This section feels out of place
 === Theme Configuration
