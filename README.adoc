@@ -370,7 +370,7 @@ port: 5252
 
 You can override this value using the command line flag `--port` like this:
 
-  $ gulp preview --port 1337
+ $ gulp preview --port 1337
 
 === Package
 
@@ -389,6 +389,7 @@ This section provides information about some of the theme files you'll be modify
 
 As described later in <<Publishing a Release>>, all changes pushed to the master branch trigger a new release.
 Therefore, you want to make your changes to a development branch and submit it as a pull request (PR) to be approved.
+(Even better would be to issue the PR from a fork).
 Only when the PR is approved and merged will the new release be triggered.
 
 Use the following command to create a local development branch named `name-me`:
