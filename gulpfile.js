@@ -5,7 +5,7 @@ const gulp = require('gulp')
 
 const config = require('./config')
 
-const buildTheme = require('./tasks/build-theme')
+const build = require('./tasks/build')
 const buildPreview = require('./tasks/build-preview')
 const buildRelease = require('./tasks/build-release')
 const preview = require('./tasks/preview')
@@ -25,11 +25,11 @@ const src = config.get('source')
 const dest = config.get('destination')
 const destTheme = path.join(dest, config.get('theme_destination'))
 
-gulp.task('build-theme', () =>
-  buildTheme(src, destTheme)
+gulp.task('build', () =>
+  build(src, destTheme)
 )
 
-gulp.task('build-preview', ['build-theme'], () =>
+gulp.task('build-preview', ['build'], () =>
   buildPreview(src, dest, destTheme)
 )
 
@@ -37,7 +37,7 @@ gulp.task('preview', ['build-preview'], () =>
   preview({ dest, port: config.get('port') }, () => gulp.start('build-preview'))
 )
 
-gulp.task('build-release', ['build-theme'], () =>
+gulp.task('build-release', ['build'], () =>
   buildRelease({ repo: config.get('repository.name'), dest, destTheme })
 )
 

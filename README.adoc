@@ -150,11 +150,11 @@ stylesheets/
   scrollbars.css
   theme.css
 tasks/
+  build.js
   build-preview.js
   build-release.js
-  build-theme.js
+  preview.js
   release.js
-  serve.js
   update.js
 ....
 
@@ -164,8 +164,8 @@ Instead, the files are retrieved from the page header and footer endpoints provi
 See <<Updating the Shared Partials>>.
 
 A Gulp build is used to compile and assemble these files to produce a (distributable) theme bundle, described in the next section.
-When the files are built, they are assembled under the [.path]_build_ directory.
-Since this directory is generated, it is safe to remove.
+When the files are built, they are assembled under the [.path]_build/_theme_ directory.
+Since the [.path]_build_ directory is generated, it is safe to remove.
 
 The benefit of building the theme files is that the files can be optimized for static inclusion in the site without that optimization getting in the way of theme development.
 For example, the theme build can optimize SVGs or add vendor prefixes to the CSS.
@@ -298,7 +298,7 @@ You should see:
 
 [.output]
 ....
-build-theme
+build
 build-preview
 preview
 build-release
@@ -324,16 +324,16 @@ The next two sections explain how to use these modes.
 
 === Build Once
 
-To build the theme once, then stop, execute the `build-theme` task using the following command:
+To build the theme once for preview, then stop, execute the `build-preview` task using the following command:
 
- $ gulp build-theme
+ $ gulp build-preview
 
-This task pre-compiles the theme files into the [.path]_build_ directory.
+This task pre-compiles the theme files into the [.path]_build/_theme_ directory.
 To view the preview pages, navigate to the HTML pages in the [.path]_build_ directory using your browser (e.g., [.path]_build/index.html_).
 
 === Build Continuously
 
-To avoid the need to run the `build-theme` task over and over, you can use the `preview` command instead to have it run continuously.
+To avoid the need to run the `build-preview` task over and over, you can use the `preview` command instead to have it run continuously.
 This task also launches a local HTTP server so updates get synchronized with the browser (i.e., "`live reload`").
 
 To launch the preview server, execute the following command:
@@ -354,7 +354,7 @@ You'll see two URLs listed in the output of this command:
 
 Navigate to the first one to see the preview site.
 While this command is running, any changes you make to the source files will be instantly reflected in the browser.
-This works by monitoring the project for changes, running the `build-theme` task if a change is detected, and sending the updates to the browser.
+This works by monitoring the project for changes, running the `build` task if a change is detected, and sending the updates to the browser.
 
 Press kbd:[Ctrl+C] to stop the preview server and end the continuous build.
 
