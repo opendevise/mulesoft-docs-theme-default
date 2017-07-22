@@ -16,6 +16,7 @@ module.exports = () => {
     })
       // NOTE pipe to buffer to ensure whole stream is read
       .pipe(buffer())
+      .pipe(replace(/\r(?=\n)/g, ''))
       .pipe(replace(/^[\s\S]*(<header[^>]*>[\s\S]*?<\/header>)[\s\S]*$/, '$1'))
       .pipe(replace(/<a href=".+?" title="Home"/, '<a href="https://docs.mulesoft.com" title="Home"'))
       .pipe(replace(/<img src="[^"]+"/, '<img src="{{theme-path}}/images/mulesoft-dev-logo.svg"'))
@@ -28,6 +29,7 @@ module.exports = () => {
     })
       // NOTE pipe to buffer to ensure whole stream is read in
       .pipe(buffer())
+      .pipe(replace(/\r(?=\n)/g, ''))
       .pipe(replace(/^[\s\S]*(<footer[^>]*>[\s\S]*?<\/footer>)[\s\S]*$/, '$1'))
       .pipe(replace(/<script[^>]*>[\s\S]*?<\/script>/g, ''))
       .pipe(replace(/ title=""/g, '')),
