@@ -500,7 +500,7 @@ It also defines the path where the theme assets will reside in the production si
 
 Now let's look at some specific use cases to help you understand how to update the theme.
 
-=== Use Case 1: Adding a new CSS rule
+=== Use Case 1: Add a new CSS rule
 
 Let's consider the case when you want to modify the font size of a section title.
 
@@ -518,7 +518,7 @@ Next, open the file [.path]_stylesheets/main.css_ and modify the rule for the se
 
 Save the file, commit it to git, push the branch, and allow the approval workflow to play out.
 
-=== Use Case 2: Modifying a template
+=== Use Case 2: Modify a template
 
 Let's consider the case when you want to add a new meta tag inside the HTML head.
 
