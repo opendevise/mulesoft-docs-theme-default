@@ -154,7 +154,7 @@ tasks/
   build-theme.js
   release.js
   serve.js
-  update-shared-partials.js
+  update.js
 ....
 
 IMPORTANT: The [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files are automatically generated and therefore should not be modified directly.
@@ -302,7 +302,7 @@ build-preview
 preview
 build-release
 release
-update-shared-partials
+update
 ....
 
 The next several sections explain what each of these tasks are for and when to use them.
@@ -459,11 +459,11 @@ In particular, the [.path]_partials/header-shared.hbs_ and [.path]_partials/foot
 The theme incorporates this content into the theme bundle to provide a certain level of control and stability.
 
 The question remains, how do these files get updated?
-That's the job of the `update-shared-partials` Gulp task.
+That's the job of the `update` Gulp task.
 
- $ gulp update-shared-partials
+ $ gulp update
 
-The `update-shared-partials` task retrieves the shared header and footer content from the https://developer.mulesoft.com/markup/get/header[header] and https://developer.mulesoft.com/markup/get/footer[footer] endpoints, respectively.
+The `update` task retrieves the shared header and footer content from the https://developer.mulesoft.com/markup/get/header[header] and https://developer.mulesoft.com/markup/get/footer[footer] endpoints, respectively.
 It then applies a little massaging to the content to make it compatible with the documentation site design.
 Finally, it writes the content to the [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files.
 
@@ -471,7 +471,7 @@ If there were any changes to the upstream content, git will report the local fil
 You can use the <<building-for-preview,theme preview>> to verify the changes are acceptable.
 If everything looks good, you should commit these changes to the git repository.
 
-You'll need to run the `update-shared-partials` task periodically to keep the theme in sync with upstream changes.
+You'll need to run the update task periodically to keep the theme in sync with upstream changes.
 You could have a CI job handle this task.
 
 //FIXME: This section feels out of place

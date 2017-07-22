@@ -8,7 +8,7 @@ const buildPreview = require('./tasks/build-preview')
 const buildRelease = require('./tasks/build-release')
 const preview = require('./tasks/preview')
 const release = require('./tasks/release')
-const updateSharedPartials = require('./tasks/update-shared-partials')
+const update = require('./tasks/update')
 
 const config = require('./config')
 try {
@@ -58,6 +58,6 @@ gulp.task('release', ['build-release'], () => {
   })
 })
 
-gulp.task('update-shared-partials', () => {
-  return updateSharedPartials()
+gulp.task('update', () => {
+  return update()
 })
