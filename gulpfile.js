@@ -6,7 +6,7 @@ const gulp = require('gulp')
 const buildTheme = require('./tasks/build-theme')
 const buildPreview = require('./tasks/build-preview')
 const buildRelease = require('./tasks/build-release')
-const serve = require('./tasks/serve')
+const preview = require('./tasks/preview')
 const release = require('./tasks/release')
 const updateSharedPartials = require('./tasks/update-shared-partials')
 
@@ -37,8 +37,8 @@ gulp.task('build-preview', ['build-theme'], () => {
   return buildPreview(src, dest, destTheme)
 })
 
-gulp.task('serve', ['build-preview'], () => {
-  return serve({ dest, port: config.get('port') }, () => gulp.start('build-preview'))
+gulp.task('preview', ['build-preview'], () => {
+  return preview({ dest, port: config.get('port') }, () => gulp.start('build-preview'))
 })
 
 gulp.task('build-release', ['build-theme'], () => {
