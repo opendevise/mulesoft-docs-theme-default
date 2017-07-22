@@ -152,7 +152,7 @@ stylesheets/
 tasks/
   build.js
   build-preview.js
-  build-release.js
+  package.js
   preview.js
   release.js
   update.js
@@ -301,7 +301,7 @@ You should see:
 build
 build-preview
 preview
-build-release
+package
 release
 update
 ....
@@ -371,6 +371,15 @@ port: 5252
 You can override this value using the command line flag `--port` like this:
 
   $ gulp preview --port 1337
+
+=== Package
+
+If you need to package the theme to use it with the site generator in order to preview the theme on the real site in local development, run the following command:
+
+ $ gulp package
+
+The theme bundle will be available at [.path]_build/mulesoft-docs-theme-default-latest.zip_.
+You can then point the site generator at this bundle using the `--theme-archive` flag.
 
 == Working on the Theme
 

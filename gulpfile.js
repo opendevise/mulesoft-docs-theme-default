@@ -7,7 +7,7 @@ const config = require('./config')
 
 const build = require('./tasks/build')
 const buildPreview = require('./tasks/build-preview')
-const buildRelease = require('./tasks/build-release')
+const package_ = require('./tasks/package')
 const preview = require('./tasks/preview')
 const release = require('./tasks/release')
 const update = require('./tasks/update')
@@ -37,8 +37,8 @@ gulp.task('preview', ['build-preview'], () =>
   preview({ dest, port: config.get('port') }, () => gulp.start('build-preview'))
 )
 
-gulp.task('build-release', ['build'], () =>
-  buildRelease({ repo: config.get('repository.name'), dest, destTheme })
+gulp.task('package', ['build'], () =>
+  package_({ repo: config.get('repository.name'), dest, destTheme })
 )
 
 gulp.task('release', ['build-release'], () =>
