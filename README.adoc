@@ -152,7 +152,7 @@ stylesheets/
 tasks/
   build.js
   build-preview.js
-  package.js
+  pack.js
   preview.js
   release.js
   update.js
@@ -301,7 +301,7 @@ You should see:
 build
 build-preview
 preview
-package
+pack
 release
 update
 ....
@@ -376,7 +376,7 @@ You can override this value using the command line flag `--port` like this:
 
 If you need to package the theme to use it with the site generator in order to preview the theme on the real site in local development, run the following command:
 
- $ gulp package
+ $ gulp pack
 
 The theme bundle will be available at [.path]_build/mulesoft-docs-theme-default-latest.zip_.
 You can then point the site generator at this bundle using the `--theme-archive` flag.
