@@ -11,8 +11,11 @@
   </div>
   <article class="primary-content">
     <header class="article-header">
+      {{>domain-version-selector}}
       <div class="breadcrumb">
-        <strong class="breadcrumb-item">[ Domain Selector Placeholder ]</strong> /
+        {{#each breadcrumbs }}
+          <a class="breadcrumb-item" href="{{this.href}}">{{{this.label}}}</a> /
+        {{/each}}
         <span class="breadcrumb-item">{{title}}</span>
       </div>
       <div class="edit-on-github">

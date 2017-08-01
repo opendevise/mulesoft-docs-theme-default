@@ -25,7 +25,7 @@ const postcssPlugins = [
       }
     },
   }),
-  cssnano(),
+  cssnano({ preset: 'default' }),
 ]
 
 module.exports = (src, dest) => {

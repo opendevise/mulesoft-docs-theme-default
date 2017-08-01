@@ -1,0 +1,17 @@
+<div class="domain-version-selector" data-state="collapsed">
+  <button class="domain-version-selector-toggle">
+    {{domain}} (version {{version}})
+  </button>
+  <div class="domain-version-selector-panel">
+    {{#each domainVersionIndex }}
+      <div class="brdcrb-domain">
+        <div class="brdcrb-domain-label">{{this.domain}}</div>
+        <div class="brdcrb-version-list">
+          {{#each this.versions }}
+            <a class="brdcrb-version" href="{{this.href}}">{{this.version}}</a>
+          {{/each}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

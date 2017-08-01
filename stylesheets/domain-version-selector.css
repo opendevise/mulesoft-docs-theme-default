@@ -1,0 +1,87 @@
+.domain-version-selector {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.domain-version-selector-toggle {
+  background: transparent url(../images/chevron.svg) no-repeat calc(100% - 0.65rem) 50%;
+  background-size: auto 55%;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 0.3rem 2.2rem 0.3rem 0.5rem;
+}
+
+.domain-version-selector[data-state="collapsed"] .domain-version-selector-toggle:active,
+.domain-version-selector[data-state="collapsed"] .domain-version-selector-toggle:focus,
+.domain-version-selector[data-state="collapsed"] .domain-version-selector-toggle:hover {
+  border-color: var(--color-b);
+  outline: none;
+}
+
+.domain-version-selector[data-state="expanded"] .domain-version-selector-toggle {
+  border-color: transparent;
+  z-index: 4;
+}
+
+.domain-version-selector-toggle:active,
+.domain-version-selector-toggle:focus,
+.domain-version-selector-toggle:hover {
+  border-color: var(--color-b);
+  outline: none;
+  z-index: 3;
+}
+
+.domain-version-selector-panel {
+  background-color: #f4f5f6;
+  border: 1px solid var(--color-b);
+  border-radius: 0.3rem;
+  left: 0;
+  padding: 2.5rem 0.5rem 0.5rem;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+.domain-version-selector[data-state="collapsed"] .domain-version-selector-panel {
+  display: none;
+}
+
+.brdcrb-domain {
+  align-items: center;
+  display: flex;
+}
+
+.brdcrb-version-list {
+  display: flex;
+}
+
+.brdcrb-domain-label {
+  font-weight: bold;
+  padding-right: 0.5rem;
+  text-align: right;
+  width: 12rem;
+}
+
+.brdcrb-version {
+  display: block;
+  border: 1px solid var(--color-aa);
+  border-radius: 0.3rem;
+  color: var(--color-aa) !important;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  margin: 0.2rem;
+  padding: 0 0.5rem;
+  text-align: center;
+}
+
+.brdcrb-domain .brdcrb-version:hover {
+  border-color: var(--color-b) !important;
+  background-color: var(--color-b);
+  color: #fff !important;
+  text-decoration: none !important;
+}
