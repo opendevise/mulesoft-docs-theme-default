@@ -268,7 +268,7 @@ Before you can start working on the theme, you need to grab the sources and init
 To start, clone the theme project using git:
 
 [subs=attributes+]
- $ git clone {uri-repo} &&
+ $ git clone --single-branch {uri-repo} &&
    cd "`basename $_`"
 
 Next, you'll need to initialize the project.
