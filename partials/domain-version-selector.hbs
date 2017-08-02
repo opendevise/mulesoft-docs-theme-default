@@ -1,6 +1,6 @@
 <div class="domain-version-selector" data-state="collapsed">
   <button class="domain-version-selector-toggle">
-    {{domain}} (version {{version}})
+    {{domain}} {{#version-label version}}{{/version-label}}
   </button>
   <div class="domain-version-selector-panel">
     {{#each domainVersionIndex }}
