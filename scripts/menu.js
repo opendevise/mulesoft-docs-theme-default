@@ -7,7 +7,8 @@
 
     const li = btn.parentElement
     btn.addEventListener('click', () => {
-      li.dataset.state = (li.dataset.state === 'collapsed') ? 'expanded' : 'collapsed'
+      const collapsed = (li.dataset.state === 'collapsed' || li.dataset.state == null)
+      li.dataset.state = collapsed ? 'expanded' : 'collapsed'
     })
   })
 })()
