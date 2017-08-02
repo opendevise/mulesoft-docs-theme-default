@@ -469,9 +469,10 @@ The modifications mostly center around injecting vendor prefixes for compatibili
 
 === Shared Partials
 
-Some of the page content is managed externally.
-In particular, the [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files include the header and footer content common to all the MuleSoft developer properties.
-The theme incorporates this content into the theme bundle to provide a certain level of control and stability.
+The content in the header and footer of each page (i.e., the site branding) is managed externally.
+The [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files, which contain the header and footer content common to all the MuleSoft developer properties, are generated from a shared endpoint.
+The theme incorporates this content into the theme bundle.
+By doing so, it insulates the site generator from the details of how this integration works and provides some additional control over the markup used for these areas of the page.
 
 The question remains, how do these files get updated?
 That's the job of the `update` Gulp task.
