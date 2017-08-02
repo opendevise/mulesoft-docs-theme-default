@@ -18,6 +18,11 @@
         {{/each}}
         <span class="breadcrumb-item">{{title}}</span>
       </div>
+      <div class="page-version-selector">
+        {{#each otherVersions }}
+          <a class="page-version{{#equals this.version ../version}} page-version--current{{/equals}}" href="{{this.href}}">{{{this.version}}}</a>
+        {{/each}}
+      </div>
       <div class="edit-on-github">
         <a href="{{github-edit-url}}" class="edit-on-github-link">Edit on Github</a>
       </div>

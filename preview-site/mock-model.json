@@ -5,6 +5,11 @@
     "title": "Shared Resources",
     "domain": "Anypoint Connector Devkit",
     "version": "3.6",
+    "otherVersions": [
+        { "version": "3.5", "href": "/anypoint-connector-devkit/3.5/index.html" },
+        { "version": "3.6", "href": "/anypoint-connector-devkit/3.6/index.html" },
+        { "version": "3.7", "href": "/anypoint-connector-devkit/3.7/index.html" }
+    ],
     "domainVersionIndex": [
         {
             "domain": "anypoint-connector-devkit",
