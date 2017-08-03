@@ -59,7 +59,7 @@
   margin-left: 1rem;
 }
 
-.nav-itm:not([data-state="expanded"]):not([data-depth="0"]) .nav-lst {
+.nav-itm:not([data-state="expanded"]):not([data-depth="0"]) > .nav-lst {
   display: none;
 }
 
@@ -95,7 +95,7 @@
   text-decoration: none;
 }
 
-.nav-lnk.nav-lnk--currentPage {
+.nav-itm--currentPage .nav-lnk {
   color: var(--color-b);
 }
 
