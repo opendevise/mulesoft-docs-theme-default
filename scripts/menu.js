@@ -16,7 +16,7 @@
   })
 
   function restoreExpandedSate() {
-    const state = JSON.parse(sessionStorage.getItem('expanded-links') || {})
+    const state = JSON.parse(sessionStorage.getItem('expanded-links') || '{}')
     const expandedLinks = state.expandedLinks || []
     qsa('.inner-nav .nav-lnk')
       .filter((link) => expandedLinks.includes(link.href))
