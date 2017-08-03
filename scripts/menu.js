@@ -1,6 +1,9 @@
 !(function () {
   'use strict'
 
+  const $innerNav = document.querySelector('.inner-nav')
+  $innerNav.addEventListener('scroll', () => saveExpandedState())
+
   restoreExpandedSate()
 
   qsa('.nav-tgl').forEach((btn) => {
@@ -13,17 +16,21 @@
   })
 
   function restoreExpandedSate() {
-    const jsonExpandedLinks = sessionStorage.getItem('expanded-links')
-    const expandedLinks = (jsonExpandedLinks != null) ? JSON.parse(jsonExpandedLinks) : []
+    const state = JSON.parse(sessionStorage.getItem('expanded-links') || {})
+    const expandedLinks = state.expandedLinks || []
     qsa('.inner-nav .nav-lnk')
       .filter((link) => expandedLinks.includes(link.href))
       .forEach((link) => link.parentElement.dataset.state = 'expanded')
+    $innerNav.scrollTop = state.innerNavScrollTop
   }
 
   function saveExpandedState() {
     const expandedLinks = qsa('.inner-nav .nav-itm[data-state="expanded"] > .nav-lnk')
       .map((a) => a.href)
-    sessionStorage.setItem('expanded-links', JSON.stringify(expandedLinks))
+    sessionStorage.setItem('expanded-links', JSON.stringify({
+      innerNavScrollTop: parseInt($innerNav.scrollTop),
+      expandedLinks,
+    }))
   }
 
   function qsa(selector) {
