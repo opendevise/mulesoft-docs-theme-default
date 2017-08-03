@@ -1,0 +1,10 @@
+{{#if otherVersions}}
+  <div class="page-version-selector" data-state="collapsed">
+    <button class="page-version-selector-toggle">page version {{version}}</button>
+    <div class="page-version-selector-panel">
+      {{#each otherVersions }}
+        <a class="page-version{{#equals this.version ../version}} page-version--current{{/equals}}" href="{{this.href}}">{{{this.version}}}</a>
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

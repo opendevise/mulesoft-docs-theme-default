@@ -405,27 +405,3 @@
   padding: 0 .75em;
   line-height: 1;
 }
-
-.page-version-selector .page-version,
-.page-version-selector .page-version:visited {
-  border: 1px solid #333;
-  border-radius: 0.3rem;
-  box-sizing: border-box;
-  display: inline-block;
-  color: #333;
-  font-weight: bold;
-  padding: 0 0.3rem;
-}
-
-.page-version-selector .page-version:hover {
-  border-color: var(--color-b);
-  color: var(--color-b);
-  text-decoration: none;
-}
-
-.page-version-selector .page-version.page-version--current,
-.page-version-selector .page-version.page-version--current:hover {
-  background-color: var(--color-b);
-  border-color: var(--color-b);
-  color: #fff !important;
-}

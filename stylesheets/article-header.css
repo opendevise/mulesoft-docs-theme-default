@@ -15,14 +15,13 @@
   font-size: 0.8rem;
 }
 
+.breadcrumb {
+  flex: 1 1 0;
+}
+
 .breadcrumb-item,
 .breadcrumb-select {
   margin: 0 0.5rem;
-}
-
-.edit-on-github {
-  flex: 1 1 0;
-  text-align: right;
 }
 
 .edit-on-github-link {
