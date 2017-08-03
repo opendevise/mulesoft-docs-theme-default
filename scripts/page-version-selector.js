@@ -2,6 +2,10 @@
   'use strict'
 
   const $toggle = document.querySelector('.page-version-selector-toggle')
+  if ($toggle == null) {
+    return
+  }
+
   const $component = document.querySelector('.page-version-selector')
 
   $toggle.addEventListener('click', () => {
