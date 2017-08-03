@@ -7,7 +7,7 @@
             <button class="nav-tgl"></button>
           {{/if}}
         {{/if}}
-        <a class="nav-lnk" href="{{this.href}}">{{{this.label}}}</a>
+        <a class="nav-lnk{{#if this.currentPath}} nav-lnk--currentPath{{/if}}{{#if this.currentPage}} nav-lnk--currentPage{{/if}}" href="{{this.href}}">{{{this.label}}}</a>
         {{> navigation navigation=this.items }}
       </li>
     {{/each}}

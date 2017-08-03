@@ -299,11 +299,13 @@
             "depth": 0,
             "label": "Level 0 item 0",
             "href": "level-0-item-0.html",
+            "currentPath": true,
             "items": [
                 {
                     "depth": 1,
                     "label": "INDEX",
                     "href": "index.html",
+                    "currentPage": true,
                     "items": []
                 },
                 {

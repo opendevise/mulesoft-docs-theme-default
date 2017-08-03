@@ -95,6 +95,10 @@
   text-decoration: none;
 }
 
+.nav-lnk.nav-lnk--currentPage {
+  color: var(--color-b);
+}
+
 .nav-itm[data-depth="0"] > .nav-lnk,
 .nav-itm[data-depth="0"] > .nav-lst {
   margin-left: 0.25rem;
