@@ -4,11 +4,11 @@
   </button>
   <div class="domain-version-selector-panel">
     {{#each domainVersionIndex }}
-      <div class="brdcrb-domain">
+      <div class="brdcrb-domain{{#if this.selected}} brdcrb-domain--current{{/if}}">
         <div class="brdcrb-domain-label">{{this.domain}}</div>
         <div class="brdcrb-version-list">
           {{#each this.versions }}
-            <a class="brdcrb-version" href="{{this.href}}">{{this.version}}</a>
+            <a class="brdcrb-version{{#if this.selected}} brdcrb-version--current{{/if}}" href="{{this.href}}">{{this.version}}</a>
           {{/each}}
         </div>
       </div>

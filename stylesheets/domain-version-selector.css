@@ -79,6 +79,7 @@
   text-align: center;
 }
 
+.brdcrb-domain .brdcrb-version.brdcrb-version--current,
 .brdcrb-domain .brdcrb-version:hover {
   border-color: var(--color-b) !important;
   background-color: var(--color-b);
