@@ -78,6 +78,7 @@
   margin: 0.2rem;
   padding: 0 0.5rem;
   text-align: center;
+  white-space: nowrap;
 }
 
 .brdcrb-domain .brdcrb-version.brdcrb-version--current,
