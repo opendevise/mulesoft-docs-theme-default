@@ -68,11 +68,12 @@
 }
 
 .brdcrb-version {
-  display: block;
-  border: 1px solid var(--color-aa);
   border-radius: 0.3rem;
+  border: 1px solid var(--color-aa);
   color: var(--color-aa) !important;
+  display: block;
   height: 1.4rem;
+  hyphens: none;
   line-height: 1.4rem;
   margin: 0.2rem;
   padding: 0 0.5rem;
