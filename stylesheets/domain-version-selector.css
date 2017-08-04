@@ -25,7 +25,7 @@
 
 .domain-version-selector[data-state="expanded"] .domain-version-selector-toggle {
   border-color: transparent;
-  z-index: 4;
+  z-index: 5;
 }
 
 .domain-version-selector-toggle:active,
@@ -33,7 +33,7 @@
 .domain-version-selector-toggle:hover {
   border-color: var(--color-b);
   outline: none;
-  z-index: 3;
+  z-index: 4;
 }
 
 .domain-version-selector-panel {
@@ -44,7 +44,7 @@
   padding: 2.5rem 0.5rem 0.5rem;
   position: absolute;
   top: 0;
-  z-index: 3;
+  z-index: 4;
 }
 
 .domain-version-selector[data-state="collapsed"] .domain-version-selector-panel {
