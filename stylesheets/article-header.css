@@ -10,17 +10,20 @@
   padding: 0 0.7rem;
 }
 
-.article-header,
-.breadcrumb-select {
+.article-header {
   font-size: 0.75rem;
 }
 
 .breadcrumb {
   flex: 1 1 0;
+  padding: 0 1rem;
 }
 
-.breadcrumb-item,
-.breadcrumb-select {
+.breadcrumb-item {
+  hyphens: none;
+}
+
+.breadcrumb-sep {
   margin: 0 0.5rem;
 }
 

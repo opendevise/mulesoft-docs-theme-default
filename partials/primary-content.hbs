@@ -14,9 +14,13 @@
       {{>domain-version-selector}}
       <div class="breadcrumb">
         {{#each breadcrumbs }}
-          <a class="breadcrumb-item" href="{{this.href}}">{{{this.label}}}</a> /
+          {{#if this.href}}
+            <span class="breadcrumb-item-wrapper"><a class="breadcrumb-item" href="{{this.href}}">{{{this.label}}}</a></span>
+          {{else}}
+            <span class="breadcrumb-item-wrapper"><span class="breadcrumb-item">{{{this.label}}}</span></span>
+          {{/if}}
+          {{#unless @last}}<span class="breadcrumb-sep">/</span>{{/unless}}
         {{/each}}
-        <span class="breadcrumb-item">{{title}}</span>
       </div>
       {{>page-version-selector}}
       <div class="edit-on-github">

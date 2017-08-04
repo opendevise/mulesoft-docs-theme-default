@@ -6,6 +6,21 @@
     "domain": "anypoint-connector-devkit",
     "domainLabel": "Anypoint Connector Devkit",
     "version": "3.6",
+    "breadcrumbs": [
+        {
+            "depth": 0,
+            "label": "Level 0 item 0",
+            "href": "level-0-item-0.html",
+            "currentPath": true
+        },
+        {
+            "depth": 1,
+            "label": "INDEX",
+            "href": "index.html",
+            "currentPage": true,
+            "items": []
+        }
+    ],
     "otherVersions": [
         { "version": "3.5", "href": "/anypoint-connector-devkit/3.5/index.html" },
         { "version": "3.6", "href": "/anypoint-connector-devkit/3.6/index.html" },
