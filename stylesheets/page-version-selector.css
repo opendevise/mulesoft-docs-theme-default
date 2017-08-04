@@ -6,16 +6,16 @@
 .page-version-selector-toggle {
   background: url(../images/chevron-white.svg) no-repeat calc(100% - 0.65rem) 50%;
   background-color: var(--color-b);
-  background-size: auto 55%;
+  background-size: auto 50%;
   border-radius: 0.3rem;
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: bold;
   margin: 0;
-  padding: 0.3rem 2.2rem 0.3rem 0.5rem;
+  padding: .3rem 2rem .3rem 0.5rem;
   position: relative;
   z-index: 3;
 }
@@ -31,7 +31,7 @@
   border-radius: 0.3rem;
   box-sizing: border-box;
   left: 0;
-  padding: 2.5rem 2.2rem 0.3rem 0.5rem;
+  padding: 1.6rem 0.5rem 0.3rem 0.5rem;
   position: absolute;
   top: 0;
   width: 100%;
@@ -45,7 +45,7 @@
 .page-version-selector .page-version {
   display: block;
   color: #fff !important;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: bold;
 }
 
