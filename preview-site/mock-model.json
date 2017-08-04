@@ -3,7 +3,8 @@
     "canonical-url": "https://example.com/index.html",
     "github-edit-url": "https://github.com/mulesoft/mulesoft-docs",
     "title": "Shared Resources",
-    "domain": "Anypoint Connector Devkit",
+    "domain": "anypoint-connector-devkit",
+    "domainLabel": "Anypoint Connector Devkit",
     "version": "3.6",
     "otherVersions": [
         { "version": "3.5", "href": "/anypoint-connector-devkit/3.5/index.html" },
