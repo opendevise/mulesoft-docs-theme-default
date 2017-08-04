@@ -7,16 +7,19 @@
   height: 2.8rem;
   justify-content: flex-start;
   margin-bottom: 1rem;
-  padding: 0 0.7rem;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
 }
 
-.article-header {
-  font-size: 0.75rem;
+.article-header a,
+.article-header a:hover,
+.article-header a:visited {
+  color: var(--color-aa);
 }
 
 .breadcrumb {
   flex: 1 1 0;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 }
 
 .breadcrumb-item {
@@ -24,7 +27,11 @@
 }
 
 .breadcrumb-sep {
-  margin: 0 0.5rem;
+  margin: 0 0.25rem;
+}
+
+.edit-on-github {
+  padding-right: 0.5rem;
 }
 
 .edit-on-github-link {

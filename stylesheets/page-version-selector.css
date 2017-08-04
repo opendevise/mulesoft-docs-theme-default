@@ -1,34 +1,36 @@
 .page-version-selector {
-  margin-right: 1rem;
+  margin-right: 0.7rem;
   position: relative;
 }
 
 .page-version-selector-toggle {
-  background: url(../images/chevron-white.svg) no-repeat calc(100% - 0.65rem) 50%;
-  background-color: var(--color-b);
+  background: transparent url(../images/chevron.svg) no-repeat calc(100% - 0.5rem) 50%;
   background-size: auto 50%;
-  border-radius: 0.3rem;
   border: 1px solid transparent;
-  color: #fff;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
-  font-weight: bold;
   margin: 0;
   padding: .3rem 2rem .3rem 0.5rem;
   position: relative;
   z-index: 3;
 }
 
+.page-version-selector[data-state="expanded"] .page-version-selector-toggle {
+  background-image: url(../images/chevron-white.svg);
+  color: #fff;
+}
+
+.page-version-selector-toggle:hover,
 .page-version-selector-toggle:active,
 .page-version-selector-toggle:focus {
   outline: none;
+  border-color: var(--color-b);
 }
 
 .page-version-selector-panel {
   background-color: var(--color-b);
   border: 1px solid var(--color-b);
-  border-radius: 0.3rem;
   box-sizing: border-box;
   left: 0;
   padding: 1.6rem 0.5rem 0.3rem 0.5rem;
@@ -46,7 +48,6 @@
   display: block;
   color: #fff !important;
   font-size: 0.75rem;
-  font-weight: bold;
 }
 
 .page-version-selector .page-version:hover {

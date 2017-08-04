@@ -5,15 +5,15 @@
 }
 
 .domain-version-selector-toggle {
-  background: transparent url(../images/chevron.svg) no-repeat calc(100% - 0.65rem) 50%;
-  background-size: auto 55%;
-  border-radius: 0.3rem;
+  background: transparent url(../images/chevron.svg) no-repeat calc(100% - 0.5rem) 50%;
+  background-size: auto 50%;
   border: 1px solid transparent;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   margin: 0;
-  padding: 0.3rem 2.2rem 0.3rem 0.5rem;
+  padding: 0.3rem 2rem 0.3rem 0.5rem;
+  color: var(--color-aa);
 }
 
 .domain-version-selector[data-state="collapsed"] .domain-version-selector-toggle:active,
@@ -39,7 +39,6 @@
 .domain-version-selector-panel {
   background-color: #f4f5f6;
   border: 1px solid var(--color-b);
-  border-radius: 0.3rem;
   left: 0;
   padding: 2.5rem 0.5rem 0.5rem;
   position: absolute;
@@ -68,7 +67,6 @@
 }
 
 .brdcrb-version {
-  border-radius: 0.3rem;
   border: 1px solid var(--color-aa);
   color: var(--color-aa) !important;
   display: block;
