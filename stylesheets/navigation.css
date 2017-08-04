@@ -95,7 +95,7 @@
   text-decoration: none;
 }
 
-.nav-itm--currentPage .nav-lnk {
+.nav-itm--currentPage > .nav-lnk {
   color: var(--color-b);
 }
 
