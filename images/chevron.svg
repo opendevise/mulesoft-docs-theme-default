@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="32"
-     inkscape:cx="11.230271"
-     inkscape:cy="15.958876"
+     inkscape:zoom="22.627417"
+     inkscape:cx="10.05311"
+     inkscape:cy="10.530062"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -55,11 +55,11 @@
      id="layer1"
      transform="translate(0,-1022.3622)">
     <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 27.00015,1030.362 -12.0002,14.0001 -12.0001,-14.0001 12.00015,8 z"
-       id="rect3338"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 3.6699219,6.5898438 1.4550781,8.6152344 15,23.374272 28.544922,8.6152344 26.330078,6.5898438 15,18.759498 Z"
+       transform="translate(0,1022.3622)"
+       id="rect4136"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc"
-       inkscape:transform-center-y="2.1875" />
+       sodipodi:nodetypes="ccccccc" />
   </g>
 </svg>
