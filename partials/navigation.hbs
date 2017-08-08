@@ -7,7 +7,11 @@
             <button class="nav-tgl"></button>
           {{/if}}
         {{/if}}
-        <a class="nav-lnk" href="{{this.href}}">{{{this.label}}}</a>
+        {{#if this.href }}
+          <a class="nav-lnk" href="{{this.href}}">{{{this.label}}}</a>
+        {{else}}
+          <span class="nav-lbl">{{{this.label}}}</span>
+        {{/if}}
         {{> navigation navigation=this.items }}
       </li>
     {{/each}}
