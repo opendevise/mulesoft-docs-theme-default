@@ -277,7 +277,6 @@
                     "depth": 1,
                     "label": "INDEX",
                     "href": "index.html",
-                    "currentPage": true,
                     "items": []
                 },
                 {
@@ -345,6 +344,7 @@
                     "depth": 1,
                     "label": "HTTPS link",
                     "href": "https://covfefe.com",
+                    "currentPage": true,
                     "items": []
                 }
             ]

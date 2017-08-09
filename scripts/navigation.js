@@ -19,17 +19,21 @@
   })
 
   function restoreExpandedSate() {
-    const state = JSON.parse(sessionStorage.getItem('expanded-links') || '{}')
+    const state = JSON.parse(sessionStorage.getItem('nav-state') || '{}')
     const expandedLinks = state.expandedLinks || []
 
     if (currentDomain == state.currentDomain && currentVersion == state.currentVersion) {
       qsa('.inner-nav .nav-lnk')
         .filter((link) => expandedLinks.includes(link.href))
         .forEach((link) => link.parentElement.dataset.state = 'expanded')
-      $innerNav.scrollTop = state.innerNavScrollTop
+      $innerNav.scrollTop = state.scrollSeed
     }
     else {
       // reset
+      const $currentPage = document.querySelector('.nav-itm--currentPage')
+      if ($currentPage) {
+        scrollIntoViewIfNeeded($currentPage, $innerNav)
+      }
       saveExpandedState()
     }
   }
@@ -37,8 +41,8 @@
   function saveExpandedState() {
     const expandedLinks = qsa('.inner-nav .nav-itm[data-state="expanded"] > .nav-lnk')
       .map((a) => a.href)
-    sessionStorage.setItem('expanded-links', JSON.stringify({
-      innerNavScrollTop: parseInt($innerNav.scrollTop),
+    sessionStorage.setItem('nav-state', JSON.stringify({
+      scrollSeed: parseInt($innerNav.scrollTop),
       expandedLinks,
       currentDomain,
       currentVersion,
@@ -47,5 +51,14 @@
 
   function qsa(selector) {
     return Array.from(document.querySelectorAll(selector))
+  }
+
+  // simplified version from this polyfill https://gist.github.com/hsablonniere/2581101
+  function scrollIntoViewIfNeeded(element, parent) {
+    const overTop = (element.offsetTop - parent.offsetTop) < parent.scrollTop
+    const overBottom = (element.offsetTop - parent.offsetTop + element.clientHeight) > (parent.scrollTop + parent.clientHeight)
+    if (overTop || overBottom) {
+      element.scrollIntoView()
+    }
   }
 })()

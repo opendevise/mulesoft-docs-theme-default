@@ -45,7 +45,7 @@
   flex: 1 1 0;
   min-height: 0;
   overflow: auto;
-  padding: 0.5rem 0.5rem 0.5rem 0;
+  padding: 0 0.5rem 0.5rem 0;
 }
 
 .nav-lst {
@@ -76,6 +76,7 @@
   cursor: pointer;
   height: 1.4rem;
   outline: none !important;
+  margin-top: 0.35rem;
   padding: 0;
   width: 0.75rem;
 }
@@ -92,8 +93,13 @@
   flex: 1 1 0;
   line-height: 1.4rem;
   margin-left: 1.2rem;
-  padding-bottom: 0.35rem;
+  padding-top: 0.35rem;
   text-decoration: none;
+}
+
+.inner-nav > .nav-lst:first-child > .nav-itm:first-child > .nav-lnk,
+.inner-nav > .nav-lst:first-child > .nav-itm:first-child > .nav-lbl {
+  padding-top: 0.5rem;
 }
 
 .nav-itm--currentPage > .nav-lnk,
