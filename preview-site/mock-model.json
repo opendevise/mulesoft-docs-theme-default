@@ -4,7 +4,7 @@
     "github-edit-url": "https://github.com/mulesoft/mulesoft-docs",
     "title": "Shared Resources",
     "domain": "anypoint-connector-devkit",
-    "domainLabel": "Anypoint Connector Devkit",
+    "domainTitle": "Anypoint Connector Devkit",
     "version": "3.6",
     "breadcrumbs": [
         {
@@ -29,7 +29,7 @@
     "domainVersionIndex": [
         {
             "domain": "anypoint-connector-devkit",
-            "domainLabel": "Anypoint Connector Devkit",
+            "domainTitle": "Anypoint Connector Devkit",
             "versions": [
                 {
                     "version": "3.8 (latest)",
@@ -65,7 +65,7 @@
         },
         {
             "domain": "anypoint-platform",
-            "domainLabel": "Anypoint Platform",
+            "domainTitle": "Anypoint Platform",
             "versions": [
                 {
                     "version": "latest",
@@ -75,7 +75,7 @@
         },
         {
             "domain": "anypoint-studio",
-            "domainLabel": "Anypoint Studio",
+            "domainTitle": "Anypoint Studio",
             "versions": [
                 {
                     "version": "6 (latest)",
@@ -89,7 +89,7 @@
         },
         {
             "domain": "apikit",
-            "domainLabel": "Apikit",
+            "domainTitle": "Apikit",
             "versions": [
                 {
                     "version": "3.8 (latest)",
@@ -99,7 +99,7 @@
         },
         {
             "domain": "exchange",
-            "domainLabel": "Exchange",
+            "domainTitle": "Exchange",
             "versions": [
                 {
                     "version": "latest",
@@ -109,7 +109,7 @@
         },
         {
             "domain": "healthcare-toolkit",
-            "domainLabel": "Healthcare Toolkit",
+            "domainTitle": "Healthcare Toolkit",
             "versions": [
                 {
                     "version": "3.0 (latest)",
@@ -127,7 +127,7 @@
         },
         {
             "domain": "mq",
-            "domainLabel": "Mq",
+            "domainTitle": "Mq",
             "versions": [
                 {
                     "version": "1.7 (latest)",
@@ -137,7 +137,7 @@
         },
         {
             "domain": "mule-management-console",
-            "domainLabel": "Mule Management Console",
+            "domainTitle": "Mule Management Console",
             "versions": [
                 {
                     "version": "3.8 (latest)",
@@ -171,7 +171,7 @@
         },
         {
             "domain": "mule-runtime",
-            "domainLabel": "Mule Runtime",
+            "domainTitle": "Mule Runtime",
             "versions": [
                 {
                     "version": "3.8 (latest)",
@@ -185,7 +185,7 @@
         },
         {
             "domain": "munit",
-            "domainLabel": "Munit",
+            "domainTitle": "Munit",
             "versions": [
                 {
                     "version": "1.3 (latest)",
@@ -207,7 +207,7 @@
         },
         {
             "domain": "object-store",
-            "domainLabel": "Object Store",
+            "domainTitle": "Object Store",
             "versions": [
                 {
                     "version": "2.1 (latest)",
@@ -217,7 +217,7 @@
         },
         {
             "domain": "partner-manager",
-            "domainLabel": "Partner Manager",
+            "domainTitle": "Partner Manager",
             "versions": [
                 {
                     "version": "latest",
@@ -227,7 +227,7 @@
         },
         {
             "domain": "release-notes",
-            "domainLabel": "Release Notes",
+            "domainTitle": "Release Notes",
             "versions": [
                 {
                     "version": "latest",
@@ -237,7 +237,7 @@
         },
         {
             "domain": "runtime-manager-agent",
-            "domainLabel": "Runtime Manager Agent",
+            "domainTitle": "Runtime Manager Agent",
             "versions": [
                 {
                     "version": "1.7 (latest)",
@@ -247,7 +247,7 @@
         },
         {
             "domain": "solutions",
-            "domainLabel": "Solutions",
+            "domainTitle": "Solutions",
             "versions": [
                 {
                     "version": "latest",
@@ -257,7 +257,7 @@
         },
         {
             "domain": "tcat-server",
-            "domainLabel": "Tcat Server",
+            "domainTitle": "Tcat Server",
             "versions": [
                 {
                     "version": "7.1 (latest)",
