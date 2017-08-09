@@ -3,6 +3,9 @@
     {{domainTitle}} {{#version-label version}}{{/version-label}}
   </button>
   <div class="domain-version-selector-panel">
+    {{#if root-href}}
+      <a href="{{root-href}}" class="root-href"></a>
+    {{/if}}
     {{#each domainVersionIndex }}
       <div class="brdcrb-domain{{#if this.selected}} brdcrb-domain--current{{/if}}">
         <div class="brdcrb-domain-label">{{this.domainTitle}}</div>

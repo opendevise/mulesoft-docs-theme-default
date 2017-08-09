@@ -40,7 +40,7 @@
   background-color: #f4f5f6;
   border: 1px solid var(--color-b);
   left: 0;
-  padding: 2.25rem 0.5rem 0.5rem;
+  padding: 2.5rem 0.5rem 0.5rem;
   position: absolute;
   top: 0;
   z-index: 4;
@@ -48,6 +48,22 @@
 
 .domain-version-selector[data-state="collapsed"] .domain-version-selector-panel {
   display: none;
+}
+
+.root-href {
+  background: url(../images/home.svg) no-repeat center center;
+  background-size: contain;
+  display: block;
+  height: 1.5rem;
+  padding: 0;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 1.5rem;
+}
+
+.root-href:hover {
+  background-image: url(../images/home-hovered.svg);
 }
 
 .brdcrb-domain {
