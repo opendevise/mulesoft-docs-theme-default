@@ -54,16 +54,21 @@
   background: url(../images/home.svg) no-repeat center center;
   background-size: contain;
   display: block;
-  height: 1.5rem;
+  height: 1.3rem;
   padding: 0;
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
-  width: 1.5rem;
+  margin-right: 0.3rem;
+  width: 1.3rem;
 }
 
 .root-href:hover {
   background-image: url(../images/home-hovered.svg);
+}
+
+.domain-version-selector .root-href {
+  position: absolute;
+  right: 0;
+  top: 0.1rem;
+  margin-right: 0.5rem;
 }
 
 .brdcrb-domain {
