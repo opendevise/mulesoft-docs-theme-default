@@ -8,11 +8,24 @@ body {
   box-sizing: border-box;
   color: #fff;
   font-family: 'PT Sans', sans-serif;
+  height: var(--header-height);
   position: fixed;
   top: 0;
   width: 100%;
   word-wrap: break-word;
   z-index: 6;
+}
+
+.header__region,
+.header__top-wrapper {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header__region,
+  .header__top-wrapper {
+    display: block;
+  }
 }
 
 .header__wrapper {
@@ -36,8 +49,13 @@ body {
   margin: 0.5rem 0.5rem 0 0;
 }
 
+#open-left,
 .block__title,
 .block-title {
   display: none;
 }
 
+/*
+Array.from($$('table')).forEach((i)=>{i.parentElement.removeChild(i)})
+Array.from($$('.listingblock')).forEach((i)=>{i.parentElement.removeChild(i)})
+*/

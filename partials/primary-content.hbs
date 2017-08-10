@@ -4,6 +4,7 @@
       <div class="search">
         <input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
       </div>
+      <button class="navigation-close"></button>
       <div class="inner-nav" data-domain="{{domain}}" data-version="{{version}}">
         {{> navigation }}
       </div>
@@ -11,6 +12,7 @@
   </div>
   <article class="primary-content">
     <header class="article-header">
+        <button class="navigation-open"></button>
       {{#if root-href}}
         <a href="{{root-href}}" class="root-href"></a>
       {{/if}}

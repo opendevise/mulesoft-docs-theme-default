@@ -1,6 +1,13 @@
 .page-version-selector {
+  display: none;
   margin-right: 0.7rem;
   position: relative;
+}
+
+@media (min-width: 1024px) {
+  .page-version-selector {
+    display: block;
+  }
 }
 
 .page-version-selector-toggle {

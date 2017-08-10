@@ -319,6 +319,18 @@
 .primary-content .listingblock {
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
+  /* this doesn't make sense */
+  max-width: 95vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (min-width: 700px) {
+  .primary-content .listingblock {
+    max-width: 40rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 
 .primary-content .ulist .listingblock,
@@ -344,10 +356,11 @@
 }
 
 .primary-content .listingblock pre.highlight code {
-  display: block;
-  padding: 0.75rem;
   background-color: #f9fafa;
   box-shadow: inset 0 0 2px #aaa;
+  box-sizing: border-box;
+  display: block;
+  padding: 0.75rem;
 }
 
 .primary-content .listingblock.wrap pre.highlight code {

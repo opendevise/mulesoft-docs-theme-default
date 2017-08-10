@@ -1,19 +1,29 @@
 .domain-version-selector {
   align-items: center;
   display: flex;
+  flex: 1 1 0;
+  margin-right: 0.5rem;
   position: relative;
+}
+
+@media (min-width: 650px) {
+  .domain-version-selector {
+    flex: 0 0 auto;
+  }
 }
 
 .domain-version-selector-toggle {
   background: transparent url(../images/chevron.svg) no-repeat calc(100% - 0.5rem) 50%;
   background-size: auto 50%;
   border: 1px solid transparent;
+  color: var(--color-aa);
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   margin: 0;
   padding: 0.3rem 2rem 0.3rem 0.5rem;
-  color: var(--color-aa);
+  text-align: left;
+  width: 100%;
 }
 
 .domain-version-selector[data-state="collapsed"] .domain-version-selector-toggle:active,
@@ -39,6 +49,7 @@
 .domain-version-selector-panel {
   background-color: #f4f5f6;
   border: 1px solid var(--color-b);
+  box-sizing: border-box;
   left: 0;
   padding: 2.5rem 0.5rem 0.5rem;
   position: absolute;
@@ -50,14 +61,30 @@
   display: none;
 }
 
+.domain-version-selector[data-state="expanded"] .domain-version-selector-panel {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: var(--header-height);
+  width: 100%;
+}
+
+@media (min-width: 650px) {
+  .domain-version-selector[data-state="expanded"] .domain-version-selector-panel {
+    bottom: auto;
+    position: absolute;
+    top: 0;
+    width: auto;
+  }
+}
+
 .root-href {
   background: url(../images/home.svg) no-repeat center center;
-  background-size: contain;
+  background-size: 60%;
   display: block;
-  height: 1.3rem;
+  height: 2.5rem;
   padding: 0;
-  margin-right: 0.35rem;
-  width: 1.3rem;
+  width: 2.5rem;
 }
 
 .root-href:hover {
@@ -76,6 +103,16 @@
 .brdcrb-domain {
   align-items: center;
   display: flex;
+}
+
+.domain-version-selector[data-state="expanded"] .brdcrb-version:not(:first-child) {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .domain-version-selector[data-state="expanded"] .brdcrb-version:not(:first-child) {
+    display: block;
+  }
 }
 
 .brdcrb-version-list {

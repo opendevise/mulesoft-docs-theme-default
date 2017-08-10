@@ -1,6 +1,7 @@
 !(function () {
   'use strict'
 
+  const $navWrapper = document.querySelector('.navigation-wrapper')
   const $innerNav = document.querySelector('.inner-nav')
   $innerNav.addEventListener('scroll', () => saveExpandedState())
 
@@ -16,6 +17,14 @@
       li.dataset.state = collapsed ? 'expanded' : 'collapsed'
       saveExpandedState()
     })
+  })
+
+  document.querySelector('.navigation-open').addEventListener('click', () => {
+    $navWrapper.dataset.state = 'open'
+  })
+
+  document.querySelector('.navigation-close').addEventListener('click', () => {
+    $navWrapper.dataset.state = null
   })
 
   function restoreExpandedSate() {
