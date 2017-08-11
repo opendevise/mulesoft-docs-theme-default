@@ -1,6 +1,6 @@
 destination: build
 theme_destination: _theme
 repository:
-  owner: opendevise
+  owner: mulesoft
   name: mulesoft-docs-theme-default
 port: 5252
