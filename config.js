@@ -31,7 +31,7 @@ const conf = convict({
   github_token: {
     doc: 'Token for Github auth',
     format: String,
-    default: 'f4ket0k3n',
+    default: 'personal-access-token-with-public_repo-scope',
     env: 'GITHUB_TOKEN',
     arg: 'github-token',
   },
