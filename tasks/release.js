@@ -2,8 +2,7 @@
 
 const path = require('path')
 
-const GitHubApi = require('github')
-const github = new GitHubApi()
+const github = require('github')()
 
 module.exports = async ({ owner, repo, token, dest }) => {
 
