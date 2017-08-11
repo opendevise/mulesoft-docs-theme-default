@@ -32,7 +32,7 @@
       // reset
       const $currentPage = document.querySelector('.nav-itm--currentPage')
       if ($currentPage) {
-        scrollIntoViewIfNeeded($currentPage, $innerNav)
+        scrollItemIntoView($currentPage, $innerNav)
       }
       saveExpandedState()
     }
@@ -53,12 +53,11 @@
     return Array.from(document.querySelectorAll(selector))
   }
 
-  // simplified version from this polyfill https://gist.github.com/hsablonniere/2581101
-  function scrollIntoViewIfNeeded(element, parent) {
-    const overTop = (element.offsetTop - parent.offsetTop) < parent.scrollTop
-    const overBottom = (element.offsetTop - parent.offsetTop + element.clientHeight) > (parent.scrollTop + parent.clientHeight)
-    if (overTop || overBottom) {
-      element.scrollIntoView()
+  // tries to get item as close to the top of the view as possible
+  function scrollItemIntoView(element, parent) {
+    const amountToScroll = element.offsetTop - parent.offsetTop
+    if (amountToScroll > 0) {
+      parent.scrollTop = amountToScroll
     }
   }
 })()
