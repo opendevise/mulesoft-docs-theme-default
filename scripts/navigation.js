@@ -26,7 +26,7 @@
       qsa('.inner-nav .nav-lnk')
         .filter((link) => expandedLinks.includes(link.href))
         .forEach((link) => link.parentElement.dataset.state = 'expanded')
-      $innerNav.scrollTop = state.seedScroll
+      $innerNav.scrollTop = state.currentScroll
     }
     else {
       // reset
@@ -42,7 +42,7 @@
     const expandedLinks = qsa('.inner-nav .nav-itm[data-state="expanded"] > .nav-lnk')
       .map((a) => a.href)
     sessionStorage.setItem('nav-state', JSON.stringify({
-      seedScroll: parseInt($innerNav.scrollTop),
+      currentScroll: parseInt($innerNav.scrollTop),
       expandedLinks,
       currentDomain,
       currentVersion,
