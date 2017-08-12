@@ -14,7 +14,7 @@
       {{#if root-href}}
         <a href="{{root-href}}" class="root-href"></a>
       {{/if}}
-      {{>domain-version-selector}}
+      {{> domain-version-selector}}
       <div class="breadcrumb">
         {{#each breadcrumbs }}
           {{#if this.href}}
@@ -25,7 +25,7 @@
           {{#unless @last}}<span class="breadcrumb-sep">/</span>{{/unless}}
         {{/each}}
       </div>
-      {{>page-version-selector}}
+      {{> page-version-selector}}
       <div class="edit-on-github">
         <a href="{{github-edit-url}}" class="edit-on-github-link" title="Edit on GitHub">Edit</a>
       </div>
