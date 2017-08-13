@@ -1,9 +1,9 @@
-{{#if otherVersions}}
+{{#if (multiple-versions domainVersionIndex domain)}}
   <div class="page-version-selector" data-state="collapsed">
     <button class="page-version-selector-toggle" title="Other versions of this topic">{{version}}</button>
     <div class="page-version-selector-panel">
-      {{#each otherVersions }}
-        <a class="page-version{{#equals this.version ../version}} page-version--current{{/equals}}" href="{{this.href}}">{{{this.version}}}</a>
+      {{#each (page-versions domainVersionIndex domain otherVersions)}}
+        <a class="page-version{{#equals version ../version}} page-version--current{{/equals}}{{#if missing}} page-version--missing{{/if}}" href="{{this.href}}">{{{this.version}}}</a>
       {{/each}}
     </div>
   </div>

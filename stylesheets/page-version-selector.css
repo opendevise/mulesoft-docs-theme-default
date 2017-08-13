@@ -40,17 +40,22 @@
   z-index: 2;
 }
 
-.page-version-selector[data-state="collapsed"] .page-version-selector-panel,
-.page-version-selector .page-version--current {
+.page-version-selector[data-state="collapsed"] .page-version-selector-panel {
   display: none;
 }
 
-.page-version-selector .page-version {
+.page-version-selector a.page-version {
   display: block;
-  color: #fff !important;
   font-size: 0.75rem;
+  color: #fff;
 }
 
-.page-version-selector .page-version:hover {
-  color: #fff;
+.page-version-selector a.page-version--current {
+  display: none;
+}
+
+.page-version-selector a.page-version--missing:link {
+  opacity: 0.5;
+  text-decoration: none;
+  font-style: italic;
 }
