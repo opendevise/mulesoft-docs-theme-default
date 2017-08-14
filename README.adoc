@@ -5,8 +5,8 @@
 :idprefix:
 :idseparator: -
 :experimental:
-ifndef::env-github[:icons: font]
 :hide-uri-scheme:
+ifndef::env-github[:icons: font]
 ifdef::env-github[]
 :important-caption: :exclamation:
 endif::[]
