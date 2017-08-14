@@ -23,11 +23,11 @@ endif::[]
 :uri-git-dl: {uri-git}/downloads
 :uri-npm: https://npmjs.com
 
-The project in this repository is used to build and package the default theme for the MuleSoft documentation site.
+The project in this repository is used to compile and package the default theme for the MuleSoft documentation site.
 It contains the theme artifacts (page templates, CSS, JavaScript, etc.) and a build.
-The build is used to preview the theme locally (featuring live updates) or to package and publish it to GitHub releases for consumption by the site generator.
+The build can be used to preview the theme locally (featuring live updates) or package and publish it to GitHub releases for consumption by the site generator.
 
-This guide documents how to develop and apply the theme.
+This guide explains how to develop and use the theme.
 After reading this guide, you'll be able to:
 
 * [x] Understand how the theme project is structured.
