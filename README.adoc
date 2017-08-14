@@ -1,5 +1,5 @@
 = MuleSoft Docs: Default Theme
-// Settings
+// Settings:
 :toc:
 :toc-title: Contents
 :idprefix:
@@ -10,7 +10,7 @@ ifndef::env-github[:icons: font]
 ifdef::env-github[]
 :important-caption: :exclamation:
 endif::[]
-// URIs
+// URIs:
 :uri-repo: https://github.com/opendevise/mulesoft-docs-theme-default
 :uri-ci: https://travis-ci.org/opendevise/mulesoft-docs-theme-default
 :uri-node: https://nodejs.org
