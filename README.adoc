@@ -114,14 +114,25 @@ gulpfile.js
 package.json
 theme.yml
 yarn.lock
+helpers/
+  equals.js
+  multiple-versions.js
+  page-versions.js
+  version-label.js
 images/
+  chevron.svg
+  chevron-white.svg
   github-logo.svg
   header_footer_sprite.svg
+  home-hovered.svg
+  home.svg
   mulesoft-dev-logo.svg
+  mulesoft-logo.svg
   triangle.svg
 layouts/
   default.hbs
 partials/
+  domain-version-selector.hbs
   footer.hbs
   footer-scripts.hbs
   footer-shared.hbs
@@ -129,15 +140,19 @@ partials/
   header-shared.hbs
   head.hbs
   navigation.hbs
+  page-version-selector.hbs
   primary-content.hbs
 preview-site/
   index.html
   mock-model.json
 scripts/
+  domain-version-selector.js
   highlight.pack.js
-  menu.js
+  navigation.js
+  page-version-selector.js
 stylesheets/
   article-header.css
+  domain-version-selector.css
   footer.css
   footer-terms-condition-menu.css
   github.css
@@ -146,6 +161,7 @@ stylesheets/
   header-menu.css
   main.css
   navigation.css
+  page-version-selector.css
   primary-content.css
   scrollbars.css
   theme.css
@@ -178,20 +194,31 @@ The tag is created automatically by the release build, described in <<Publishing
 The theme bundle provides files which are ready to be used by the site generator.
 
 The contents of the bundle resembles the contents of the master branch, except it doesn't contain any files other than the ones that make up the theme.
-Some of the files present have been compiled or aggregated.
+This is the content that is used by the site generator.
 
 [.output]
 ....
 fonts/
   ...
+helpers/
+  equals.js
+  multiple-versions.js
+  page-versions.js
+  version-label.js
 images/
+  chevron.svg
+  chevron-white.svg
   github-logo.svg
   header_footer_sprite.svg
+  home-hovered.svg
+  home.svg
   mulesoft-dev-logo.svg
+  mulesoft-logo.svg
   triangle.svg
 layouts/
   default.hbs
 partials/
+  domain-version-selector.hbs
   footer.hbs
   footer-scripts.hbs
   footer-shared.hbs
@@ -199,15 +226,18 @@ partials/
   header-shared.hbs
   head.hbs
   navigation.hbs
+  page-version-selector.hbs
   primary-content.hbs
 scripts/
+  domain-version-selector.js
   highlight.pack.js
-  menu.js
+  navigation.js
+  page-version-selector.js
 stylesheets/
   theme.css
 ....
 
-This is the content that is used by the site generator.
+Some of the files have been compiled or aggregated, such as the stylesheets.
 
 Now that you have a general idea of the files that make up the theme and how it gets assembled, let's go over how to set up the project, build the theme, and preview it.
 
@@ -433,7 +463,7 @@ Here's an overview of the available model:
 | Name | Description
 
 | title
-| The document title (aka primary heading)
+| The document title (aka primary heading).
 
 | keywords
 | A comma-separated list of keywords defined in the AsciiDoc header.
