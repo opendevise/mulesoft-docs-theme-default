@@ -18,12 +18,14 @@ module.exports = () => {
       .pipe(buffer())
       .pipe(replace(/\r(?=\n)/g, '')) // switch to LF newlines
       .pipe(replace(/ *<!--[\s\S]*?-->/g, '')) // drop comments
+      .pipe(replace(/<h2[^>]*>Main Dev Menu<\/h2>/, ''))
       .pipe(replace(/^\s*\n/gm, '')) // drop blank lines
       .pipe(replace(/^[\s\S]*(<header[^>]*>[\s\S]*?<\/header>)[\s\S]*$/, '$1'))
-      .pipe(replace(/<a href=".+?" title="Home"/, '<a href="https://docs.mulesoft.com" title="Home"'))
-      .pipe(replace(/<img src="[^"]+"/, '<img src="{{themeRootPath}}/images/mulesoft-dev-logo.svg"'))
+      .pipe(replace(/<a href="[^"]+" title="Home"/, '<a href="https://docs.mulesoft.com" title="Home"'))
+      .pipe(replace(/ *<img src="[^"]+"/, '<img src="{{themeRootPath}}/images/mulesoft-dev-logo.svg"'))
       .pipe(replace(' id="block-menu-menu-footer-menu"', ' id="block-system-main-menu"'))
-      .pipe(replace('<a href="#sidr" id="open-left" class="closed">\n</a>\n', '')),
+      .pipe(replace(/<a href="#sidr" id="open-left" class="closed">\s*<\/a>\s*/, ''))
+      .pipe(replace(/ title=""/g, '')),
 
     download({
       url: 'https://developer.mulesoft.com/markup/get/footer',
