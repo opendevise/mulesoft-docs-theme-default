@@ -17,6 +17,20 @@
   color: var(--color-aa);
 }
 
+.home-link {
+  background: url(../images/home.svg) no-repeat center center;
+  background-size: contain;
+  display: block;
+  height: 1.3rem;
+  padding: 0;
+  margin-right: 0.35rem;
+  width: 1.3rem;
+}
+
+.home-link:hover {
+  background-image: url(../images/home-hovered.svg);
+}
+
 .breadcrumb {
   flex: 1 1 0;
   padding: 0 0.5rem;

@@ -11,9 +11,7 @@
   </div>
   <article class="primary-content">
     <header class="article-header">
-      {{#if root-href}}
-        <a href="{{root-href}}" class="root-href"></a>
-      {{/if}}
+      {{#if root-href}}<a href="{{root-href}}" class="home-link"></a>{{/if}}
       {{> domain-version-selector}}
       <div class="breadcrumb">
         {{#each breadcrumbs }}
