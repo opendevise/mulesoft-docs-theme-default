@@ -9,9 +9,14 @@
   const $component = document.querySelector('.page-version-selector')
 
   $toggle.addEventListener('click', () => {
-    $component.dataset.state = ($component.dataset.state === 'collapsed') ? 'expanded' : 'collapsed'
+    if ($component.dataset.state === 'expanded') {
+      delete $component.dataset.state
+    }
+    else {
+      $component.dataset.state = 'expanded'
+    }
   })
 
   $component.addEventListener('click', (e) => e.stopPropagation())
-  window.addEventListener('click', () => $component.dataset.state = 'collapsed')
+  window.addEventListener('click', () => { delete $component.dataset.state })
 })()

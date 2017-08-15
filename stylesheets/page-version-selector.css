@@ -40,7 +40,7 @@
   z-index: 2;
 }
 
-.page-version-selector[data-state="collapsed"] .page-version-selector-panel {
+.page-version-selector:not([data-state]) .page-version-selector-panel {
   display: none;
 }
 
