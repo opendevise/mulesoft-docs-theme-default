@@ -45,11 +45,11 @@
   margin: 0 0.25rem;
 }
 
-.edit-on-github {
+.edit-this-page {
   padding-right: 0.5rem;
 }
 
-.edit-on-github-link {
+.edit-this-page-link {
   background: url(../images/github-logo.svg) no-repeat center left;
   background-size: contain;
   padding-left: 1.5rem;
