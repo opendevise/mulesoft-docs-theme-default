@@ -1,14 +1,12 @@
 <div class="domain-version-selector">
-  <button class="domain-version-selector-toggle">
-    {{domainTitle}} {{#version-label version}}{{/version-label}}
-  </button>
+  <button class="domain-version-selector-toggle">{{domain.title}}{{version-label domain}}</button>
   <div class="domain-version-selector-panel">
-    {{#each domainVersionIndex }}
-      <div class="brdcrb-domain{{#if this.selected}} brdcrb-domain--current{{/if}}">
-        <div class="brdcrb-domain-label">{{this.domainTitle}}</div>
+    {{#each site.domains}}
+      <div class="brdcrb-domain{{#if selected}} brdcrb-domain--current{{/if}}">
+        <div class="brdcrb-domain-label">{{domainTitle}}</div>
         <div class="brdcrb-version-list">
-          {{#each this.versions }}
-            <a class="brdcrb-version{{#if this.selected}} brdcrb-version--current{{/if}}" href="{{this.href}}">{{this.version}}</a>
+          {{#each versions}}
+            <a class="brdcrb-version{{#if selected}} brdcrb-version--current{{/if}}" href="{{url}}">{{string}}{{#if latest}} (latest){{/if}}</a>
           {{/each}}
         </div>
       </div>

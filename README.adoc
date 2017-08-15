@@ -116,7 +116,7 @@ theme.yml
 yarn.lock
 helpers/
   equals.js
-  multiple-versions.js
+  has-multiple-versions.js
   page-versions.js
   version-label.js
 images/
@@ -144,7 +144,7 @@ partials/
   primary-content.hbs
 preview-site/
   index.html
-  mock-model.json
+  sample-ui-model.json
 scripts/
   domain-version-selector.js
   highlight.pack.js
@@ -202,7 +202,7 @@ fonts/
   ...
 helpers/
   equals.js
-  multiple-versions.js
+  has-multiple-versions.js
   page-versions.js
   version-label.js
 images/
@@ -463,22 +463,36 @@ Here's an overview of the available model:
 | Name | Description
 
 | title
-| The document title (aka primary heading).
+| The document title (also used as the primary heading).
+
+| contents
+| The main HTML content, most often sourced from AsciiDoc and converted to HTML by the Asciidoctor processor.
 
 | keywords
 | A comma-separated list of keywords defined in the AsciiDoc header.
 
-| theme-path
-| The path to the base of the theme directory.
+| domain
+| Information about the navigation domain of the current page.
+Properties include name, title, type, versioned, version, and versions.
 
-| canonical-url
+| versions
+| All versions of the current page, including this page.
+
+| breadcrumbs
+| An Array of breadcrumb items that represent the current selection in the navigation tree.
+
+| themeRootPath
+| The path to the root directory of the theme.
+
+| canonicalUrl
 | The canonical URL for the current page.
 
-| github-edit-url
-| The URL to edit the current content page on GitHub.
+| editUrl
+| The URL to edit the current page, typically on GitHub.
 
-| contents
-| The main HTML content, typically AsciiDoc converted to HTML by the Asciidoctor processor.
+| siteRootUrl
+| The URL of the site root relative to the current page.
+If the site does not have a root component, this value is null.
 
 | navigation
 | A collection of navigation links for the current page.

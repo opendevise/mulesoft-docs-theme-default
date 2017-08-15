@@ -1,10 +1,3 @@
 'use strict'
 
-module.exports = function (version) {
-
-  if (version === 'master') {
-    return ''
-  }
-
-  return `(${version})`
-}
+module.exports = (domain) => domain.versioned ? ` (${domain.version.string})` : ''

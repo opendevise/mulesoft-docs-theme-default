@@ -1,13 +1,13 @@
-{{#if navigation.length }}
+{{#if navigation.length}}
   <ul class="nav-lst">
-    {{#each navigation }}
+    {{#each navigation}}
       <li class="nav-itm{{#if this.currentPath}} nav-itm--currentPath{{/if}}{{#if this.currentPage}} nav-itm--currentPage{{/if}}" data-depth="{{this.depth}}"{{#if this.currentPath}} data-state="expanded"{{/if}}>
-        {{#if this.depth }}
-          {{#if this.items.length }}
+        {{#if this.depth}}
+          {{#if this.items.length}}
             <button class="nav-tgl"></button>
           {{/if}}
         {{/if}}
-        {{#if this.href }}
+        {{#if this.href}}
           <a class="nav-lnk" href="{{this.href}}">{{{this.label}}}</a>
         {{else}}
           <span class="nav-lbl">{{{this.label}}}</span>

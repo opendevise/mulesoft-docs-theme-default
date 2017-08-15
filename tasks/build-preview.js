@@ -20,20 +20,20 @@ module.exports = async (src, dest, destTheme) => {
     registerHelpers(src),
   ])
 
-  const mockModelPath = path.resolve(__dirname, '../preview-site/mock-model.json')
-  const mockModelJson = fs.readFileSync(mockModelPath)
-  const mockModel = JSON.parse(mockModelJson.toString())
+  const sampleUiModelPath = path.resolve(__dirname, '../preview-site/sample-ui-model.json')
+  const sampleUiModelData = fs.readFileSync(sampleUiModelPath, 'utf8')
+  const sampleUiModel = JSON.parse(sampleUiModelData.toString())
 
   vfs.src(['preview-site/**/*.html'])
     .pipe(map((file, next) => {
       const previewSitePath = path.resolve('preview-site')
       const relativeToRoot = path.relative(file.path, previewSitePath)
       const compileLayout = layoutsIndex['default.hbs']
-      mockModel['theme-path'] = path.join(relativeToRoot, relativeThemePath)
-      mockModel['root-href'] = path.join(relativeToRoot, 'index.html')
-      mockModel['contents'] = file.contents.toString()
-      mockModel['navigation-link-prefix'] = relativeToRoot
-      file.contents = new Buffer(compileLayout(mockModel))
+      sampleUiModel['themeRootPath'] = path.join(relativeToRoot, relativeThemePath)
+      sampleUiModel['siteRootUrl'] = path.join(relativeToRoot, 'index.html')
+      sampleUiModel['contents'] = file.contents.toString()
+      sampleUiModel['navigation-link-prefix'] = relativeToRoot
+      file.contents = new Buffer(compileLayout(sampleUiModel))
       next(null, file)
     }))
     .pipe(vfs.dest(dest))

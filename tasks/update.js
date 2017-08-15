@@ -21,7 +21,7 @@ module.exports = () => {
       .pipe(replace(/^\s*\n/gm, '')) // drop blank lines
       .pipe(replace(/^[\s\S]*(<header[^>]*>[\s\S]*?<\/header>)[\s\S]*$/, '$1'))
       .pipe(replace(/<a href=".+?" title="Home"/, '<a href="https://docs.mulesoft.com" title="Home"'))
-      .pipe(replace(/<img src="[^"]+"/, '<img src="{{theme-path}}/images/mulesoft-dev-logo.svg"'))
+      .pipe(replace(/<img src="[^"]+"/, '<img src="{{themeRootPath}}/images/mulesoft-dev-logo.svg"'))
       .pipe(replace(' id="block-menu-menu-footer-menu"', ' id="block-system-main-menu"'))
       .pipe(replace('<a href="#sidr" id="open-left" class="closed">\n</a>\n', '')),
 

@@ -4,17 +4,17 @@
       <div class="search">
         <input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
       </div>
-      <div class="inner-nav" data-domain="{{domain}}" data-version="{{version}}">
+      <div class="inner-nav" data-domain="{{domain.name}}" data-version="{{domain.version.string}}">
         {{> navigation }}
       </div>
     </nav>
   </div>
   <article class="primary-content">
     <header class="article-header">
-      {{#if root-href}}<a href="{{root-href}}" class="home-link"></a>{{/if}}
-      {{> domain-version-selector}}
+      {{#if siteRootUrl}}<a href="{{siteRootUrl}}" class="home-link"></a>{{/if}}
+      {{> domain-version-selector }}
       <div class="breadcrumb">
-        {{#each breadcrumbs }}
+        {{#each breadcrumbs}}
           {{#if this.href}}
             <span class="breadcrumb-item-wrapper"><a class="breadcrumb-item" href="{{this.href}}">{{{this.label}}}</a></span>
           {{else}}
@@ -23,9 +23,9 @@
           {{#unless @last}}<span class="breadcrumb-sep">/</span>{{/unless}}
         {{/each}}
       </div>
-      {{> page-version-selector}}
+      {{> page-version-selector }}
       <div class="edit-this-page">
-        <a href="{{github-edit-url}}" class="edit-this-page-link" title="Edit on GitHub">Edit</a>
+        <a href="{{editUrl}}" class="edit-this-page-link" title="Edit on GitHub">Edit</a>
       </div>
     </header>
     <h1>{{title}}</h1>

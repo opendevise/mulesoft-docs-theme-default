@@ -1,13 +1,11 @@
 'use strict'
 
-module.exports = (domains, domainName, otherVersions) => {
-  const domain = domains.find((candidate) => candidate.domain === domainName)
-  const pageVersions = []
+// FIXME the UI model should be prepopulated with this collection
+module.exports = (domains, domainName, otherPageVersions) => {
+  const domain = domains.find((candidate) => candidate.domain === domainName), pageVersions = []
   domain.versions.forEach((domainVersion) => {
-    const domainVersionCopy = Object.assign({ missing: true }, domainVersion)
-    domainVersionCopy.version = domainVersionCopy.version.replace(' (latest)', '')
-    const pageVersion = otherVersions.find((candidate) => candidate.version === domainVersionCopy.version)
-    pageVersions.push(pageVersion ? pageVersion : domainVersionCopy)
+    const pageVersion = otherPageVersions.find((candidate) => candidate.string === domainVersion.string)
+    pageVersions.push(pageVersion ? pageVersion : Object.assign({ missing: true }, domainVersion))
   })
 
   return pageVersions
