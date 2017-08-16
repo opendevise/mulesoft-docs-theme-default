@@ -12,7 +12,7 @@ ifdef::env-github[]
 endif::[]
 // URIs:
 :uri-repo: https://github.com/opendevise/mulesoft-docs-theme-default
-:uri-ci: https://travis-ci.org/opendevise/mulesoft-docs-theme-default
+:uri-ci: https://mulesoft-docs.ci.cloudbees.com/job/docs-theme-publisher
 :uri-node: https://nodejs.org
 :uri-gulp: http://gulpjs.com
 :uri-yarn: https://yarnpkg.com
@@ -584,35 +584,134 @@ Save the file, commit it to git, push the branch, and allow the approval workflo
 
 == Publishing a Release
 
-Once you're done making changes to the theme and want to roll out those changes, you'll need to publish a release.
-A release is a theme bundle in zip format attached to a tag in the git repository on GitHub.
-You can see all the past releases on the {uri-repo}/releases[releases page].
+Once you're done making changes to the theme and would like to roll out an update, you'll need to publish a release.
+Releases are stored in the GitHub project, adjacent to the git repository.
+You can see all past releases on the {uri-repo}/releases[releases page].
 
-Fortunately, you don't really have to think about how a release gets made.
-It's fully automated.
+To create a release, you first tag the git repository, then create a GitHub release from that tag.
+Finally, you attach the theme bundle in zip format to that release, which makes it available for download.
+
+Fortunately, you don't have to do any of these steps yourself.
+The process is fully automated.
 All you have to do is commit files and push that commit to the master branch of the git repository.
-The {uri-ci}[CI server] detects the new commit and runs the `release` build task.
-That task creates a git tag{blank}footnote:[Tag names are sequential, so each tag uses a number that is one greater than the previous one (e.g., from v9 to v10).], runs the theme build, bundles the theme as a zip file, and uploads it to the release page (which is associated with that newly created tag).
+The {uri-ci}[CI job] takes over from there and executes the `release` build task.
+The release task creates the git tag{blank}footnote:[Tag names are sequential, so each tag uses a number that is one greater than the previous one (e.g., from v9 to v10).] and corresponding GitHub release, pre-compiles the theme, bundles the theme as a zip file, and attaches the bundle to the GitHub release.
 
-=== Configuring the Release Task
+The {uri-ci}[CI job] is already configured, so there's nothing you need to do to make a release work.
+You just push a change to the master branch and a new release is made.
 
-The CI job (environment and script) is configured in [.path]_.travis.yml_.
-After running through the setup process described above, it runs the `gulp release` command.
+The next two sections document how the release task and CI job are configured.
 
-The release task relies on the following configuration properties:
+=== Release Task Configuration
+
+The release task relies on the following configuration settings:
 
 repository.owner:: The GitHub organization where the main repository (not a fork) is hosted.
 repository.name:: The name of the repository on GitHub.
-GITHUB_TOKEN:: The authentication token of the release user, granting write access to the CI job.
+GITHUB_TOKEN:: The authentication token of the release user, which grants write access to the CI job.
 
-The first two properties, `repository.owner` and `repository.name`, are defined in the [.path]_theme.yml_ file.
-The last property, `GITHUB_TOKEN`, is defined on the {uri-ci}/settings[settings page] for the CI job.
+The first two settings, `repository.owner` and `repository.name`, are defined in the [.path]_theme.yml_ file, as you can see here:
 
-These properties are already configured in the {uri-ci}[CI job], so there's nothing you need to do to make a release work.
+.theme.yml (excerpt)
+[source,yaml]
+----
+repository:
+  owner: mulesoft
+  name: mulesoft-docs-theme-default
+----
+
+The last setting, `GITHUB_TOKEN`, is an environment variable that must be supplied by the CI server.
+
+=== CI Job Configuration
+
+The CI job is configured in Jenkins, specifically the Jenkins instance managed by the MuleSoft doc team.
+The name of the job is _docs-theme-publisher_.
+This section describes in detail how that job has been configured.
+
+The release is performed by the mule-docs-agent GitHub user, which interacts with GitHub using the GitHub API.
+The release script authenticates with the GitHub API as the mule-docs-agent user using a personal access token.
+Therefore, the first step is to create a personal access token for the mule-docs-agent user on GitHub.
+The token must have the public_repo scope.
+No other scopes are required.
+Copy the token that is generated.
+
+The next step is to store this token in a Jenkins credential.
+The credential is defined as follows:
+
+[unstyled]
+* _Kind:_ Secret text
+* _Scope:_ System (Jenkins and nodes only)
+* _Secret:_ <hidden>
+* _ID:_ mule-docs-agent-github-token
+* _Description:_ Personal access token for the mule-docs-agent GitHub user (scopes: public_repo)
+
+The CI job itself is defined as a freestyle project.
+On the configuration screen, the following settings have been selected or populated:
+
+[unstyled]
+* _Project name:_ docs-theme-publisher
+* _Description:_ This job publishes a new theme bundle each time a non-ignored change is made to the master branch.
+* {blank}[x] GitHub project
+ ** _Project url:_ `pass:a[{uri-repo}]`
+* {blank} [x] Restrict where this project can be run
+ ** _Label Expression:_ lxc-fedora25
+* *Source Code Management*
+ ** {blank}[x] Git
+ ** _Repository URL:_ `pass:a[{uri-repo}]`
+ ** _Branches to build | Branch Specifier:_ */master
+ ** Additional Behaviours
+  *** *Polling ignores commits with certain messages*
+   **** _Excluded Messages:_ `+(?s).*\[skip ci\].*+`
++
+IMPORTANT: The expression _must_ begin with `(?s)` or else it won't work.
+  *** *Advanced clone behaviours*
+   **** Do not fetch tags: [x]
+   **** Honor refspec on initial clone: [x]
+* *Build Triggers*
+ ** {blank}[x] Poll SCM
+  *** _Schedule:_ _(leave blank)_
+* *Build Environment*
+ ** {blank}[x] Provide Node & npm bin/ folder to PATH
+  *** _NodeJS Installation:_ node7
+ ** {blank}[x] Use secret text(s) or file(s)
+  *** *Secret text*
+   **** _Variable:_ GITHUB_TOKEN
+   **** {blank}[x] Specific credentials
+   **** _Credentials:_ some text (Personal access token for the mule-docs-agent GitHub user (scopes: public_repo))
+
+The *Use secret text(s) or file(s)* setting reads the personal access token from the Jenkins credential and uses it to populate the GITHUB_TOKEN environment varaible.
+This environment variable is used by the release task to authenticate the client (acting as the mule-docs-agent user) against the GitHub API.
+
+The *Poll SCM* setting enables polling, but does not define a schedule.
+In order to trigger the polling action, you need to configure the GitHub repository to ping the CI server when a commit is pushed to master.
+
+To set up this ping (i.e., webhook), go to the Settings > Webhooks page of the GitHub repository.
+Click btn:[Add webhook], enter the following URL in the Payload URL field, then click btn:[Add webhook].
+
+ https://mulesoft-docs.ci.cloudbees.com/git/notifyCommit?url=https://github.com/mulesoft/mulesoft-docs-theme-default&branches=master
+
+No secret is required (as this URL does not require authentication).
+
+The last part of the job configuration is the script.
+Under the Build section, an *Add build step* entry of type *Execute Shell* is defined to bootstrap the project and invoke the release task.
+
+[source,bash]
+----
+rm -rf build
+yarn && ./node_modules/.bin/gulp release
+----
+
+Since Jenkins retains the workspace between runs, it's necessary to start by removing the build folder from the previous build.
+Next, the dependencies are installed or updated.
+Finally, the Gulp release task is invoked.
+
+Now, whenever a commit is pushed to the master branch of the git repository on GitHub, the Jenkins job is triggered and cuts a new release of the theme bundle.
+
+=== Publishing a Release Manually
 
 If you want to publish a release manually, you'll have to pass your GitHub token using the commandline flag `--github-token`.
 For example:
 
  $ gulp release --github-token xyz
 
-However, we recommend always allowing the CI server to perform the release.
+However, you should prefer having the CI server perform the release to avoid mistakes.
