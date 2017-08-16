@@ -130,6 +130,7 @@
 .primary-content .admonitionblock .icon i {
   display: inline-block;
   font-style: normal;
+  hyphens: none;
 }
 
 .primary-content .admonitionblock .icon i::after {
