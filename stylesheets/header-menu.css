@@ -47,7 +47,7 @@ This stylesheet needs a .header in all selectors not to be in conflict with the 
 }
 
 /* MENU 2+ ::before */
-.header .menu .menu .menu:before {
+.header .menu .menu .menu::before {
   display: none;
 }
 

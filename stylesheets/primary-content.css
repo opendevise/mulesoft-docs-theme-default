@@ -30,12 +30,12 @@
   margin-left: -1.25ch;
 }
 
-.primary-content h1:hover > a.anchor:before,
-.primary-content h2:hover > a.anchor:before,
-.primary-content h3:hover > a.anchor:before,
-.primary-content h4:hover > a.anchor:before,
-.primary-content h5:hover > a.anchor:before,
-.primary-content h6:hover > a.anchor:before {
+.primary-content h1:hover > a.anchor::before,
+.primary-content h2:hover > a.anchor::before,
+.primary-content h3:hover > a.anchor::before,
+.primary-content h4:hover > a.anchor::before,
+.primary-content h5:hover > a.anchor::before,
+.primary-content h6:hover > a.anchor::before {
   content: "\00a7";
   visibility: visible;
 }
@@ -132,7 +132,7 @@
   font-style: normal;
 }
 
-.primary-content .admonitionblock .icon i:after {
+.primary-content .admonitionblock .icon i::after {
   content: attr(title);
 }
 
@@ -393,7 +393,7 @@
   width: 1.25em;
 }
 
-.primary-content .conum[data-value]:after {
+.primary-content .conum[data-value]::after {
   content: attr(data-value);
 }
 
