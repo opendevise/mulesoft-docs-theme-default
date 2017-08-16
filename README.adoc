@@ -593,12 +593,11 @@ Finally, you attach the theme bundle in zip format to that release, which makes 
 
 Fortunately, you don't have to do any of these steps yourself.
 The process is fully automated.
-All you have to do is commit files and push that commit to the master branch of the git repository.
-The {uri-ci}[CI job] takes over from there and executes the `release` build task.
+When a commit is pushed to the master branch of the git repository, the {uri-ci}[CI job] is takes over and executes the `release` task.
 The release task creates the git tag{blank}footnote:[Tag names are sequential, so each tag uses a number that is one greater than the previous one (e.g., from v9 to v10).] and corresponding GitHub release, pre-compiles the theme, bundles the theme as a zip file, and attaches the bundle to the GitHub release.
 
-The {uri-ci}[CI job] is already configured, so there's nothing you need to do to make a release work.
-You just push a change to the master branch and a new release is made.
+The {uri-ci}[CI job] is already configured, so there's nothing you need to do to make the automated release work.
+All you have to do is commit files and push the commit to the master branch of the git repository.
 
 The next two sections document how the release task and CI job are configured.
 
@@ -624,8 +623,8 @@ The last setting, `GITHUB_TOKEN`, is an environment variable that must be suppli
 
 === CI Job Configuration
 
-The CI job that performs the releases, named _docs-theme-publisher_, is configured in Jenkins.
-It can be found in the Jenkins instance that's managed by the MuleSoft docs team.
+Jenkins is used to execute the CI job that performs the releases.
+The job is named _docs-theme-publisher_ and can be found in the Jenkins instance that's managed by the MuleSoft docs team.
 This section describes in detail how that job has been configured.
 
 The release is performed by the mule-docs-agent GitHub user, which interacts with GitHub using the GitHub API.
