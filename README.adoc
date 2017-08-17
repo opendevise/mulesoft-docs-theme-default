@@ -627,7 +627,7 @@ Jenkins is used to execute the CI job that performs the releases.
 The job is named _docs-theme-publisher_ and can be found in the Jenkins instance that's managed by the MuleSoft docs team.
 This section describes in detail how that job has been configured.
 
-The release is performed by the mule-docs-agent GitHub user, which interacts with GitHub using the GitHub API.
+The release is performed by the mule-docs-agent GitHub account, which interacts with GitHub using the GitHub API.
 The release script authenticates with the GitHub API as the mule-docs-agent user using a personal access token.
 Therefore, the first step is to create a personal access token for the mule-docs-agent user on GitHub.
 The token must have the public_repo scope.
@@ -642,7 +642,7 @@ The credential is defined as follows:
 * _Scope:_ System (Jenkins and nodes only)
 * _Secret:_ <hidden>
 * _ID:_ mule-docs-agent-github-token
-* _Description:_ Personal access token for the mule-docs-agent GitHub user (scopes: public_repo)
+* _Description:_ Personal access token for the mule-docs-agent GitHub account (scopes: public_repo)
 
 The CI job itself is defined as a freestyle project.
 On the configuration screen, the following settings have been selected or populated:
@@ -676,7 +676,7 @@ IMPORTANT: The expression _must_ begin with `(?s)` or else it won't work.
   *** *Secret text*
    **** _Variable:_ GITHUB_TOKEN
    **** {blank}[x] Specific credentials
-   **** _Credentials:_ some text (Personal access token for the mule-docs-agent GitHub user (scopes: public_repo))
+   **** _Credentials:_ some text (Personal access token for the mule-docs-agent GitHub account (scopes: public_repo))
 
 The *Use secret text(s) or file(s)* setting reads the personal access token from the Jenkins credential and uses it to populate the GITHUB_TOKEN environment varaible.
 This environment variable is used by the release task to authenticate the client (acting as the mule-docs-agent user) against the GitHub API.
