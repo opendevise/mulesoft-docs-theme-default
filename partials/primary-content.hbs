@@ -15,10 +15,10 @@
       {{> domain-version-selector }}
       <div class="breadcrumb">
         {{#each breadcrumbs}}
-          {{#if this.href}}
-            <span class="breadcrumb-item-wrapper"><a class="breadcrumb-item" href="{{this.href}}">{{{this.label}}}</a></span>
+          {{#if ./url}}
+            <span class="breadcrumb-item-wrapper"><a class="breadcrumb-item" href="{{./url}}">{{{./title}}}</a></span>
           {{else}}
-            <span class="breadcrumb-item-wrapper"><span class="breadcrumb-item">{{{this.label}}}</span></span>
+            <span class="breadcrumb-item-wrapper"><span class="breadcrumb-item">{{{./title}}}</span></span>
           {{/if}}
           {{#unless @last}}<span class="breadcrumb-sep">/</span>{{/unless}}
         {{/each}}

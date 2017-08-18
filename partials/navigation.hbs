@@ -1,18 +1,16 @@
 {{#if navigation.length}}
-  <ul class="nav-lst">
+  <ul class="nav-set">
     {{#each navigation}}
-      <li class="nav-itm{{#if this.currentPath}} nav-itm--currentPath{{/if}}{{#if this.currentPage}} nav-itm--currentPage{{/if}}" data-depth="{{this.depth}}"{{#if this.currentPath}} data-state="expanded"{{/if}}>
-        {{#if this.depth}}
-          {{#if this.items.length}}
-            <button class="nav-tgl"></button>
-          {{/if}}
+      <li class="nav-itm{{#if ./currentPath}} nav-itm--currentPath{{/if}}{{#if ./currentPage}} nav-itm--currentPage{{/if}}" data-depth="{{./depth}}"{{#if ./currentPath}} data-state="expanded"{{/if}}>
+        {{#if ./depth}}
+          {{#if ./items.length}}<button class="nav-ctl"></button>{{/if}}
         {{/if}}
-        {{#if this.href}}
-          <a class="nav-lnk" href="{{this.href}}">{{{this.label}}}</a>
+        {{#if ./url}}
+          <a class="nav-lnk" href="{{./url}}">{{{./title}}}</a>
         {{else}}
-          <span class="nav-lbl">{{{this.label}}}</span>
+          <span class="nav-ttl">{{{./title}}}</span>
         {{/if}}
-        {{> navigation navigation=this.items }}
+        {{> navigation navigation=./items }}
       </li>
     {{/each}}
   </ul>
