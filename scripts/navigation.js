@@ -9,7 +9,7 @@
 
   restoreExpandedSate()
 
-  qsa('.nav-tgl').forEach((btn) => {
+  qsa('.nav-ctl').forEach((btn) => {
     const li = btn.parentElement
     btn.addEventListener('click', () => {
       const collapsed = (li.dataset.state === 'collapsed' || li.dataset.state == null)
