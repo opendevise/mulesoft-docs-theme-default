@@ -15,9 +15,11 @@
   display: flex;
   flex-direction: column;
   font-size: 0.85em;
-  height: calc(100vh - var(--header-height));
   position: sticky;
-  top: var(--header-height);
+  top: 0;
+  padding-top: var(--header-height);
+  margin-top: calc(-1 * var(--header-height));
+  height: 100vh;
   width: 20rem;
   z-index: 3;
 }
