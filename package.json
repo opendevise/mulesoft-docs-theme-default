@@ -1,6 +1,8 @@
 {
   "name": "mulesoft-docs-site-theme",
   "description": "The default theme for the MuleSoft documentation site",
+  "homepage": "https://docs.mulesoft.com",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/mulesoft/docs-site-theme.git"
