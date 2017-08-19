@@ -48,14 +48,14 @@
 .primary-content h6,
   /* [id=preamble] instead of #preamble to decrease specificity */
   /* this specific line is for sectionless pages */
-.primary-content h1 ~ :not([class^="sect"]):not([id=preamble]),
-.primary-content [id=preamble] > .sectionbody > :not([class^="sect"]),
-.primary-content .sect1 > .sectionbody > :not([class^="sect"]),
-.primary-content .sect2 > :not([class^="sect"]),
-.primary-content .sect3 > :not([class^="sect"]),
-.primary-content .sect4 > :not([class^="sect"]),
-.primary-content .sect5 > :not([class^="sect"]),
-.primary-content .sect6 > :not([class^="sect"]) {
+.primary-content h1 ~ :not([class^=sect]):not([id=preamble]),
+.primary-content [id=preamble] > .sectionbody > :not([class^=sect]),
+.primary-content .sect1 > .sectionbody > :not([class^=sect]),
+.primary-content .sect2 > :not([class^=sect]),
+.primary-content .sect3 > :not([class^=sect]),
+.primary-content .sect4 > :not([class^=sect]),
+.primary-content .sect5 > :not([class^=sect]),
+.primary-content .sect6 > :not([class^=sect]) {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;

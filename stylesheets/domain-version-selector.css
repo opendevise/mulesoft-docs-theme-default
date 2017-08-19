@@ -26,7 +26,7 @@
   outline: none;
 }
 
-.domain-version-selector[data-state="expanded"] .domain-version-selector-toggle {
+.domain-version-selector[data-state=expanded] .domain-version-selector-toggle {
   border-color: transparent;
   z-index: 5;
 }

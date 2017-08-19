@@ -19,7 +19,7 @@
   z-index: 3;
 }
 
-.page-version-selector[data-state="expanded"] .page-version-selector-toggle {
+.page-version-selector[data-state=expanded] .page-version-selector-toggle {
   background-image: url(../images/chevron-white.svg);
   color: #fff;
 }
