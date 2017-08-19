@@ -19,18 +19,6 @@
   color: var(--color-gray20);
 }
 
-.domain-version-selector:not([data-state]) .domain-version-selector-toggle:active,
-.domain-version-selector:not([data-state]) .domain-version-selector-toggle:focus,
-.domain-version-selector:not([data-state]) .domain-version-selector-toggle:hover {
-  border-color: var(--color-cerulean);
-  outline: none;
-}
-
-.domain-version-selector[data-state=expanded] .domain-version-selector-toggle {
-  border-color: transparent;
-  z-index: 5;
-}
-
 .domain-version-selector-toggle:active,
 .domain-version-selector-toggle:focus,
 .domain-version-selector-toggle:hover {
@@ -39,18 +27,24 @@
   z-index: 4;
 }
 
+.domain-version-selector[data-state=expanded] .domain-version-selector-toggle {
+  border-color: transparent !important;
+  z-index: 5;
+}
+
 .domain-version-selector-panel {
   background-color: #f4f5f6;
   border: 1px solid var(--color-cerulean);
-  left: 0;
   padding: 2.5rem 0.5rem 0.5rem;
   position: absolute;
   top: 0;
-  z-index: 4;
+  left: 0;
+  visibility: hidden;
 }
 
-.domain-version-selector:not([data-state]) .domain-version-selector-panel {
-  display: none;
+.domain-version-selector[data-state=expanded] .domain-version-selector-panel {
+  visibility: visible;
+  z-index: 4;
 }
 
 .brdcrb-domain {
