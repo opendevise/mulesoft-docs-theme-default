@@ -71,6 +71,7 @@
   display: none;
 }
 
+.nav-itm[data-depth="0"] > .nav-set,
 .nav-itm[data-state=expanded] > .nav-set {
   display: block;
 }
