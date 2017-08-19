@@ -31,6 +31,10 @@
   border-color: var(--color-cerulean);
 }
 
+.page-version-selector-toggle::-moz-focus-inner {
+  border: none;
+}
+
 .page-version-selector-panel {
   background-color: var(--color-cerulean);
   border: 1px solid var(--color-cerulean);

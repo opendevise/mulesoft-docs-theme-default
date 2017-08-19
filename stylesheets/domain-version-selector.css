@@ -27,6 +27,10 @@
   z-index: 4;
 }
 
+.domain-version-selector-toggle::-moz-focus-inner {
+  border: none;
+}
+
 .domain-version-selector[data-state=expanded] .domain-version-selector-toggle {
   border-color: transparent !important;
   z-index: 5;
