@@ -82,10 +82,14 @@
   border: none;
   cursor: pointer;
   height: 1.4rem;
-  outline: none !important;
+  outline: none;
   margin-top: 0.35rem;
   padding: 0;
   width: 0.75rem;
+}
+
+.nav-ctl::-moz-focus-inner {
+  border: none;
 }
 
 .nav-itm[data-state=expanded] > .nav-ctl {
