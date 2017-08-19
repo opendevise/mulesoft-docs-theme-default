@@ -58,7 +58,7 @@
 }
 
 .page-version-selector a.page-version--missing:link {
-  opacity: 0.5;
+  color: var(--color-cerulean-dim);
   text-decoration: none;
   font-style: italic;
 }
