@@ -2,11 +2,11 @@
   <button class="domain-version-selector-toggle">{{domain.title}}{{version-label domain}}</button>
   <div class="domain-version-selector-panel">
     {{#each site.domains}}
-      <div class="brdcrb-domain{{#if selected}} brdcrb-domain--current{{/if}}">
-        <div class="brdcrb-domain-title">{{domainTitle}}</div>
+      <div class="brdcrb-domain{{#if ./selected}} brdcrb-domain--current{{/if}}">
+        <div class="brdcrb-domain-title">{{./domainTitle}}</div>
         <div class="brdcrb-version-list">
-          {{#each versions}}
-            <a class="brdcrb-version{{#if selected}} brdcrb-version--current{{/if}}" href="{{url}}">{{string}}{{#if latest}} (latest){{/if}}</a>
+          {{#each ./versions}}
+            <a class="brdcrb-version{{#if ./selected}} brdcrb-version--current{{/if}}" href="{{./url}}">{{./string}}{{#if ./latest}} (latest){{/if}}</a>
           {{/each}}
         </div>
       </div>
