@@ -15,8 +15,8 @@ const postcssUrl = require('postcss-url')
 const cssnano = require('cssnano')
 
 const postcssPlugins = [
-  autoprefixer({ browsers: ['last 2 versions'] }),
   postcssImport(),
+  autoprefixer({ browsers: ['last 2 versions'] }),
   postcssUrl({
     url: function (asset) {
       if (asset.pathname != null && minimatch(asset.pathname, './files/*.{svg,eot,woff,woff2}')) {
