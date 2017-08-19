@@ -229,8 +229,8 @@
   background-clip: padding-box;
   */
 
-  /* method B: padding top with a transparent background stop; negative top compensates for gap in Chrome */
-  background-image: linear-gradient(to bottom, transparent, transparent calc(var(--header-height) - 0.05rem), #fff calc(var(--header-height) - 0.05rem));
+  /* method B: padding top with a partial transparent background */
+  background-image: linear-gradient(to bottom, transparent var(--header-height-sticky), #fff var(--header-height-sticky));
   padding-top: calc(var(--header-height) + 0.25rem);
   margin-top: calc(-1 * var(--header-height) - 0.25rem + 1.75rem);
 }

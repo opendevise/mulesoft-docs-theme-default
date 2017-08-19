@@ -1,5 +1,6 @@
 :root {
   --header-height: 4.4rem;
+  --header-height-sticky: 4.35rem; /* compensates for alignment error in Chrome & Edge */
 }
 
 body {
