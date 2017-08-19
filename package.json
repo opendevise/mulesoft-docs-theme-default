@@ -9,7 +9,7 @@
     "autoprefixer": "^7.1.1",
     "browser-sync": "^2.18.12",
     "chokidar": "^1.7.0",
-    "convict": "^3.0.0",
+    "convict": "^4.0.0",
     "cssnano": "^3.10.0",
     "github": "^9.2.0",
     "gulp": "^3.9.1",
@@ -17,7 +17,7 @@
     "gulp-imagemin": "^3.3.0",
     "gulp-postcss": "^7.0.0",
     "gulp-replace": "^0.6.1",
-    "gulp-vinyl-zip": "^1.4.0",
+    "gulp-vinyl-zip": "^2.0.0",
     "handlebars": "^4.0.10",
     "js-yaml": "^3.8.4",
     "lodash.debounce": "^4.0.8",
@@ -27,8 +27,8 @@
     "postcss-import": "^10.0.0",
     "postcss-url": "^7.0.0",
     "require-from-string": "^1.2.1",
-    "typeface-open-sans": "^0.0.22",
-    "typeface-pt-sans": "^0.0.22",
+    "typeface-open-sans": "^0.0.35",
+    "typeface-pt-sans": "^0.0.35",
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^2.4.4"
   }
