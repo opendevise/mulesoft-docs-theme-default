@@ -5,14 +5,17 @@
 }
 
 .domain-version-selector-toggle {
-  background: transparent url(../images/chevron.svg) no-repeat calc(100% - 0.5rem) 50%;
-  background-size: auto 50%;
+  background-color: transparent;
+  background-image: url(../images/chevron.svg);
+  background-repeat: no-repeat;
+  background-position: right 0.5rem top 50%;
+  background-size: auto 0.95em;
   border: 1px solid transparent;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   margin: 0;
-  padding: 0.3rem 2rem 0.3rem 0.5rem;
+  padding: 0.3rem 1.75rem 0.3rem 0.5rem;
   color: var(--color-gray20);
 }
 

@@ -10,12 +10,16 @@ const minimatch = require('minimatch')
 const imagemin = require('gulp-imagemin')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
+const postcssCalc = require('postcss-calc')
+const postcssVar = require('postcss-custom-properties')
 const postcssImport = require('postcss-import')
 const postcssUrl = require('postcss-url')
 const cssnano = require('cssnano')
 
 const postcssPlugins = [
   postcssImport(),
+  postcssVar(),
+  postcssCalc(),
   autoprefixer({ browsers: ['last 2 versions'] }),
   postcssUrl({
     url: function (asset) {

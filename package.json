@@ -26,6 +26,8 @@
     "map-stream": "^0.0.7",
     "merge-stream": "^1.0.1",
     "minimatch": "^3.0.4",
+    "postcss-custom-properties": "^6.1.0",
+    "postcss-calc": "^6.0.0",
     "postcss-import": "^10.0.0",
     "postcss-url": "^7.0.0",
     "require-from-string": "^1.2.1",
