@@ -1,5 +1,8 @@
-body {
+:root {
   --header-height: 4.4rem;
+}
+
+body {
   padding-top: var(--header-height);
 }
 
