@@ -214,14 +214,26 @@
 }
 
 .primary-content h2 {
-  background-color: #fff;
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid var(--color-b);
   margin-bottom: 0.9rem;
-  margin-top: 1rem;
-  padding: 1.5rem 1rem 0.25rem;
-  position: sticky;
-  top: calc(var(--header-height) - 1.25rem);
+  padding: 0.25rem 1rem;
   z-index: 2;
+
+  /* method A: transparent top border */
+  /*
+  background-color: #fff;
+  border-top: var(--header-height) solid transparent;
+  margin-top: calc(-1 * var(--header-height) + 1.5rem);
+  background-clip: padding-box;
+  */
+
+  /* method B: padding top with a transparent background stop; negative top compensates for gap in Chrome */
+  background-image: linear-gradient(to bottom, transparent, transparent var(--header-height), #fff var(--header-height), #fff);
+  padding-top: calc(var(--header-height) + 0.25rem);
+  margin-top: calc(-1 * var(--header-height) - 0.25rem + 1.75rem);
+  top: -0.5px;
 }
 
 .primary-content h3 {
