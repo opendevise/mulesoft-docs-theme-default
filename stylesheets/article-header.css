@@ -14,7 +14,7 @@
 .article-header a,
 .article-header a:hover,
 .article-header a:visited {
-  color: var(--color-aa);
+  color: var(--color-gray20);
 }
 
 .home-link {

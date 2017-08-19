@@ -1,6 +1,6 @@
 .primary-content {
   box-sizing: border-box;
-  color: var(--color-aa);
+  color: var(--color-gray20);
   flex: 1 1 0;
   hyphens: auto;
   padding: 0 0 6rem 0;
@@ -12,7 +12,7 @@
 .primary-content h4,
 .primary-content h5,
 .primary-content h6 {
-  color: var(--color-b);
+  color: var(--color-cerulean);
   font-family: 'PT Sans', sans-serif;
   font-weight: normal;
 }
@@ -68,17 +68,20 @@
 
 .primary-content a,
 .primary-content a:visited {
-  color: var(--color-b);
+  color: var(--color-cerulean);
+}
+
+.primary-content a {
   text-decoration: none;
+}
+
+.primary-content a:hover {
+  color: var(--color-bahama-blue);
+  text-decoration: underline;
 }
 
 .primary-content strong {
   font-weight: 600;
-}
-
-.primary-content a:hover {
-  color: var(--color-c);
-  text-decoration: underline;
 }
 
 .primary-content p code {
@@ -108,7 +111,7 @@
 }
 
 .primary-content table.tableblock th {
-  border-bottom: 3px solid var(--color-b);
+  border-bottom: 3px solid var(--color-cerulean);
 }
 
 .primary-content table.tableblock td {
@@ -140,26 +143,6 @@
   content: attr(title);
 }
 
-.primary-content .admonitionblock.important {
-  --color-accent: var(--color-b);
-}
-
-.primary-content .admonitionblock.caution {
-  --color-accent: #D1344E;
-}
-
-.primary-content .admonitionblock.tip {
-  --color-accent: #16BB64;
-}
-
-.primary-content .admonitionblock.note {
-  --color-accent: #58595A;
-}
-
-.primary-content .admonitionblock.warning {
-  --color-accent: #F2BF24;
-}
-
 .primary-content .admonitionblock table {
   border-collapse: collapse;
   width: 100%;
@@ -174,11 +157,30 @@
 
 .primary-content .admonitionblock .icon {
   padding: 0.5rem 1rem 0.5rem 0;
-  color: var(--color-accent);
   font-weight: bold;
   vertical-align: top;
   text-align: left;
   text-transform: uppercase;
+}
+
+.primary-content .admonitionblock.important .icon {
+  color: var(--color-cerulean);
+}
+
+.primary-content .admonitionblock.caution .icon {
+  color: var(--color-brick-red);
+}
+
+.primary-content .admonitionblock.tip .icon {
+  color: var(--color-mountain-meadow);
+}
+
+.primary-content .admonitionblock.note .icon {
+  color: var(--color-abbey);
+}
+
+.primary-content .admonitionblock.warning .icon {
+  color: var(--color-saffron);
 }
 
 .primary-content .imageblock {
@@ -216,7 +218,7 @@
 .primary-content h2 {
   position: sticky;
   top: 0;
-  border-bottom: 1px solid var(--color-b);
+  border-bottom: 1px solid var(--color-cerulean);
   margin-bottom: 0.9rem;
   padding: 0.25rem 1rem;
   z-index: 2;
@@ -224,16 +226,23 @@
   /* method A: transparent top border */
   /*
   background-color: #fff;
-  border-top: var(--header-height) solid transparent;
-  margin-top: calc(-1 * var(--header-height) + 1.5rem);
+  border-top: var(--navbar-height) solid transparent;
+  margin-top: calc(-1 * var(--navbar-height) + 1.5rem);
   background-clip: padding-box;
   */
 
   /* method B: padding top with a partial transparent background */
-  background-image: linear-gradient(to bottom, transparent var(--header-height-sticky), #fff var(--header-height-sticky));
-  padding-top: calc(var(--header-height) + 0.25rem);
-  margin-top: calc(-1 * var(--header-height) - 0.25rem + 1.75rem);
+  background-image: linear-gradient(to bottom, transparent var(--navbar-height-sticky), #fff var(--navbar-height-sticky));
+  padding-top: calc(var(--navbar-height) + 0.25rem);
+  margin-top: calc(-1 * var(--navbar-height) - 0.25rem + 1.75rem);
 }
+
+/* TODO needs review; might want to define before .primary-content h2[id]
+.primary-content *[id]:not(h2) {
+  border-top: calc(var(--navbar-height) + 3rem) solid transparent;
+  margin-top: calc(-1 * var(--navbar-height) - 3rem);
+}
+*/
 
 .primary-content h3 {
   margin-bottom: 0.9rem;
@@ -370,7 +379,7 @@
 }
 
 .primary-content .dlist dt {
-  color: var(--color-b);
+  color: var(--color-cerulean);
   font-weight: 600;
   font-style: italic;
 }
@@ -396,7 +405,7 @@
 }
 
 .primary-content .conum[data-value] {
-  border: 2px solid var(--color-b);
+  border: 2px solid var(--color-cerulean);
   border-radius: 100%;
   display: inline-block;
   font-family: "Open Sans", sans-serif;

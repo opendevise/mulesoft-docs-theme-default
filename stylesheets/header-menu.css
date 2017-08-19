@@ -64,15 +64,15 @@ This stylesheet needs a .header in all selectors not to be in conflict with the 
   display: block;
   font-family: "PT Sans", sans-serif;
   font-size: 0.85rem;
-  height: var(--header-height);
-  line-height: var(--header-height);
+  height: var(--navbar-height);
+  line-height: var(--navbar-height);
   padding: 0 0.6rem;
   text-decoration: none;
 }
 
 /* LINK 0+ in hovered MENU-ITEM */
 .header .menu .menu__item:hover > a {
-  color: var(--color-b);
+  color: var(--color-cerulean);
 }
 
 /* LINK 1+ */

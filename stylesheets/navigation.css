@@ -10,22 +10,22 @@
 
 .navigation {
   background-color: #f4f5f6;
-  border-right: 1px solid var(--color-b);
+  border-right: 1px solid var(--color-cerulean);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   font-size: 0.85em;
   position: sticky;
   top: 0;
-  padding-top: var(--header-height);
-  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--navbar-height);
+  margin-top: calc(-1 * var(--navbar-height));
   height: 100vh;
   width: 20rem;
   z-index: 3;
 }
 
 .search-input {
-  background-color: var(--color-b);
+  background-color: var(--color-cerulean);
   border: none;
   box-sizing: border-box;
   color: #fff;
@@ -106,7 +106,7 @@
 
 .nav-itm--currentPage > .nav-lnk,
 .nav-itm--currentPage > .nav-ttl {
-  color: var(--color-b);
+  color: var(--color-cerulean);
 }
 
 .nav-itm[data-depth="0"] > .nav-lnk,

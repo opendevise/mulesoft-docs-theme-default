@@ -1,10 +1,12 @@
 :root {
-  --color-a: #000000;
-  --color-aa: #333333;
-  --color-aaa: #444444;
-  --color-aaaa: #262626;
-  --color-b: #00a2df;
-  --color-c: #23527c;
+  --color-gray15: #262626;
+  --color-gray20: #333333;
+  --color-cerulean: #00a1df;
+  --color-bahama-blue: #006993;
+  --color-brick-red: #d1344e;
+  --color-mountain-meadow: #16bb64;
+  --color-abbey: #58595a;
+  --color-saffron: #f2bf24;
 }
 
 html,

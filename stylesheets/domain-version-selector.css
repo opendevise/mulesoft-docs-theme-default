@@ -13,13 +13,13 @@
   font-size: 0.75rem;
   margin: 0;
   padding: 0.3rem 2rem 0.3rem 0.5rem;
-  color: var(--color-aa);
+  color: var(--color-gray20);
 }
 
 .domain-version-selector:not([data-state]) .domain-version-selector-toggle:active,
 .domain-version-selector:not([data-state]) .domain-version-selector-toggle:focus,
 .domain-version-selector:not([data-state]) .domain-version-selector-toggle:hover {
-  border-color: var(--color-b);
+  border-color: var(--color-cerulean);
   outline: none;
 }
 
@@ -31,14 +31,14 @@
 .domain-version-selector-toggle:active,
 .domain-version-selector-toggle:focus,
 .domain-version-selector-toggle:hover {
-  border-color: var(--color-b);
+  border-color: var(--color-cerulean);
   outline: none;
   z-index: 4;
 }
 
 .domain-version-selector-panel {
   background-color: #f4f5f6;
-  border: 1px solid var(--color-b);
+  border: 1px solid var(--color-cerulean);
   left: 0;
   padding: 2.5rem 0.5rem 0.5rem;
   position: absolute;
@@ -67,8 +67,8 @@
 }
 
 .brdcrb-version {
-  border: 1px solid var(--color-b);
-  color: var(--color-aa) !important;
+  border: 1px solid var(--color-cerulean);
+  color: var(--color-gray20) !important;
   display: block;
   height: 1.4rem;
   hyphens: none;
@@ -81,8 +81,8 @@
 
 .brdcrb-domain .brdcrb-version.brdcrb-version--current,
 .brdcrb-domain .brdcrb-version:hover {
-  border-color: var(--color-b) !important;
-  background-color: var(--color-b);
+  border-color: var(--color-cerulean) !important;
+  background-color: var(--color-cerulean);
   color: #fff !important;
   text-decoration: none !important;
 }

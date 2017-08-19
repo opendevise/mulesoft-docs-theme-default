@@ -25,12 +25,12 @@
 .page-version-selector-toggle:active,
 .page-version-selector-toggle:focus {
   outline: none;
-  border-color: var(--color-b);
+  border-color: var(--color-cerulean);
 }
 
 .page-version-selector-panel {
-  background-color: var(--color-b);
-  border: 1px solid var(--color-b);
+  background-color: var(--color-cerulean);
+  border: 1px solid var(--color-cerulean);
   box-sizing: border-box;
   left: 0;
   padding: 1.6rem 0.5rem 0.3rem 0.5rem;

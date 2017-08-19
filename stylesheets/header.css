@@ -1,14 +1,14 @@
 :root {
-  --header-height: 4.4rem;
-  --header-height-sticky: 4.35rem; /* compensates for alignment error in Chrome & Edge */
+  --navbar-height: 4.4rem;
+  --navbar-height-sticky: 4.35rem; /* compensates for alignment error in Chrome & Edge */
 }
 
 body {
-  padding-top: var(--header-height);
+  padding-top: var(--navbar-height);
 }
 
 .header {
-  background-color: var(--color-aaaa);
+  background-color: var(--color-gray15);
   box-sizing: border-box;
   color: #fff;
   font-family: 'PT Sans', sans-serif;
@@ -44,4 +44,3 @@ body {
 .block-title {
   display: none;
 }
-
