@@ -11,7 +11,7 @@ module.exports = async ({ owner, repo, token, dest }) => {
   const { data: latestRelease } = await github.repos.getLatestRelease({ owner, repo })
   const nextVersion = extractVersion(latestRelease.name)
   const releasePackageName = `${repo}-${nextVersion}.zip`
-  const packageName = `${repo}-latest.zip`
+  const localPackageName = `${repo}-local.zip`
 
   const { data: release } = await github.repos.createRelease({
     owner,
@@ -24,7 +24,7 @@ module.exports = async ({ owner, repo, token, dest }) => {
     owner,
     repo,
     id: release.id,
-    filePath: path.join(dest, packageName),
+    filePath: path.join(dest, localPackageName),
     name: releasePackageName,
   })
 }
