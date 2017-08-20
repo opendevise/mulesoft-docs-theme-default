@@ -1,17 +1,17 @@
 (function () {
   'use strict'
 
-  var $component = document.querySelector('.domain-version-selector')
+  var component = document.querySelector('.domain-version-selector')
 
   document.querySelector('.domain-version-selector-toggle').addEventListener('click', function () {
-    if ($component.dataset.state === 'expanded') {
-      delete $component.dataset.state
+    if (component.dataset.state === 'expanded') {
+      component.removeAttribute('data-state')
     }
     else {
-      $component.dataset.state = 'expanded'
+      component.setAttribute('data-state', 'expanded')
     }
   })
 
-  $component.addEventListener('click', function (e) { e.stopPropagation() })
-  window.addEventListener('click', function () { delete $component.dataset.state })
+  component.addEventListener('click', function (e) { e.stopPropagation() })
+  window.addEventListener('click', function () { component.removeAttribute('data-state') })
 })()

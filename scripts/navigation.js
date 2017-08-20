@@ -1,18 +1,18 @@
 (function () {
   'use strict'
 
-  var $innerNav = document.querySelector('.inner-nav')
-  $innerNav.addEventListener('scroll', function () { saveExpandedState() })
+  var innerNav = document.querySelector('.inner-nav'),
+      currentDomain = innerNav.dataset.domain,
+      currentVersion = innerNav.dataset.version
 
-  var currentDomain = $innerNav.dataset.domain,
-      currentVersion = $innerNav.dataset.version
+  innerNav.addEventListener('scroll', function () { saveExpandedState() })
 
   restoreExpandedState()
 
   qsa('.nav-ctl').forEach(function (btn) {
     var li = btn.parentElement
     btn.addEventListener('click', function () {
-      li.dataset.state = (li.dataset.state === 'collapsed' || !li.dataset.state) ? 'expanded' : 'collapsed'
+      li.setAttribute('data-state', (li.dataset.state === 'collapsed' || !li.dataset.state) ? 'expanded' : 'collapsed')
       saveExpandedState()
     })
   })
@@ -24,20 +24,20 @@
     if (state.currentDomain === currentDomain && state.currentVersion === currentVersion) {
       qsa('.inner-nav .nav-lnk')
         .filter(function (link) { return expandedLinks.indexOf(link.href) >= 0 })
-        .forEach(function (link) { link.parentElement.dataset.state = 'expanded' })
-      $innerNav.scrollTop = state.currentScroll
+        .forEach(function (link) { link.parentElement.setAttribute('data-state', 'expanded') })
+      innerNav.scrollTop = state.currentScroll
     }
     else {
-      var $currentPage = document.querySelector('.nav-itm--currentPage')
-      if ($currentPage) scrollItemIntoView($currentPage, $innerNav)
+      var currentPageItem = document.querySelector('.nav-itm--currentPage')
+      if (currentPageItem) scrollItemIntoView(currentPageItem, innerNav)
       saveExpandedState()
     }
   }
 
   function saveExpandedState() {
-    var expandedLinks = qsa('.inner-nav .nav-itm[data-state="expanded"] > .nav-lnk').map(function (a) { return a.href })
+    var expandedLinks = qsa('.inner-nav .nav-itm[data-state="expanded"] > .nav-lnk').map(function (link) { return link.href })
     sessionStorage.setItem('nav-state', JSON.stringify({
-      currentScroll: parseInt($innerNav.scrollTop),
+      currentScroll: parseInt(innerNav.scrollTop),
       expandedLinks: expandedLinks,
       currentDomain: currentDomain,
       currentVersion: currentVersion
@@ -49,8 +49,8 @@
   }
 
   // tries to get item as close to the top of the view as possible
-  function scrollItemIntoView(element, parent) {
-    var amountToScroll = element.offsetTop - parent.offsetTop
+  function scrollItemIntoView(el, parent) {
+    var amountToScroll = el.offsetTop - parent.offsetTop
     if (amountToScroll > 0) {
       parent.scrollTop = amountToScroll
     }
