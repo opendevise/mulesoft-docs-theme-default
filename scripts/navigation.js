@@ -45,7 +45,7 @@
   }
 
   function qsa(selector) {
-    return Array.from(document.querySelectorAll(selector))
+    return [].slice.call(document.querySelectorAll(selector))
   }
 
   // tries to get item as close to the top of the view as possible
