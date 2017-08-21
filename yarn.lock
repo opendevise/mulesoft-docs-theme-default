@@ -4256,13 +4256,13 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typeface-open-sans@^0.0.35:
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.35.tgz#170dc36bbbd63829c9ea64b991c2b0fd65017708"
+typeface-open-sans@0.0.31:
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.31.tgz#009beb571b7ddf6c3d30f45898a7c474d839341c"
 
-typeface-pt-sans@^0.0.35:
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/typeface-pt-sans/-/typeface-pt-sans-0.0.35.tgz#95ac15e48c31ecb5706aa017d7af30193e19c256"
+typeface-pt-sans@0.0.31:
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/typeface-pt-sans/-/typeface-pt-sans-0.0.31.tgz#016582543f474744f74a3e75bdb7ebac60dd79a2"
 
 ua-parser-js@0.7.12:
   version "0.7.12"
