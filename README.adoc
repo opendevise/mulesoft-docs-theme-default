@@ -132,39 +132,44 @@ images/
 layouts/
   default.hbs
 partials/
-  domain-version-selector.hbs
+  article.hbs
+  breadcrumbs.hbs
+  domain-selector.hbs
   footer.hbs
   footer-scripts.hbs
   footer-shared.hbs
   header.hbs
   header-shared.hbs
   head.hbs
+  main.hbs
   navigation.hbs
+  navigation-tree.hbs
   page-version-selector.hbs
-  primary-content.hbs
+  toolbar.hbs
 preview-site/
   index.html
   sample-ui-model.json
 scripts/
-  domain-version-selector.js
+  domain-selector.js
   highlight.pack.js
   navigation.js
   page-version-selector.js
 stylesheets/
-  article-header.css
-  domain-version-selector.css
+  article.css
+  domain-selector.css
   footer.css
   footer-terms-condition-menu.css
-  github.css
   header.css
   header-links.css
   header-menu.css
+  hljs-theme-github.css
   main.css
   navigation.css
   page-version-selector.css
-  primary-content.css
+  root.css
   scrollbars.css
   theme.css
+  toolbar.css
 tasks/
   build.js
   build-preview.js
@@ -218,18 +223,22 @@ images/
 layouts/
   default.hbs
 partials/
-  domain-version-selector.hbs
+  article.hbs
+  breadcrumbs.hbs
+  domain-selector.hbs
   footer.hbs
   footer-scripts.hbs
   footer-shared.hbs
   header.hbs
   header-shared.hbs
   head.hbs
+  main.hbs
   navigation.hbs
+  navigation-tree.hbs
   page-version-selector.hbs
-  primary-content.hbs
+  toolbar.hbs
 scripts/
-  domain-version-selector.js
+  domain-selector.js
   highlight.pack.js
   navigation.js
   page-version-selector.js
@@ -453,7 +462,7 @@ The partials fill in the different regions of the page.
 
 The templates read from a model that's populated by the site generator.
 Places in the template where the model is read are enclosed in `{{` and `}}` markers, aka mustaches (e.g., `+{{title}}+`).
-When the `{{` is immediately followed by `>`, that's where the result of a partial is inserted (e.g., `+{{>head}}+`.
+When the `{{` is immediately followed by `>`, that's where the result of a partial is inserted (e.g., `+{{> head }}+`.
 
 Here's an overview of the available model:
 
@@ -552,11 +561,11 @@ Now let's look at some specific use cases to help you understand how to update t
 Let's consider the case when you want to modify the font size of a section title.
 
 First, make sure you have set up the project and created a development branch.
-Next, open the file [.path]_stylesheets/main.css_ and modify the rule for the section title.
+Next, open the file [.path]_stylesheets/article.css_ and modify the rule for the section title.
 
 [source,css]
 ----
-.primary-content h1 {
+.doc h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   margin-top: 2rem
@@ -574,7 +583,7 @@ Next, open the file [.path]_templates/partials/head.hbs_ and add your tag.
 
 [source,html]
 ----
-<meta class="swiftype" name="title" data-type="string" content="{{ title }}">
+<meta class="swiftype" name="title" data-type="string" content="{{title}}">
 ----
 
 Each template file has access to the template model, which exposes information about the current page through variable names.

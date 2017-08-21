@@ -1,9 +1,9 @@
 (function () {
   'use strict'
 
-  var component = document.querySelector('.domain-version-selector')
+  var component = document.querySelector('.domain-selector')
 
-  document.querySelector('.domain-version-selector-toggle').addEventListener('click', function () {
+  document.querySelector('.domain-selector-toggle').addEventListener('click', function () {
     if (component.dataset.state === 'expanded') {
       component.removeAttribute('data-state')
     }

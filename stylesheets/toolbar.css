@@ -1,6 +1,6 @@
-.article-header {
+.toolbar {
   align-items: center;
-  background-color: #f4f5f6;
+  background-color: var(--color-white-smoke);
   border-bottom: 1px solid #dadada;
   box-sizing: border-box;
   display: flex;
@@ -11,10 +11,18 @@
   font-size: 0.75rem;
 }
 
-.article-header a,
-.article-header a:hover,
-.article-header a:visited {
+.toolbar a {
+  text-decoration: none;
+}
+
+.toolbar a,
+.toolbar a:hover,
+.toolbar a:visited {
   color: var(--color-gray20);
+}
+
+.toolbar a:hover {
+  text-decoration: underline;
 }
 
 .home-link {
@@ -31,17 +39,14 @@
   background-image: url(../images/home-hovered.svg);
 }
 
-.breadcrumb {
+.breadcrumbs {
   flex: 1 1 0;
   padding: 0 0.5rem;
   line-height: 1.1rem;
-}
-
-.breadcrumb-item {
   hyphens: none;
 }
 
-.breadcrumb-sep {
+.crumb-sep {
   margin: 0 0.25rem;
 }
 

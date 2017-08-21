@@ -1,15 +1,15 @@
 (function () {
   'use strict'
 
-  var innerNav = document.querySelector('.inner-nav'),
-      currentDomain = innerNav.dataset.domain,
-      currentVersion = innerNav.dataset.version
+  var navTree = document.querySelector('.nav-tree'),
+      currentDomain = navTree.dataset.domain,
+      currentVersion = navTree.dataset.version
 
-  innerNav.addEventListener('scroll', function () { saveExpandedState() })
+  navTree.addEventListener('scroll', function () { saveExpandedState() })
 
   restoreExpandedState()
 
-  qsa('.nav-ctl').forEach(function (btn) {
+  find(navTree, '.nav-ctl').forEach(function (btn) {
     var li = btn.parentElement
     btn.addEventListener('click', function () {
       li.setAttribute('data-state', (li.dataset.state === 'collapsed' || !li.dataset.state) ? 'expanded' : 'collapsed')
@@ -22,30 +22,30 @@
         expandedLinks = state.expandedLinks || []
 
     if (state.currentDomain === currentDomain && state.currentVersion === currentVersion) {
-      qsa('.inner-nav .nav-lnk')
+      find(navTree, '.nav-lnk')
         .filter(function (link) { return expandedLinks.indexOf(link.href) >= 0 })
         .forEach(function (link) { link.parentElement.setAttribute('data-state', 'expanded') })
-      innerNav.scrollTop = state.currentScroll
+      navTree.scrollTop = state.currentScroll
     }
     else {
       var currentPageItem = document.querySelector('.nav-itm--currentPage')
-      if (currentPageItem) scrollItemIntoView(currentPageItem, innerNav)
+      if (currentPageItem) scrollItemIntoView(currentPageItem, navTree)
       saveExpandedState()
     }
   }
 
   function saveExpandedState() {
-    var expandedLinks = qsa('.inner-nav .nav-itm[data-state="expanded"] > .nav-lnk').map(function (link) { return link.href })
+    var expandedLinks = find(navTree, '.nav-itm[data-state="expanded"] > .nav-lnk').map(function (link) { return link.href })
     sessionStorage.setItem('nav-state', JSON.stringify({
-      currentScroll: parseInt(innerNav.scrollTop),
+      currentScroll: parseInt(navTree.scrollTop),
       expandedLinks: expandedLinks,
       currentDomain: currentDomain,
       currentVersion: currentVersion
     }))
   }
 
-  function qsa(selector) {
-    return [].slice.call(document.querySelectorAll(selector))
+  function find(from, selector) {
+    return [].slice.call(from.querySelectorAll(selector))
   }
 
   // tries to get item as close to the top of the view as possible

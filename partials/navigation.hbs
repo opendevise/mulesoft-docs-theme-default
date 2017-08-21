@@ -1,17 +1,10 @@
-{{#if navigation.length}}
-  <ul class="nav-set">
-    {{#each navigation}}
-      <li class="nav-itm{{#if ./currentPath}} nav-itm--currentPath{{/if}}{{#if ./currentPage}} nav-itm--currentPage{{/if}}" data-depth="{{./depth}}"{{#if ./currentPath}} data-state="expanded"{{/if}}>
-        {{#if ./depth}}
-          {{#if ./items.length}}<button class="nav-ctl"></button>{{/if}}
-        {{/if}}
-        {{#if ./url}}
-          <a class="nav-lnk" href="{{./url}}">{{{./title}}}</a>
-        {{else}}
-          <span class="nav-ttl">{{{./title}}}</span>
-        {{/if}}
-        {{> navigation navigation=./items }}
-      </li>
-    {{/each}}
-  </ul>
-{{/if}}
+<div class="navigation_wrapper">
+  <nav role="navigation" class="navigation">
+    <div class="search">
+      <input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="nav-tree" data-domain="{{domain.name}}" data-version="{{domain.version.string}}">
+      {{> navigation-tree }}
+    </div>
+  </nav>
+</div>

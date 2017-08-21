@@ -1,0 +1,28 @@
+:root {
+  --color-white-smoke: #f4f5f6;
+  --color-gray15: #262626;
+  --color-gray20: #333333;
+  --color-cerulean: #00a1df;
+  --color-cerulean-dim: #80d0ef;
+  --color-bahama-blue: #006993;
+  --color-brick-red: #d1344e;
+  --color-mountain-meadow: #16bb64;
+  --color-abbey: #58595a;
+  --color-saffron: #f2bf24;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+html {
+  font-size: 1.2em;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
+}

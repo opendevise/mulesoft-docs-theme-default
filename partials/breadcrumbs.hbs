@@ -1,0 +1,10 @@
+<div class="breadcrumbs">
+  {{#each breadcrumbs}}
+    {{#if ./url}}
+      <span class="crumb__wrapper"><a class="crumb" href="{{./url}}">{{{./title}}}</a></span>
+    {{else}}
+      <span class="crumb__wrapper"><span class="crumb">{{{./title}}}</span></span>
+    {{/if}}
+    {{#unless @last}}<span class="crumb-sep">/</span>{{/unless}}
+  {{/each}}
+</div>

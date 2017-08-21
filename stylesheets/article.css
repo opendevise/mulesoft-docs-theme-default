@@ -1,28 +1,27 @@
-.primary-content {
+.doc {
   box-sizing: border-box;
   color: var(--color-gray20);
-  flex: 1 1 0;
   hyphens: auto;
   padding: 0 0 6rem 0;
 }
 
-.primary-content h1,
-.primary-content h2,
-.primary-content h3,
-.primary-content h4,
-.primary-content h5,
-.primary-content h6 {
+.doc h1,
+.doc h2,
+.doc h3,
+.doc h4,
+.doc h5,
+.doc h6 {
   color: var(--color-cerulean);
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-weight: normal;
 }
 
-.primary-content h1 > a.anchor,
-.primary-content h2 > a.anchor,
-.primary-content h3 > a.anchor,
-.primary-content h4 > a.anchor,
-.primary-content h5 > a.anchor,
-.primary-content h6 > a.anchor {
+.doc h1 > a.anchor,
+.doc h2 > a.anchor,
+.doc h3 > a.anchor,
+.doc h4 > a.anchor,
+.doc h5 > a.anchor,
+.doc h6 > a.anchor {
   text-decoration: none;
   float: left;
   width: 0;
@@ -30,32 +29,32 @@
   margin-left: -1.25ch;
 }
 
-.primary-content h1:hover > a.anchor::before,
-.primary-content h2:hover > a.anchor::before,
-.primary-content h3:hover > a.anchor::before,
-.primary-content h4:hover > a.anchor::before,
-.primary-content h5:hover > a.anchor::before,
-.primary-content h6:hover > a.anchor::before {
+.doc h1:hover > a.anchor::before,
+.doc h2:hover > a.anchor::before,
+.doc h3:hover > a.anchor::before,
+.doc h4:hover > a.anchor::before,
+.doc h5:hover > a.anchor::before,
+.doc h6:hover > a.anchor::before {
   content: "\00a7";
   visibility: visible;
 }
 
-.primary-content h1,
-.primary-content h2,
-.primary-content h3,
-.primary-content h4,
-.primary-content h5,
-.primary-content h6,
+.doc h1,
+.doc h2,
+.doc h3,
+.doc h4,
+.doc h5,
+.doc h6,
   /* [id=preamble] instead of #preamble to decrease specificity */
   /* this specific line is for sectionless pages */
-.primary-content h1 ~ :not([class^=sect]):not([id=preamble]),
-.primary-content [id=preamble] > .sectionbody > :not([class^=sect]),
-.primary-content .sect1 > .sectionbody > :not([class^=sect]),
-.primary-content .sect2 > :not([class^=sect]),
-.primary-content .sect3 > :not([class^=sect]),
-.primary-content .sect4 > :not([class^=sect]),
-.primary-content .sect5 > :not([class^=sect]),
-.primary-content .sect6 > :not([class^=sect]) {
+.doc h1 ~ :not([class^=sect]):not([id=preamble]),
+.doc [id=preamble] > .sectionbody > :not([class^=sect]),
+.doc .sect1 > .sectionbody > :not([class^=sect]),
+.doc .sect2 > :not([class^=sect]),
+.doc .sect3 > :not([class^=sect]),
+.doc .sect4 > :not([class^=sect]),
+.doc .sect5 > :not([class^=sect]),
+.doc .sect6 > :not([class^=sect]) {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
@@ -66,32 +65,32 @@
   width: 100%;
 }
 
-.primary-content a,
-.primary-content a:visited {
+.doc a,
+.doc a:visited {
   color: var(--color-cerulean);
 }
 
-.primary-content a {
+.doc a {
   text-decoration: none;
 }
 
-.primary-content a:hover {
+.doc a:hover {
   color: var(--color-bahama-blue);
   text-decoration: underline;
 }
 
-.primary-content strong {
+.doc strong {
   font-weight: 600;
 }
 
-.primary-content p code {
+.doc p code {
   background-color: #f5f5f5;
   color: black;
   padding: 0.1rem 0.2rem;
   border-radius: 0.2rem;
 }
 
-.primary-content table.tableblock {
+.doc table.tableblock {
   border-collapse: collapse;
   font-size: 0.8em;
   margin-bottom: 2rem;
@@ -105,57 +104,57 @@
   */
 }
 
-.primary-content table.tableblock th,
-.primary-content table.tableblock td {
+.doc table.tableblock th,
+.doc table.tableblock td {
   padding: 0.5rem;
 }
 
-.primary-content table.tableblock th {
+.doc table.tableblock th {
   border-bottom: 3px solid var(--color-cerulean);
 }
 
-.primary-content table.tableblock td {
+.doc table.tableblock td {
   border-top: 1px solid #AAA;
   border-bottom: 1px solid #AAA;
 }
 
-.primary-content table.tableblock .halign-left {
+.doc table.tableblock .halign-left {
   text-align: left;
 }
 
-.primary-content table.tableblock .valign-top {
+.doc table.tableblock .valign-top {
   vertical-align: top;
 }
 
-.primary-content .admonitionblock {
+.doc .admonitionblock {
   font-size: 0.85rem;
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
 }
 
-.primary-content .admonitionblock .icon i {
+.doc .admonitionblock .icon i {
   display: inline-block;
   font-style: normal;
   hyphens: none;
 }
 
-.primary-content .admonitionblock .icon i::after {
+.doc .admonitionblock .icon i::after {
   content: attr(title);
 }
 
-.primary-content .admonitionblock table {
+.doc .admonitionblock table {
   border-collapse: collapse;
   width: 100%;
 }
 
-.primary-content .admonitionblock td.content {
+.doc .admonitionblock td.content {
   padding: 0.5rem 1rem;
   border: 2px solid #e8e9ea;
   width: 100%;
   font-size: 0.9em;
 }
 
-.primary-content .admonitionblock .icon {
+.doc .admonitionblock .icon {
   padding: 0.5rem 1rem 0.5rem 0;
   font-weight: bold;
   vertical-align: top;
@@ -163,27 +162,27 @@
   text-transform: uppercase;
 }
 
-.primary-content .admonitionblock.important .icon {
+.doc .admonitionblock.important .icon {
   color: var(--color-cerulean);
 }
 
-.primary-content .admonitionblock.caution .icon {
+.doc .admonitionblock.caution .icon {
   color: var(--color-brick-red);
 }
 
-.primary-content .admonitionblock.tip .icon {
+.doc .admonitionblock.tip .icon {
   color: var(--color-mountain-meadow);
 }
 
-.primary-content .admonitionblock.note .icon {
+.doc .admonitionblock.note .icon {
   color: var(--color-abbey);
 }
 
-.primary-content .admonitionblock.warning .icon {
+.doc .admonitionblock.warning .icon {
   color: var(--color-saffron);
 }
 
-.primary-content .imageblock {
+.doc .imageblock {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,31 +190,31 @@
   margin-top: 0.9rem;
 }
 
-.primary-content .imageblock img {
+.doc .imageblock img {
   display: block;
 }
 
-.primary-content .imageblock .title {
+.doc .imageblock .title {
   color: #555;
   font-style: italic;
   margin-top: 0.5rem;
 }
 
-.primary-content .imageblock img,
-.primary-content .paragraph .image img {
+.doc .imageblock img,
+.doc .paragraph .image img {
   height: auto;
   width: auto;
   max-width: 100%;
 }
 
 /* reset */
-.primary-content h1 {
+.doc h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.primary-content h2 {
+.doc h2 {
   position: sticky;
   top: 0;
   border-bottom: 1px solid var(--color-cerulean);
@@ -237,165 +236,165 @@
   margin-top: calc(-1 * var(--navbar-height) - 0.25rem + 1.75rem);
 }
 
-/* TODO needs review; might want to define before .primary-content h2[id]
-.primary-content *[id]:not(h2) {
+/* TODO needs review; might want to define before .doc h2[id]
+.doc *[id]:not(h2) {
   border-top: calc(var(--navbar-height) + 3rem) solid transparent;
   margin-top: calc(-1 * var(--navbar-height) - 3rem);
 }
 */
 
-.primary-content h3 {
+.doc h3 {
   margin-bottom: 0.9rem;
   margin-top: 1rem;
 }
 
-.primary-content h4 {
+.doc h4 {
   margin-bottom: 0.9rem;
   margin-top: 1rem;
 }
 
-.primary-content h5 {
+.doc h5 {
   margin-bottom: 0.9rem;
   margin-top: 1rem;
 }
 
-.primary-content h6 {
+.doc h6 {
   margin-bottom: 0.9rem;
   margin-top: 1rem;
 }
 
-.primary-content p {
+.doc p {
   margin: 0;
 }
 
-.primary-content .paragraph {
+.doc .paragraph {
   margin-bottom: 0.9rem;
   margin-top: 1rem;
 }
 
-.primary-content .ulist .paragraph,
-.primary-content .olist .paragraph {
+.doc .ulist .paragraph,
+.doc .olist .paragraph {
   margin: 0;
   padding: 0;
 }
 
-.primary-content .admonitionblock .ulist,
-.primary-content .admonitionblock .olist,
-.primary-content .admonitionblock .content .paragraph {
+.doc .admonitionblock .ulist,
+.doc .admonitionblock .olist,
+.doc .admonitionblock .content .paragraph {
   margin: 0.5rem 0;
   padding: 0;
 }
 
-.primary-content table.tableblock .paragraph {
+.doc table.tableblock .paragraph {
   margin-bottom: 0;
   margin-top: 0;
   padding: 0;
 }
 
-.primary-content table.tableblock .admonitionblock,
-.primary-content .ulist .admonitionblock,
-.primary-content .olist .admonitionblock {
+.doc table.tableblock .admonitionblock,
+.doc .ulist .admonitionblock,
+.doc .olist .admonitionblock {
   padding: 0;
 }
 
-.primary-content ul {
+.doc ul {
   margin: 0;
   padding: 0 0 0 1.5rem;
 }
 
-.primary-content ol {
+.doc ol {
   margin: 0;
   padding: 0 0 0 2rem;
 }
 
-.primary-content .colist,
-.primary-content .olist,
-.primary-content .ulist {
+.doc .colist,
+.doc .olist,
+.doc .ulist {
   margin-bottom: 0.9rem;
   margin-top: 0.9rem;
 }
 
-.primary-content .olist .olist,
-.primary-content .olist .ulist,
-.primary-content .olist .dlist,
-.primary-content .ulist .olist,
-.primary-content .ulist .ulist,
-.primary-content .ulist .dlist,
-.primary-content .dlist .ulist,
-.primary-content .dlist .olist,
-.primary-content .dlist .dlist {
+.doc .olist .olist,
+.doc .olist .ulist,
+.doc .olist .dlist,
+.doc .ulist .olist,
+.doc .ulist .ulist,
+.doc .ulist .dlist,
+.doc .dlist .ulist,
+.doc .dlist .olist,
+.doc .dlist .dlist {
   padding: 0;
 }
 
-.primary-content .olist li,
-.primary-content .ulist li {
+.doc .olist li,
+.doc .ulist li {
   margin-bottom: 0.5rem;
 }
 
-.primary-content .olist {
+.doc .olist {
   font-weight: 600;
 }
 
-.primary-content .olist li > * {
+.doc .olist li > * {
   font-weight: normal;
 }
 
-.primary-content .listingblock {
+.doc .listingblock {
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
 }
 
-.primary-content .ulist .listingblock,
-.primary-content .olist .listingblock,
-.primary-content .admonitionblock .listingblock {
+.doc .ulist .listingblock,
+.doc .olist .listingblock,
+.doc .admonitionblock .listingblock {
   padding: 0;
 }
 
-.primary-content .listingblock .content {
+.doc .listingblock .content {
   box-sizing: border-box;
 }
 
-.primary-content .listingblock pre {
+.doc .listingblock pre {
   font-size: 0.95em;
   margin: 0;
   padding: 0.75rem;
   background-color: #f9fafa;
 }
 
-.primary-content .listingblock pre.highlight {
+.doc .listingblock pre.highlight {
   background: none;
   padding: 0;
 }
 
-.primary-content .listingblock pre.highlight code {
+.doc .listingblock pre.highlight code {
   display: block;
   padding: 0.75rem;
   background-color: #f9fafa;
   box-shadow: inset 0 0 2px #aaa;
 }
 
-.primary-content .listingblock.wrap pre.highlight code {
+.doc .listingblock.wrap pre.highlight code {
   white-space: pre-wrap;
 }
 
-.primary-content .dlist dt {
+.doc .dlist dt {
   color: var(--color-cerulean);
   font-weight: 600;
   font-style: italic;
 }
 
-.primary-content .dlist dt::after {
-  content: ':'
+.doc .dlist dt::after {
+  content: ":"
 }
 
-.primary-content .dlist dd {
+.doc .dlist dd {
   margin-left: 1.5rem;
   margin-bottom: 0.3rem;
 }
 
 /* CALLOUTS */
 
-.primary-content pre .conum[data-value] {
+.doc pre .conum[data-value] {
   font-family: monospace;
   font-size: .95em;
   margin-bottom: -.125em;
@@ -404,7 +403,7 @@
   vertical-align: middle;
 }
 
-.primary-content .conum[data-value] {
+.doc .conum[data-value] {
   border: 2px solid var(--color-cerulean);
   border-radius: 100%;
   display: inline-block;
@@ -417,15 +416,15 @@
   width: 1.25em;
 }
 
-.primary-content .conum[data-value]::after {
+.doc .conum[data-value]::after {
   content: attr(data-value);
 }
 
-.primary-content .conum[data-value] + b {
+.doc .conum[data-value] + b {
   display: none;
 }
 
-.colist > table tr > td:first-of-type {
+.doc .colist > table tr > td:first-of-type {
   padding: 0 .75em;
   line-height: 1;
 }

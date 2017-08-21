@@ -1,10 +1,10 @@
-.domain-version-selector {
+.domain-selector {
   align-items: center;
   display: flex;
   position: relative;
 }
 
-.domain-version-selector-toggle {
+.domain-selector-toggle {
   background-color: transparent;
   background-image: url(../images/chevron.svg);
   background-repeat: no-repeat;
@@ -19,25 +19,25 @@
   color: var(--color-gray20);
 }
 
-.domain-version-selector-toggle:active,
-.domain-version-selector-toggle:focus,
-.domain-version-selector-toggle:hover {
+.domain-selector-toggle:active,
+.domain-selector-toggle:focus,
+.domain-selector-toggle:hover {
   border-color: var(--color-cerulean);
   outline: none;
   z-index: 4;
 }
 
-.domain-version-selector-toggle::-moz-focus-inner {
+.domain-selector-toggle::-moz-focus-inner {
   border: none;
 }
 
-.domain-version-selector[data-state=expanded] .domain-version-selector-toggle {
+.domain-selector[data-state=expanded] .domain-selector-toggle {
   border-color: transparent !important;
   z-index: 5;
 }
 
-.domain-version-selector-panel {
-  background-color: #f4f5f6;
+.domain-selector-panel {
+  background-color: var(--color-white-smoke);
   border: 1px solid var(--color-cerulean);
   padding: 2.5rem 0.5rem 0.5rem;
   position: absolute;
@@ -46,28 +46,28 @@
   visibility: hidden;
 }
 
-.domain-version-selector[data-state=expanded] .domain-version-selector-panel {
+.domain-selector[data-state=expanded] .domain-selector-panel {
   visibility: visible;
   z-index: 4;
 }
 
-.brdcrb-domain {
+.domain {
   align-items: center;
   display: flex;
 }
 
-.brdcrb-version-list {
+.domain-versions {
   display: flex;
 }
 
-.brdcrb-domain-title {
+.domain-title {
   font-weight: bold;
   padding-right: 0.5rem;
   text-align: right;
   width: 12rem;
 }
 
-.brdcrb-version {
+.domain-version {
   border: 1px solid var(--color-cerulean);
   color: var(--color-gray20) !important;
   display: block;
@@ -80,10 +80,10 @@
   white-space: nowrap;
 }
 
-.brdcrb-domain .brdcrb-version.brdcrb-version--current,
-.brdcrb-domain .brdcrb-version:hover {
-  border-color: var(--color-cerulean) !important;
+a.domain-version--current,
+a.domain-version:hover {
+  border-color: var(--color-cerulean);
   background-color: var(--color-cerulean);
   color: #fff !important;
-  text-decoration: none !important;
+  text-decoration: none;
 }
