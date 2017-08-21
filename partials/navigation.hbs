@@ -4,7 +4,24 @@
       <input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
     </div>
     <div class="nav-tree" data-domain="{{domain.name}}" data-version="{{domain.version.string}}">
-      {{> navigation-tree }}
+      {{!--{{#if domain.root}}--}}
+      {{#if (eq domain.name "general")}}
+        <ul class="nav-lvl">
+          <li class="nav-itm" data-depth="0">
+            {{!--<a class="nav-lnk" href="{{domain.url}}">{{{domain.title}}}</a>--}}
+            <a class="nav-lnk" href="{{siteRootUrl}}">{{{domain.title}}}</a>
+            {{> navigation-tree level=1 }}
+          </li>
+          {{#each site.domains}}
+            <li class="nav-itm" data-depth="0">
+              {{!--<a class="nav-lnk" href="{{./url}}">{{{./domainTitle}}}</a>--}}
+              <a class="nav-lnk" href="{{#with (lookup ./versions 0)}}{{./url}}{{/with}}">{{{./domainTitle}}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        {{> navigation-tree }}
+      {{/if}}
     </div>
   </nav>
 </div>
