@@ -226,14 +226,14 @@
   /*
   background-color: #fff;
   border-top: var(--navbar-height) solid transparent;
-  margin-top: calc(-1 * var(--navbar-height) + 1.5rem);
+  margin-top: calc(-1 * var(--navbar-height) + 1.35rem);
   background-clip: padding-box;
   */
 
   /* method B: padding top with a partial transparent background */
   background-image: linear-gradient(to bottom, transparent var(--navbar-height-sticky), #fff var(--navbar-height-sticky));
   padding-top: calc(var(--navbar-height) + 0.25rem);
-  margin-top: calc(-1 * var(--navbar-height) - 0.25rem + 1.75rem);
+  margin-top: calc(-1 * var(--navbar-height) - 0.25rem + 1.6rem);
 }
 
 /* TODO needs review; might want to define before .doc h2[id]
