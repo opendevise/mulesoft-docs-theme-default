@@ -395,6 +395,22 @@
   margin-bottom: 0.3rem;
 }
 
+.doc .ex {
+  background-color: var(--color-white-smoke);
+}
+
+.doc h3.view {
+  padding-left: 0;
+  padding-right: 0;
+  color: inherit;
+  text-align: center;
+}
+
+.doc h3.view ~ h3.view {
+  padding-top: 1rem;
+  border-top: 1px dashed #99999a;
+}
+
 /* CALLOUTS */
 
 .doc pre .conum[data-value] {
