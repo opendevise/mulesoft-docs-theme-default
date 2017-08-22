@@ -32,7 +32,6 @@
     "postcss-url": "^7.0.0",
     "require-from-string": "^1.2.1",
     "typeface-open-sans": "0.0.31",
-    "typeface-pt-sans": "0.0.31",
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^2.4.4"
   }

@@ -23,7 +23,7 @@ const postcssPlugins = [
   autoprefixer({ browsers: ['last 2 versions'] }),
   postcssUrl({
     url: function (asset) {
-      if (asset.pathname != null && minimatch(asset.pathname, './files/*.{svg,eot,woff,woff2}')) {
+      if (asset.pathname && minimatch(asset.pathname, './files/*.{svg,eot,woff,woff2}')) {
         const parsedPath = path.parse(asset.pathname)
         return path.join('..', 'fonts', parsedPath.base)
       }
@@ -42,6 +42,8 @@ module.exports = (src, dest) => {
       .pipe(imagemin()),
 
     vfs.src('scripts/**/*.js', srcOptions),
+
+    vfs.src('fonts/*.{svg,eot,woff,woff2}', srcOptions),
 
     vfs.src('stylesheets/theme.css', srcOptions)
       .pipe(postcss(postcssPlugins)),
