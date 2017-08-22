@@ -8,10 +8,9 @@ body {
 }
 
 .header {
-  background-color: var(--color-gray15);
+  background-color: var(--color-gray3);
   box-sizing: border-box;
   color: #fff;
-  font-family: "PT Sans", sans-serif;
   position: fixed;
   top: 0;
   width: 100%;
@@ -38,9 +37,4 @@ body {
   display: block;
   height: 3.25rem;
   margin: 0.5rem 0.5rem 0 0;
-}
-
-.block__title,
-.block-title {
-  display: none;
 }

@@ -7,7 +7,8 @@
 .top-nav-ctas .dev {
   color: #00a2df;
   display: block;
-  font-size: 13px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
   margin: 0 0.2rem;
   text-decoration: none;
 }
@@ -19,7 +20,7 @@
 
 .top-nav-ctas .try {
   border: 1px solid #00a2df;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.6rem;
 }
 
 .top-nav-ctas .dev {
