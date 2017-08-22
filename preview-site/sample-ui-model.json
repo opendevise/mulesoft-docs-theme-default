@@ -64,6 +64,16 @@
             "url": "/studio/5/index.html"
           }
         ]
+      },
+      {
+        "domain": "whats-new",
+        "domainTitle": "What&#8217;s New",
+        "versions": [
+          {
+            "string": "latest",
+            "url": "/whats-new/index.html"
+          }
+        ]
       }
     ]
   },

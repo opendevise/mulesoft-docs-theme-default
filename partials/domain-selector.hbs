@@ -1,9 +1,9 @@
 <div class="domain-selector">
-  <button class="domain-selector-toggle">{{domain.title}}{{version-label domain}}</button>
+  <button class="domain-selector-toggle">{{{domain.title}}}{{version-label domain}}</button>
   <div class="domain-selector-panel">
     {{#each site.domains}}
       <div class="domain{{#if ./selected}} domain--current{{/if}}">
-        <div class="domain-title">{{./domainTitle}}</div>
+        <div class="domain-title">{{{./domainTitle}}}</div>
         <div class="domain-versions">
           {{#each ./versions}}
             <a class="domain-version{{#if ./selected}} domain-version--current{{/if}}" href="{{./url}}">{{./string}}{{#if ./latest}} (latest){{/if}}</a>
