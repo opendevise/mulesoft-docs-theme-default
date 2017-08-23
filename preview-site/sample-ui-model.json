@@ -4,8 +4,8 @@
     "title": "MuleSoft Documentation",
     "domains": [
       {
-        "domain": "apikit",
-        "domainTitle": "APIkit",
+        "name": "apikit",
+        "title": "APIkit",
         "versions": [
           {
             "string": "latest",
@@ -14,8 +14,8 @@
         ]
       },
       {
-        "domain": "connector-devkit",
-        "domainTitle": "Anypoint Connector DevKit",
+        "name": "connector-devkit",
+        "title": "Anypoint Connector DevKit",
         "versions": [
           {
             "string": "3.8",
@@ -51,8 +51,8 @@
         "selected": true
       },
       {
-        "domain": "studio",
-        "domainTitle": "Anypoint Studio",
+        "name": "studio",
+        "title": "Anypoint Studio",
         "versions": [
           {
             "string": "6",
@@ -66,8 +66,8 @@
         ]
       },
       {
-        "domain": "whats-new",
-        "domainTitle": "What&#8217;s New",
+        "name": "whats-new",
+        "title": "What&#8217;s New",
         "versions": [
           {
             "string": "latest",
@@ -137,13 +137,11 @@
   ],
   "breadcrumbs": [
     {
-      "depth": 0,
       "title": "Level 0 item 0",
       "url": "level-0-item-0.html",
       "currentPath": true
     },
     {
-      "depth": 1,
       "title": "INDEX",
       "url": "index.html",
       "currentPage": true,
@@ -152,54 +150,45 @@
   ],
   "navigation": [
     {
-      "depth": 0,
       "title": "Level 0 item 0",
       "url": "level-0-item-0.html",
       "currentPath": true,
       "items": [
         {
-          "depth": 1,
           "title": "INDEX",
           "url": "index.html",
           "items": []
         },
         {
-          "depth": 1,
           "title": "FOO",
           "url": "foo/foo-index.html",
           "items": []
         },
         {
-          "depth": 1,
           "title": "BAR",
           "url": "foo/bar/bar-index.html",
           "items": []
         },
         {
-          "depth": 1,
           "title": "Level 1 item 0",
           "url": "level-1-item-0.html",
           "items": []
         },
         {
-          "depth": 1,
           "title": "Level 1 item 1",
           "url": "level-1-item-1.html",
           "items": [
             {
-              "depth": 2,
               "title": "Level 2 item 0",
               "url": "level-2-item-0.html",
               "items": []
             },
             {
-              "depth": 2,
               "title": "Level 2 item 1",
               "url": "level-2-item-1.html",
               "items": []
             },
             {
-              "depth": 2,
               "title": "Level 2 item 2",
               "url": "level-2-item-2.html",
               "items": []
@@ -207,25 +196,21 @@
           ]
         },
         {
-          "depth": 1,
           "title": "Level 1 item 2",
           "url": "level-1-item-2.html",
           "items": []
         },
         {
-          "depth": 1,
           "title": "absolute link",
           "url": "/index.html",
           "items": []
         },
         {
-          "depth": 1,
           "title": "HTTP link",
           "url": "http://covfefe.com",
           "items": []
         },
         {
-          "depth": 1,
           "title": "HTTPS link",
           "url": "https://covfefe.com",
           "currentPage": true,
@@ -234,7 +219,6 @@
       ]
     },
     {
-      "depth": 0,
       "title": "Level 0 item 1",
       "url": "level-0-item-1.html",
       "items": []
