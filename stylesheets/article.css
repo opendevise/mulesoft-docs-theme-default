@@ -2,7 +2,10 @@
   box-sizing: border-box;
   color: var(--color-gray20);
   hyphens: auto;
-  padding: 0 0 6rem 0;
+  margin: 0 auto;
+  max-width: 40rem;
+  overflow: hidden;
+  padding: 0 1rem 6rem;
 }
 
 .doc h1,
@@ -42,32 +45,6 @@
   visibility: visible;
 }
 
-.doc h1,
-.doc h2,
-.doc h3,
-.doc h4,
-.doc h5,
-.doc h6,
-  /* [id=preamble] instead of #preamble to decrease specificity */
-  /* this specific line is for sectionless pages */
-.doc h1 ~ :not([class^=sect]):not([id=preamble]),
-.doc [id=preamble] > .sectionbody > :not([class^=sect]),
-.doc .sect1 > .sectionbody > :not([class^=sect]),
-.doc .sect2 > :not([class^=sect]),
-.doc .sect3 > :not([class^=sect]),
-.doc .sect4 > :not([class^=sect]),
-.doc .sect5 > :not([class^=sect]),
-.doc .sect6 > :not([class^=sect]) {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 40rem;
-  overflow: hidden;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  width: 100%;
-}
-
 .doc a,
 .doc a:visited {
   color: var(--color-cerulean);
@@ -98,8 +75,6 @@
   font-size: 0.8em;
   margin-bottom: 2rem;
   margin-top: 2rem;
-  /* the selector for all "main" blocks is too strong for this one :-) */
-  max-width: 38rem !important;
   /* enable table-layout: fixed if you want the table width to be enforced strictly */
   /* alternative is to wrap table in div and set overflow-x: auto on the wrapper */
   /*
@@ -221,7 +196,7 @@
   position: sticky;
   top: 0;
   border-bottom: 1px solid var(--color-cerulean);
-  margin-bottom: 0.9rem;
+  margin: 0 -1rem 0.9rem -1rem;
   z-index: 2;
 
   /* method A: padding top with a partial transparent background */
