@@ -1,7 +1,8 @@
 (function () {
   'use strict'
 
-  var navTree = document.querySelector('.nav-tree'),
+  var navWrapper = document.querySelector('.navigation__wrapper'),
+      navTree = document.querySelector('.nav-tree'),
       currentDomain = navTree.dataset.domain,
       currentVersion = navTree.dataset.version
 
@@ -15,6 +16,16 @@
       li.setAttribute('data-state', (li.dataset.state === 'collapsed' || !li.dataset.state) ? 'expanded' : 'collapsed')
       saveExpandedState()
     })
+  })
+
+  document.querySelector('.navigation-open').addEventListener('click', function () {
+    document.body.setAttribute('data-overlay', 'navigation')
+    navWrapper.dataset.state = 'open'
+  })
+
+  document.querySelector('.navigation-close').addEventListener('click', function () {
+    document.body.removeAttribute('data-overlay')
+    navWrapper.dataset.state = null
   })
 
   function restoreExpandedState() {
