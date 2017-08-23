@@ -1,5 +1,6 @@
 .main__wrapper {
   display: flex;
+  position: relative;
 }
 
 .main {

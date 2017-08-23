@@ -1,14 +1,21 @@
+:root {
+  --toolbar-height: 2.5rem;
+}
+
 .toolbar {
   align-items: center;
   background-color: var(--color-white-smoke);
   border-bottom: 1px solid #dadada;
   box-sizing: border-box;
   display: flex;
-  height: 2.8rem;
+  font-size: 0.75rem;
+  height: var(--toolbar-height);
   justify-content: flex-start;
   margin-bottom: 1rem;
-  padding: 0 0.5rem;
-  font-size: 0.75rem;
+  padding: 0;
+  position: sticky;
+  top: var(--navbar-height);
+  z-index: 5;
 }
 
 .toolbar a {
@@ -27,12 +34,11 @@
 
 .home-link {
   background: url(../images/home.svg) no-repeat center center;
-  background-size: contain;
+  background-size: 60%;
   display: block;
-  height: 1.3rem;
+  height: 2.5rem;
   padding: 0;
-  margin-right: 0.35rem;
-  width: 1.3rem;
+  width: 2.5rem;
 }
 
 .home-link:hover {
@@ -40,10 +46,17 @@
 }
 
 .breadcrumbs {
+  display: none;
   flex: 1 1 0;
   padding: 0 0.5rem;
   line-height: 1.1rem;
   hyphens: none;
+}
+
+@media (min-width: 1024px) {
+  .breadcrumbs {
+    display: block;
+  }
 }
 
 .crumb-sep {
@@ -51,7 +64,14 @@
 }
 
 .edit-this-page {
+  display: none;
   padding-right: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .edit-this-page {
+    display: block;
+  }
 }
 
 .edit-this-page-link {

@@ -1,27 +1,125 @@
 .navigation__wrapper {
+  bottom: 0;
   display: none;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 6;
 }
 
-@media (min-width: 80rem) {
+.navigation__wrapper,
+.navigation__wrapper button {
+  font-size: 1rem;
+}
+
+.navigation__wrapper[data-state="open"] {
+  display: block;
+}
+
+@media (min-width: 700px) {
   .navigation__wrapper {
-    display: block;
+    top: var(--navbar-height);
+    width: 21em;
+    z-index: 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigation__wrapper {
+    position: relative;
+    top: 0;
   }
 }
 
 .navigation {
   background-color: var(--color-white-smoke);
-  border-right: 1px solid var(--color-cerulean);
+  bottom: 0;
   box-sizing: border-box;
-  display: flex;
+  display: none;
   flex-direction: column;
-  font-size: 0.85em;
-  position: sticky;
-  top: 0;
-  padding-top: var(--navbar-height);
-  margin-top: calc(-1 * var(--navbar-height));
-  height: 100vh;
-  width: 20rem;
+  position: absolute;
+  top: var(--navbar-height);
+  width: 100%;
   z-index: 3;
+}
+
+.navigation__wrapper[data-state="open"] .navigation {
+  display: flex;
+}
+
+@media (min-width: 700px) {
+  .navigation {
+    border-right: 1px solid var(--color-cerulean);
+    top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigation__wrapper,
+  .navigation {
+    display: flex;
+  }
+
+  .navigation {
+    height: 100vh;
+    top: var(--navbar-height);
+    position: sticky;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigation,
+  .navigation button {
+    font-size: 0.85rem;
+  }
+}
+
+.navigation-open {
+  background: url(../images/nav.svg) no-repeat center center;
+  background-size: 60%;
+  border: none;
+  cursor: pointer;
+  display: block;
+  height: 2.5rem;
+  padding: 0;
+  width: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .navigation-open {
+    display: none;
+  }
+}
+
+.navigation-close {
+  background: url(../images/close.svg) no-repeat center center;
+  background-size: 60%;
+  border: none;
+  cursor: pointer;
+  display: block;
+  height: 2.5rem;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .navigation-close {
+    display: none;
+  }
+}
+
+.search {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .search {
+    display: block;
+  }
 }
 
 .search-input {
@@ -31,8 +129,8 @@
   color: #fff;
   display: block;
   font-size: 0.85rem;
-  height: 2.8rem;
-  line-height: 2.8rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
   padding: 0 1rem;
   margin: 0;
   width: 100%;
@@ -58,7 +156,7 @@
 }
 
 .nav-lvl .nav-lvl {
-  margin-left: 1rem;
+  margin-left: 1.5em;
 }
 
 .nav-itm {
@@ -78,14 +176,20 @@
 
 .nav-ctl {
   background: transparent url(../images/triangle.svg) no-repeat center center;
-  background-size: contain;
+  background-size: 60%;
   border: none;
   cursor: pointer;
-  height: 1.4rem;
+  height: 1.85em;
   outline: none;
-  margin-top: 0.35rem;
+  margin-top: 0.35em;
   padding: 0;
-  width: 0.75rem;
+  width: 1.5em;
+}
+
+@media (min-width: 700px) {
+  .nav-ctl {
+    height: 1.6em;
+  }
 }
 
 .nav-ctl::-moz-focus-inner {
@@ -102,15 +206,17 @@
   color: inherit;
   display: inline-block;
   flex: 1 1 0;
-  line-height: 1.4rem;
-  margin-left: 1.2rem;
-  padding-top: 0.35rem;
+  line-height: 1.85em;
+  margin-left: 1.5em;
+  padding-top: 0.35em;
   text-decoration: none;
 }
 
-.nav-tree > .nav-lvl:first-child > .nav-itm:first-child > .nav-lnk,
-.nav-tree > .nav-lvl:first-child > .nav-itm:first-child > .nav-txt {
-  padding-top: 0.5rem;
+@media (min-width: 700px) {
+  .nav-lnk,
+  .nav-txt {
+    line-height: 1.6em;
+  }
 }
 
 .nav-itm--currentPage > .nav-lnk,
@@ -121,12 +227,12 @@
 .nav-itm[data-depth="0"] > .nav-lnk,
 .nav-itm[data-depth="0"] > .nav-txt,
 .nav-itm[data-depth="0"] > .nav-lvl {
-  margin-left: 0.25rem;
+  margin-left: 0;
 }
 
 .nav-ctl + .nav-lnk,
 .nav-ctl + .nav-txt {
-  margin-left: 0.45rem;
+  margin-left: 0;
 }
 
 .nav-lnk:hover {
@@ -135,5 +241,21 @@
 
 .nav-itm[data-depth="0"] > .nav-lnk,
 .nav-itm[data-depth="0"] > .nav-txt {
-  font-weight: bold;
+  font-weight: 600;
+}
+
+[data-overlay=navigation] .doc,
+[data-overlay=navigation] .footer {
+  display: none;
+}
+
+[data-overlay=navigation] {
+  height: auto;
+}
+
+@media (min-width: 700px) {
+  [data-overlay=navigation] .doc,
+  [data-overlay=navigation] .footer {
+    display: block;
+  }
 }

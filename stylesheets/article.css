@@ -4,7 +4,6 @@
   hyphens: auto;
   margin: 0 auto;
   max-width: 40rem;
-  overflow: hidden;
   padding: 0 1rem 6rem;
 }
 
@@ -194,7 +193,7 @@
 
 .doc h2 {
   position: sticky;
-  top: 0;
+  top: var(--toolbar-height);
   border-bottom: 1px solid var(--color-cerulean);
   margin: 0 -1rem 0.9rem -1rem;
   z-index: 2;
