@@ -1,10 +1,10 @@
 {{#if (has-multiple-versions domain)}}
-  <div class="page-version-selector">
-    <button class="page-version-selector-toggle" title="Other versions of this topic">{{domain.version.string}}</button>
-    <div class="page-version-selector-panel">
-      {{#each (page-versions site.domains domain.name versions)}}
-        <a class="page-version{{#if (eq ./string ../domain.version.string)}} page-version--current{{/if}}{{#if ./missing}} page-version--missing{{/if}}" href="{{./url}}">{{./string}}</a>
-      {{/each}}
-    </div>
-  </div>
+<div class="page-version-selector">
+<button class="page-version-selector-toggle" title="Other versions of this topic">{{domain.version.string}}</button>
+<div class="page-version-selector-panel">
+{{#each (page-versions site.domains domain.name versions)}}
+<a class="page-version{{#if (eq ./string ../domain.version.string)}} page-version--current{{/if}}{{#if ./missing}} page-version--missing{{/if}}" href="{{./url}}">{{./string}}</a>
+{{/each}}
+</div>
+</div>
 {{/if}}

@@ -1,24 +1,24 @@
 <div class="navigation__wrapper">
-  <nav role="navigation" class="navigation">
-    <div class="search">
-      <input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
-    </div>
-    <div class="nav-tree" data-domain="{{domain.name}}" data-version="{{domain.version.string}}">
-      {{#if domain.root}}
-        <ul class="nav-lvl">
-          <li class="nav-itm" data-depth="0">
-            <a class="nav-lnk" href="{{domain.url}}">{{{domain.title}}}</a>
-            {{> navigation-tree level=1 }}
-          </li>
-          {{#each site.domains}}
-            <li class="nav-itm" data-depth="0">
-              <a class="nav-lnk" href="{{./url}}">{{{./title}}}</a>
-            </li>
-          {{/each}}
-        </ul>
-      {{else}}
-        {{> navigation-tree }}
-      {{/if}}
-    </div>
-  </nav>
+<nav role="navigation" class="navigation">
+<div class="search">
+<input type="text" placeholder="Search the docs" class="search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
+</div>
+<div class="nav-tree" data-domain="{{domain.name}}" data-version="{{domain.version.string}}">
+{{#if domain.root}}
+<ul class="nav-lvl">
+<li class="nav-itm" data-depth="0">
+<a class="nav-lnk" href="{{domain.url}}">{{{domain.title}}}</a>
+{{> navigation-tree level=1 }}
+</li>
+{{#each site.domains}}
+<li class="nav-itm" data-depth="0">
+<a class="nav-lnk" href="{{./url}}">{{{./title}}}</a>
+</li>
+{{/each}}
+</ul>
+{{else}}
+{{> navigation-tree }}
+{{/if}}
+</div>
+</nav>
 </div>
