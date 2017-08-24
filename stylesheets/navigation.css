@@ -135,5 +135,5 @@
 
 .nav-itm[data-depth="0"] > .nav-lnk,
 .nav-itm[data-depth="0"] > .nav-txt {
-  font-weight: bold;
+  font-weight: normal;
 }
