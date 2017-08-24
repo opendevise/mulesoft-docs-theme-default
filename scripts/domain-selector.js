@@ -15,7 +15,7 @@
   })
 
   document.querySelector('.domain-selector-close').addEventListener('click', function () {
-    body.removeAttribute('data-overlay')
+    document.body.removeAttribute('data-overlay')
     component.removeAttribute('data-state')
   })
 
