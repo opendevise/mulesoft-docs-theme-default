@@ -104,9 +104,13 @@
 }
 
 .doc .admonitionblock {
-  font-size: 0.85rem;
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
+}
+
+.doc .admonitionblock p,
+.doc .admonitionblock .content {
+  font-size: 0.8rem;
 }
 
 .doc .admonitionblock .icon i {
@@ -128,7 +132,6 @@
   padding: 0.5rem 1rem;
   border: 2px solid #e8e9ea;
   width: 100%;
-  font-size: 0.9em;
 }
 
 .doc .admonitionblock .icon {
@@ -241,6 +244,7 @@
 }
 
 .doc p {
+  font-size: 0.95rem;
   margin: 0;
 }
 
