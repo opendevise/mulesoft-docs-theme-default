@@ -1,6 +1,5 @@
 :root {
   --navbar-height: 4.4rem;
-  --navbar-height-sticky: 4.35rem; /* compensates for alignment error in Chrome & Edge */
 }
 
 body {
