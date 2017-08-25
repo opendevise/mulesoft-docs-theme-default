@@ -10,7 +10,7 @@
 
 .navigation__wrapper,
 .navigation__wrapper button {
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .navigation__wrapper[data-state="open"] {
