@@ -1,22 +1,19 @@
-<div class="navigation__wrapper">
-<nav role="navigation" class="navigation">
-<button class="navigation-close"></button>
-<div class="nav-tree" data-domain="{{domain.name}}" data-version="{{domain.version.string}}">
-{{#if domain.root}}
-<ul class="nav-lvl">
-<li class="nav-itm" data-depth="0">
-<a class="nav-lnk" href="{{domain.url}}">{{{domain.title}}}</a>
-{{> navigation-tree level=1 }}
-</li>
-{{#each site.domains}}
-<li class="nav-itm" data-depth="0">
-<a class="nav-lnk" href="{{./url}}">{{{./title}}}</a>
-</li>
-{{/each}}
-</ul>
-{{else}}
-{{> navigation-tree }}
-{{/if}}
-</div>
-</nav>
+<div class="navigation-domain">
+  <div class="nav-tree" data-domain="{{domain.name}}" data-version="{{domain.version.string}}">
+    {{#if domain.root}}
+      <ul class="nav-lvl">
+        <li class="nav-itm" data-depth="0">
+          <a class="nav-lnk" href="{{domain.url}}">{{{domain.title}}}</a>
+          {{> navigation-tree level=1 }}
+        </li>
+        {{#each site.domains}}
+          <li class="nav-itm" data-depth="0">
+            <a class="nav-lnk" href="{{./url}}">{{{./title}}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      {{> navigation-tree }}
+    {{/if}}
+  </div>
 </div>
