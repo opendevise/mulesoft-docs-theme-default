@@ -223,5 +223,44 @@
       "url": "level-0-item-1.html",
       "items": []
     }
+  ],
+  "globalAspectNav": [
+    {
+      "title": "Tasks 0",
+      "url": "tasks-0.html",
+      "items": [
+        {
+          "title": "Tasks 0 0",
+          "url": "tasks-0-0.html",
+          "items": []
+        },
+        {
+          "title": "Tasks 0 1",
+          "url": "tasks-0-1.html",
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Tasks 1",
+      "url": "tasks-1.html",
+      "items": [
+        {
+          "title": "Tasks 1 0",
+          "url": "tasks-1-0.html",
+          "items": []
+        },
+        {
+          "title": "Tasks 1 1",
+          "url": "tasks-1-1.html",
+          "items": []
+        },
+        {
+          "title": "Tasks 1 2",
+          "url": "tasks-1-2.html",
+          "items": []
+        }
+      ]
+    }
   ]
 }
