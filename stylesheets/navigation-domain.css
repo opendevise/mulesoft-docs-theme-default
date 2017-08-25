@@ -112,34 +112,6 @@
   }
 }
 
-.search {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .search {
-    display: block;
-  }
-}
-
-.search-input {
-  background-color: var(--color-cerulean);
-  border: none;
-  box-sizing: border-box;
-  color: #fff;
-  display: block;
-  font-size: 0.85rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  padding: 0 1rem;
-  margin: 0;
-  width: 100%;
-}
-
-.search-input::placeholder {
-  color: #ddd;
-}
-
 .nav-tree {
   box-sizing: border-box;
   flex: 1 1 0;
