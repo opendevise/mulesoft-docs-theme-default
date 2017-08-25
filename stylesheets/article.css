@@ -12,6 +12,10 @@
   padding: 0 1rem 6rem;
 }
 
+.doc > * {
+  overflow: hidden;
+}
+
 .doc h1,
 .doc h2,
 .doc h3,

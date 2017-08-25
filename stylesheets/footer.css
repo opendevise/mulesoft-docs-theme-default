@@ -51,7 +51,7 @@
   width: 160px;
 }
 
-ul.social-links {
+.footer ul.social-links {
   align-items: center;
   display: flex;
   list-style: none;
@@ -59,7 +59,7 @@ ul.social-links {
   padding: 0;
 }
 
-ul.social-links li {
+.footer ul.social-links li {
   margin: 0 3px;
 }
 

@@ -19,12 +19,14 @@ module.exports = () => {
       .pipe(replace(/\r(?=\n)/g, '')) // switch to LF newlines
       .pipe(replace(/ *<!--[\s\S]*?-->/g, '')) // drop comments
       .pipe(replace(/<h2[^>]*>Main Dev Menu<\/h2>/, ''))
+      .pipe(replace(/<h2[^>]*>Mobile menu<\/h2>/, ''))
       .pipe(replace(/^\s*\n/gm, '')) // drop blank lines
-      .pipe(replace(/^[\s\S]*(<header[^>]*>[\s\S]*?<\/header>)[\s\S]*$/, '$1'))
+      // .pipe(replace(/^[\s\S]*(<header[^>]*>[\s\S]*?<\/header>)[\s\S]*$/, '$1'))
+      .pipe(replace(/^[\s\S]*<div class="ms-com-wrapper">([\s\S]*?)<\/div>$/, '$1'))
       .pipe(replace(/<a href="[^"]+" title="Home"/, '<a href="https://docs.mulesoft.com" title="Home"'))
       .pipe(replace(/ *<img src="[^"]+"/, '<img src="{{themeRootPath}}/images/mulesoft-dev-logo.svg"'))
       .pipe(replace(' id="block-menu-menu-footer-menu"', ' id="block-system-main-menu"'))
-      .pipe(replace(/<a href="#sidr" id="open-left" class="closed">\s*<\/a>\s*/, ''))
+      .pipe(replace(/<a href="#sidr" id="open-left" class="closed">\s*<\/a>\s*/, '<button class="sidr-toggle"></button>'))
       .pipe(replace(/ title=""/g, '')),
 
     download({

@@ -1,10 +1,10 @@
-.top-nav-ctas {
+.header .top-nav-ctas {
   align-items: center;
   display: flex;
 }
 
-.top-nav-ctas .try,
-.top-nav-ctas .dev {
+.header .top-nav-ctas .try,
+.header .top-nav-ctas .dev {
   color: #00a2df;
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -13,25 +13,25 @@
   text-decoration: none;
 }
 
-.top-nav-ctas .try:hover,
-.top-nav-ctas .dev:hover {
+.header .top-nav-ctas .try:hover,
+.header .top-nav-ctas .dev:hover {
   color: #fff;
 }
 
-.top-nav-ctas .try {
+.header .top-nav-ctas .try {
   border: 1px solid #00a2df;
   padding: 0.25rem 0.6rem;
 }
 
-.top-nav-ctas .dev {
+.header .top-nav-ctas .dev {
   padding: 0.2rem;
 }
 
-.top-nav-ctas .try:hover {
+.header .top-nav-ctas .try:hover {
   background-color: #00a2df;
 }
 
-.top-nav-ctas a.icon-muletheme-phone {
+.header .top-nav-ctas a.icon-muletheme-phone {
   background: url(../images/header_footer_sprite.svg) no-repeat -861px -28px;
   /* this the the normal height of the image */
   background-size: 1134px;

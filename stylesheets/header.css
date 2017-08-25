@@ -50,3 +50,26 @@ body {
   height: 3.25rem;
   margin: 0.5rem 0.5rem 0 0;
 }
+
+.sidr-toggle {
+  background-color: transparent;
+  background-image: url(../images/header_footer_sprite.svg);
+  background-position: -1068px -8px;
+  background-size: 1134px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  height: var(--navbar-height);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--navbar-height);
+}
+
+@media (min-width: 1024px) {
+  .sidr-toggle {
+    display: none;
+  }
+}
