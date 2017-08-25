@@ -108,6 +108,10 @@
   vertical-align: top;
 }
 
+.doc p.tableblock {
+  font-size: inherit;
+}
+
 .doc .admonitionblock {
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
@@ -203,22 +207,24 @@
   position: sticky;
   top: 0;
   border-bottom: 1px solid var(--color-cerulean);
-  margin: 0 -1rem 0.9rem -1rem;
+  margin: calc(-1 * var(--sticky-heading-offset) - 0.4rem + 2rem) -1rem 0.9rem -1rem;
   z-index: 2;
 
   /* method A: padding top with a partial transparent background */
   background-image: linear-gradient(to bottom, transparent var(--sticky-heading-offset-fix), #fff var(--sticky-heading-offset-fix));
   padding: calc(var(--sticky-heading-offset) + 0.4rem) 1rem 0.1rem 1rem;
-  margin-top: calc(-1 * var(--sticky-heading-offset) - 0.4rem + 2rem);
 
   /* method B: transparent top border */
   /*
   background-color: #fff;
   border-top: var(--sticky-heading-offset) solid transparent;
   padding: 0.4rem 1rem 0.1rem 1rem;
-  margin-top: calc(-1 * var(--sticky-heading-offset) - 0.4rem + 2rem);
   background-clip: padding-box;
   */
+}
+
+.doc h1 + .sect1 > h2 {
+  margin-top: calc(-1 * var(--sticky-heading-offset) - 0.4rem + 1rem);
 }
 
 /* TODO needs review; might want to define before .doc h2[id]
