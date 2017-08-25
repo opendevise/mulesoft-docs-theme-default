@@ -38,7 +38,7 @@ module.exports = (src, dest) => {
 
   return merge([
 
-    vfs.src('images/**/*.svg', srcOptions)
+    vfs.src('images/**/*.{svg,png}', srcOptions)
       .pipe(imagemin()),
 
     vfs.src('scripts/**/*.js', srcOptions),

@@ -436,3 +436,13 @@
   padding: 0 .75em;
   line-height: 1;
 }
+
+.status-404 .doc {
+  padding-bottom: 0;
+  max-width: initial;
+}
+
+.status-404 .doc .imageblock {
+  margin-top: 0;
+  margin-bottom: 0;
+}

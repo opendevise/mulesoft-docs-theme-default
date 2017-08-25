@@ -26,14 +26,14 @@ module.exports = async (src, dest, destTheme) => {
 
   vfs.src(['preview-site/**/*.html'])
     .pipe(map((file, next) => {
+      const compiledLayout = layoutsIndex[file.stem === '404' ? '404.hbs' : 'default.hbs']
       const previewSitePath = path.resolve('preview-site')
       const relativeToRoot = path.relative(file.path, previewSitePath)
-      const compileLayout = layoutsIndex['default.hbs']
       sampleUiModel['themeRootPath'] = path.join(relativeToRoot, relativeThemePath)
       sampleUiModel['siteRootUrl'] = path.join(relativeToRoot, 'index.html')
       sampleUiModel['contents'] = file.contents.toString()
       sampleUiModel['navigation-link-prefix'] = relativeToRoot
-      file.contents = new Buffer(compileLayout(sampleUiModel))
+      file.contents = new Buffer(compiledLayout(sampleUiModel))
       next(null, file)
     }))
     .pipe(vfs.dest(dest))
