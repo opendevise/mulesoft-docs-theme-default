@@ -99,6 +99,7 @@
   cursor: pointer;
   display: block;
   height: 2.5rem;
+  padding: 0;
   width: 2.5rem;
 }
 
@@ -118,7 +119,7 @@
   border-width: 0 0 3px 0;
   border-color: transparent;
   border-style: solid;
-  color: var(--color-cerulean);
+  color: var(--color-gray20);
   cursor: pointer;
   display: block;
   flex: 1 1 auto;
@@ -128,9 +129,13 @@
   padding: 0;
 }
 
-.navigation-toolbar [data-panel]:hover,
+.navigation-toolbar [data-panel]:hover {
+  color: var(--color-cerulean);
+}
+
 .navigation-toolbar .navigation--currentPanel[data-panel] {
   border-color: var(--color-cerulean);
+  color: var(--color-cerulean);
 }
 
 .navigation-panels {

@@ -1,0 +1,12 @@
+<div class="navigation-explore" data-panel="explore">
+  {{#each site.domains}}
+    <div class="domain{{#if ./selected}} domain--current{{/if}}">
+      <div class="domain-title">{{{./title}}}</div>
+      <div class="domain-versions">
+        {{#each ./versions}}
+          <a class="domain-version{{#if ./selected}} domain-version--current{{/if}}" href="{{./url}}">{{./string}}{{#if ./latest}} (latest){{/if}}</a>
+        {{/each}}
+      </div>
+    </div>
+  {{/each}}
+</div>
