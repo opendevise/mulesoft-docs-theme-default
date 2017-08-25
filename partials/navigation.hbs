@@ -1,5 +1,15 @@
 <div class="navigation__wrapper">
   <nav role="navigation" class="navigation">
-    {{> navigation-domain }}
+    <div class="navigation-toolbar">
+      <button data-panel="aspect">Tasks</button>
+      <button data-panel="explore">All</button>
+      <button data-panel="domain">Product</button>
+      <button class="navigation-close"></button>
+    </div>
+    <div class="navigation-panels">
+      <div data-panel="aspect">Tasks</div>
+      <div data-panel="explore">All</div>
+      {{> navigation-domain }}
+    </div>
   </nav>
 </div>

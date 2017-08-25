@@ -99,10 +99,6 @@
   cursor: pointer;
   display: block;
   height: 2.5rem;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
   width: 2.5rem;
 }
 
@@ -110,6 +106,40 @@
   .navigation-close {
     display: none;
   }
+}
+
+.navigation-toolbar {
+  display: flex;
+  border-bottom: 1px solid var(--color-cerulean);
+}
+
+.navigation-toolbar [data-panel] {
+  background-color: transparent;
+  border-width: 0 0 3px 0;
+  border-color: transparent;
+  border-style: solid;
+  color: var(--color-cerulean);
+  cursor: pointer;
+  display: block;
+  flex: 1 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  height: var(--toolbar-height);
+  padding: 0;
+}
+
+.navigation-toolbar [data-panel]:hover,
+.navigation-toolbar .navigation--currentPanel[data-panel] {
+  border-color: var(--color-cerulean);
+}
+
+.navigation-panels {
+  flex: 1 1 0;
+  overflow: auto;
+}
+
+.navigation-panels [data-panel]:not(.navigation--currentPanel) {
+  display: none;
 }
 
 [data-overlay=navigation] .doc,
