@@ -12,10 +12,6 @@
   padding: 0 1rem 6rem;
 }
 
-.doc > * {
-  overflow: hidden;
-}
-
 .doc h1,
 .doc h2,
 .doc h3,
@@ -369,7 +365,9 @@
   box-shadow: inset 0 0 2px #aaa;
 }
 
-.doc .listingblock.wrap pre.highlight code {
+/* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
+.doc .tableblock pre,
+.doc .listingblock.wrap pre {
   white-space: pre-wrap;
 }
 
