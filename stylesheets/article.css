@@ -388,18 +388,20 @@
 
 .doc .ex {
   background-color: var(--color-white-smoke);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 0 1rem;
+  overflow: auto; /* forces background to be painted around margins of content */
 }
 
 .doc h3.view {
-  padding-left: 0;
-  padding-right: 0;
   color: inherit;
   text-align: center;
 }
 
 .doc h3.view ~ h3.view {
   padding-top: 1rem;
-  border-top: 1px dashed #99999a;
+  border-top: 2px dotted var(--color-cerulean);
 }
 
 /* CALLOUTS */
