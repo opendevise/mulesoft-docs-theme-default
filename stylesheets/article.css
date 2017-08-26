@@ -108,7 +108,7 @@
   vertical-align: top;
 }
 
-.doc p.tableblock {
+.doc .tableblock p {
   font-size: inherit;
 }
 
