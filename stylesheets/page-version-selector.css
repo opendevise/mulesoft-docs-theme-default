@@ -69,7 +69,7 @@
   display: none;
 }
 
-.page-version-selector a.page-version--missing:link {
+.page-version-selector a.page-version--missing {
   color: var(--color-cerulean-dim);
   text-decoration: none;
   font-style: italic;
