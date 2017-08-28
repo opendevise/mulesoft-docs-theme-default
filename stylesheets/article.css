@@ -1,6 +1,5 @@
 :root {
   --sticky-heading-offset: calc(var(--navbar-height) + var(--toolbar-height));
-  --sticky-heading-offset-fix: calc(var(--sticky-heading-offset) - 0.05rem); /* compensates for alignment error in Chrome & Edge */
 }
 
 .doc {
@@ -203,36 +202,20 @@
   margin-bottom: 1.5rem;
 }
 
+#preamble + .sect1,
+.doc .sect1 + .sect1 {
+  margin-top: 2.5rem;
+}
+
 .doc h2 {
   position: sticky;
-  top: 0;
+  top: var(--sticky-heading-offset);
   border-bottom: 1px solid var(--color-cerulean);
-  margin: calc(-1 * var(--sticky-heading-offset) - 0.4rem + 2rem) -1rem 0.9rem -1rem;
-  z-index: 2;
-
-  /* method A: padding top with a partial transparent background */
-  background-image: linear-gradient(to bottom, transparent var(--sticky-heading-offset-fix), #fff var(--sticky-heading-offset-fix));
-  padding: calc(var(--sticky-heading-offset) + 0.4rem) 1rem 0.1rem 1rem;
-
-  /* method B: transparent top border */
-  /*
+  margin: 1rem -1rem 0.9rem -1rem;
   background-color: #fff;
-  border-top: var(--sticky-heading-offset) solid transparent;
   padding: 0.4rem 1rem 0.1rem 1rem;
-  background-clip: padding-box;
-  */
+  z-index: 2;
 }
-
-.doc h1 + .sect1 > h2 {
-  margin-top: calc(-1 * var(--sticky-heading-offset) - 0.4rem + 0.5rem);
-}
-
-/* TODO needs review; might want to define before .doc h2[id]
-.doc *[id]:not(h2) {
-  border-top: calc(var(--navbar-height) + 3rem) solid transparent;
-  margin-top: calc(-1 * var(--navbar-height) - 3rem);
-}
-*/
 
 .doc h3 {
   margin-bottom: 0.9rem;
