@@ -13,17 +13,17 @@
 .navigation-explore .domain-versions {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 0.3rem;
 }
 
 .navigation-explore .domain-version {
-  color: var(--color-gray-dim) !important;
+  color: var(--color-gray28) !important;
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   height: 1.4rem;
-  hyphens: none;
   line-height: 1.4rem;
   margin: 0;
-  padding: 0.2rem 0.4rem;
+  padding: 0 0.3rem;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
