@@ -16,14 +16,14 @@
 }
 
 .navigation-explore .domain-version {
-  border: 1px solid var(--color-cerulean);
-  color: var(--color-gray20) !important;
+  color: var(--color-gray-dim) !important;
   display: inline-block;
+  font-size: 0.9rem;
   height: 1.4rem;
   hyphens: none;
   line-height: 1.4rem;
-  margin: 0.2rem 0.2rem 0.2rem 0;
-  padding: 0 0.4rem;
+  margin: 0;
+  padding: 0.2rem 0.4rem;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -31,8 +31,6 @@
 
 .navigation-explore .domain-version--current,
 .navigation-explore .domain-version:hover {
-  border-color: var(--color-cerulean);
-  background-color: var(--color-cerulean);
-  color: #fff !important;
+  color: var(--color-cerulean) !important;
   text-decoration: none;
 }

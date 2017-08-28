@@ -62,7 +62,7 @@
   }
 
   .navigation {
-    height: 100vh;
+    height: calc(100vh - var(--navbar-height));
     top: var(--navbar-height);
     position: sticky;
   }
