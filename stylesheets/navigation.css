@@ -127,6 +127,11 @@
   font-weight: bold;
   height: var(--toolbar-height);
   padding: 0;
+  outline: none;
+}
+
+.navigation-toolbar [data-panel]::-moz-focus-inner {
+  border: none;
 }
 
 .navigation-toolbar [data-panel]:hover {
