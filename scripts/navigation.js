@@ -3,11 +3,18 @@
 
   var navWrapper = document.querySelector('.navigation__wrapper'),
     navPanels = document.querySelector('.navigation-panels'),
-    currentDomain = document.querySelector('.nav-tree').dataset.domain,
-    currentVersion = document.querySelector('.nav-tree').dataset.version,
+    currentDomain = navWrapper.dataset.domain,
+    currentVersion = navWrapper.dataset.version,
+    isGlobalAspectNav = (navWrapper.dataset.isGlobalAspectNav === 'true'),
     state = getState()
 
   // navigation panels state
+  if (isGlobalAspectNav) {
+    state.panel = 'aspect'
+  }
+  else if (currentDomain !== state.domain && currentVersion !== state.version) {
+    state.panel = 'domain'
+  }
   selectPanel(state.panel)
   find('.navigation-toolbar [data-panel]').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -22,7 +29,7 @@
     if (panelName !== state.panel) {
       navPanels.scrollTop = 0
     }
-    state.panel = panelName
+    state.panel = (panelName === 'explore') ? 'domain' : panelName
     saveState()
   }
 
@@ -72,10 +79,6 @@
     saveState()
   }
   if (state.domain !== currentDomain || state.version !== currentVersion) {
-    var currentPageItem = document.querySelector('.nav-itm--currentPage')
-    if (currentPageItem) {
-      scrollItemIntoView(currentPageItem, navPanels)
-    }
     state.expandedItems = state.expandedItems.filter(function (item) {
       return item.match(/^aspect-/)
     })
@@ -88,6 +91,13 @@
     }
   })
   saveState()
+
+  if (currentDomain !== state.domain && currentVersion !== state.version) {
+    var currentPageItem = document.querySelector('.nav-itm--currentPage')
+    if (currentPageItem) {
+      scrollItemIntoView(currentPageItem, navPanels)
+    }
+  }
 
   function getExpandedItems() {
     return find('.nav-tree .nav-itm[data-state="expanded"]').map(function (item) {

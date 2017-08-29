@@ -1,9 +1,9 @@
-<div class="navigation__wrapper">
+<div class="navigation__wrapper"  data-domain="{{domain.name}}" data-version="{{domain.version.string}}" data-is-global-aspect-nav="{{isGlobalAspectNav}}">
   <nav role="navigation" class="navigation">
     <div class="navigation-toolbar">
       <button data-panel="aspect">Tasks</button>
       <button data-panel="explore">Explore</button>
-      {{#if (not (eq domain.name 'tasks'))}}
+      {{#if (not isGlobalAspectNav)}}
         <button data-panel="domain">Product</button>
       {{/if}}
       <button class="navigation-close"></button>
@@ -11,9 +11,9 @@
     <div class="navigation-panels">
       {{> navigation-aspect }}
       {{> navigation-explore }}
-        {{#if (not (eq domain.name 'tasks'))}}
-          {{> navigation-domain }}
-        {{/if}}
+      {{#if (not isGlobalAspectNav)}}
+        {{> navigation-domain }}
+      {{/if}}
     </div>
   </nav>
 </div>
