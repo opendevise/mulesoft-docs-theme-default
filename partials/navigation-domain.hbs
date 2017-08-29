@@ -1,22 +1,5 @@
 <div class="navigation-domain" data-panel="domain">
   <div class="nav-tree">
     {{> navigation-tree }}
-    {{!--
-    {{#if domain.root}}
-      <ul class="nav-lvl">
-        <li class="nav-itm" data-depth="0">
-          <a class="nav-lnk" href="{{domain.url}}">{{{domain.title}}}</a>
-          {{> navigation-tree level=1 }}
-        </li>
-        {{#each site.domains}}
-          <li class="nav-itm" data-depth="0">
-            <a class="nav-lnk" href="{{./url}}">{{{./title}}}</a>
-          </li>
-        {{/each}}
-      </ul>
-    {{else}}
-      {{> navigation-tree }}
-    {{/if}}
-    --}}
   </div>
 </div>
