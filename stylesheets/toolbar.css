@@ -41,7 +41,8 @@
   width: 2.5rem;
 }
 
-.home-link:hover {
+.home-link:hover,
+.home-link--current {
   background-image: url(../images/home-hovered.svg);
 }
 
