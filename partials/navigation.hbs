@@ -1,11 +1,11 @@
 <div class="navigation__wrapper"  data-domain="{{domain.name}}" data-version="{{domain.version.string}}" data-is-site-aspect="{{domain.siteAspect}}">
   <nav role="navigation" class="navigation">
     <div class="navigation-toolbar">
+      <button data-panel="aspect">Tasks</button>
+      <button data-panel="explore">Explore</button>
       {{#unless domain.siteAspect}}
         <button data-panel="domain">Product</button>
       {{/unless}}
-      <button data-panel="aspect">Tasks</button>
-      <button data-panel="explore">Explore</button>
       <button class="navigation-close"></button>
     </div>
     <div class="navigation-panels">
