@@ -1,10 +1,12 @@
 <div class="toolbar" role="navigation">
 <button class="navigation-open"></button>
+{{#unless domain.siteAspect}}
 {{#if (eq siteRootUrl '')}}
 <a href="{{siteRootUrl}}" class="home-link home-link--current"></a>
 {{/if}}
+{{/unless}}
 {{#if siteRootUrl}}
-<a href="{{siteRootUrl}}" class="home-link{{#if (eq siteRootUrl 'index.html')}} home-link--current{{/if}}"></a>
+<a href="{{siteRootUrl}}" class="home-link{{#unless domain.siteAspect}}{{#if (eq siteRootUrl 'index.html')}} home-link--current{{/if}}{{/unless}}"></a>
 {{/if}}
 {{> breadcrumbs }}
 {{> page-version-selector }}
