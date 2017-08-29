@@ -1,15 +1,15 @@
-!(function () {
+(function () {
   'use strict'
 
   var navWrapper = document.querySelector('.navigation__wrapper'),
     navPanels = document.querySelector('.navigation-panels'),
     currentDomain = navWrapper.dataset.domain,
     currentVersion = navWrapper.dataset.version,
-    isGlobalAspectNav = (navWrapper.dataset.isGlobalAspectNav === 'true'),
+    isSiteAspect = (navWrapper.dataset.isSiteAspect === 'true'),
     state = getState()
 
   // navigation panels state
-  if (isGlobalAspectNav) {
+  if (isSiteAspect) {
     state.panel = 'aspect'
   }
   else if (currentDomain !== state.domain && currentVersion !== state.version) {
@@ -80,6 +80,7 @@
   }
   if (state.domain !== currentDomain || state.version !== currentVersion) {
     state.expandedItems = state.expandedItems.filter(function (item) {
+      // Q: can we use startsWith here?
       return item.match(/^aspect-/)
     })
   }

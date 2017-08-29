@@ -1,19 +1,19 @@
-<div class="navigation__wrapper"  data-domain="{{domain.name}}" data-version="{{domain.version.string}}" data-is-global-aspect-nav="{{isGlobalAspectNav}}">
+<div class="navigation__wrapper"  data-domain="{{domain.name}}" data-version="{{domain.version.string}}" data-is-site-aspect="{{domain.siteAspect}}">
   <nav role="navigation" class="navigation">
     <div class="navigation-toolbar">
+      {{#unless domain.siteAspect}}
+        <button data-panel="domain">Product</button>
+      {{/unless}}
       <button data-panel="aspect">Tasks</button>
       <button data-panel="explore">Explore</button>
-      {{#if (not isGlobalAspectNav)}}
-        <button data-panel="domain">Product</button>
-      {{/if}}
       <button class="navigation-close"></button>
     </div>
     <div class="navigation-panels">
       {{> navigation-aspect }}
       {{> navigation-explore }}
-      {{#if (not isGlobalAspectNav)}}
+      {{#unless domain.siteAspect}}
         {{> navigation-domain }}
-      {{/if}}
+      {{/unless}}
     </div>
   </nav>
 </div>

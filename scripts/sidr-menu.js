@@ -1,4 +1,4 @@
-!(function () {
+(function () {
   'use strict'
 
   var sidrToggle = document.querySelector('.sidr-toggle'),
