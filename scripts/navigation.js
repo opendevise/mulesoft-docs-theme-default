@@ -53,13 +53,6 @@
     navWrapper.dataset.state = null
   }
 
-  // scroll position of the current panel
-  navPanels.scrollTop = state.scroll
-  navPanels.addEventListener('scroll', function () {
-    state.scroll = parseInt(navPanels.scrollTop)
-    saveState()
-  })
-
   // navigation tree items
   find('.nav-tree').forEach(function (navTree) {
     var panel = navTree.parentElement.dataset.panel
@@ -106,6 +99,13 @@
       return item.dataset.id
     })
   }
+
+  // scroll position of the current panel
+  navPanels.scrollTop = state.scroll
+  navPanels.addEventListener('scroll', function () {
+    state.scroll = parseInt(navPanels.scrollTop)
+    saveState()
+  })
 
   // state management
   function getState() {
