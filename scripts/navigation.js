@@ -3,6 +3,9 @@
 
   var navWrapper = document.querySelector('.navigation__wrapper'),
     navPanels = document.querySelector('.navigation-panels'),
+    panelNames = find('[data-panel]', navPanels).map(function (panel) {
+      return panel.dataset.panel
+    }),
     currentDomain = navWrapper.dataset.domain,
     currentVersion = navWrapper.dataset.version,
     isSiteAspect = (navWrapper.dataset.isSiteAspect === 'true'),
@@ -24,6 +27,9 @@
   })
 
   function selectPanel(panelName) {
+    if (panelNames.indexOf(panelName) === -1) {
+      panelName = 'domain'
+    }
     find('.navigation [data-panel]').forEach(function (element) {
       element.classList.toggle('navigation--currentPanel', element.dataset.panel === panelName)
     })
