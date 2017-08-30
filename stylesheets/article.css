@@ -357,7 +357,7 @@
 }
 
 /* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
-.doc .tableblock pre,
+.doc table pre,
 .doc .listingblock.wrap pre {
   white-space: pre-wrap;
 }
