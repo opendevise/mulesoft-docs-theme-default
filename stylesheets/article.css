@@ -29,22 +29,30 @@
 .doc h4 > a.anchor,
 .doc h5 > a.anchor,
 .doc h6 > a.anchor {
+  position: absolute;
   text-decoration: none;
-  float: left;
-  width: 0;
+  width: 1.75ex;
+  margin-left: -1.5ex;
   visibility: hidden;
-  margin-left: -0.75em;
   font-size: 0.8em;
-  padding-top: 0.05em;
+  padding-top: 0.025em;
 }
 
-.doc h1:hover > a.anchor::before,
-.doc h2:hover > a.anchor::before,
-.doc h3:hover > a.anchor::before,
-.doc h4:hover > a.anchor::before,
-.doc h5:hover > a.anchor::before,
-.doc h6:hover > a.anchor::before {
+.doc h1 > a.anchor::before,
+.doc h2 > a.anchor::before,
+.doc h3 > a.anchor::before,
+.doc h4 > a.anchor::before,
+.doc h5 > a.anchor::before,
+.doc h6 > a.anchor::before {
   content: "\00a7";
+}
+
+.doc h1:hover > a.anchor,
+.doc h2:hover > a.anchor,
+.doc h3:hover > a.anchor,
+.doc h4:hover > a.anchor,
+.doc h5:hover > a.anchor,
+.doc h6:hover > a.anchor {
   visibility: visible;
 }
 
