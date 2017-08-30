@@ -4,7 +4,7 @@
       <div class="domain-title">{{{./title}}}</div>
       <div class="domain-versions">
         {{#each ./versions}}
-          <a class="domain-version{{#if ./selected}} domain-version--current{{/if}}" href="{{./url}}">{{./string}}{{#if ./latest}} (latest){{/if}}</a>
+          <a class="domain-version{{#if ./selected}} domain-version--current{{/if}}" href="{{{./url}}}">{{./string}}{{#if ./latest}} (latest){{/if}}</a>
         {{/each}}
       </div>
     </div>
