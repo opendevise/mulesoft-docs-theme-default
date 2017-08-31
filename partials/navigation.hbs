@@ -1,7 +1,7 @@
 <div class="navigation__wrapper" data-domain="{{domain.name}}" data-version="{{domain.version.string}}" data-is-site-aspect="{{domain.siteAspect}}" data-home="{{home}}">
   <nav role="navigation" class="navigation">
     <div class="navigation-toolbar">
-      {{#if site.aspectNav}}
+      {{#if site.aspect}}
         <button data-panel="aspect">Tasks</button>
       {{/if}}
       <button data-panel="explore">Explore</button>
@@ -11,7 +11,7 @@
       <button class="navigation-close"></button>
     </div>
     <div class="navigation-panels">
-      {{#if site.aspectNav}}
+      {{#if site.aspect}}
         {{> navigation-aspect }}
       {{/if}}
       {{> navigation-explore }}
