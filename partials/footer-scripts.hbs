@@ -13,3 +13,6 @@
 _st('install','{{site.swiftypeKey}}','2.0.0');
 </script>
 {{/if}}
+{{#if (or (eq site.url "https://docs-new.stgx.mulesoft.com") (eq site.url "https://docs.mulesoft.com"))}}
+<!-- insert tracking scripts for production here -->
+{{/if}}
