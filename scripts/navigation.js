@@ -42,9 +42,7 @@
   // navigation toggle for mobile/tablet view
   document.querySelector('.navigation-open').addEventListener('click', openNavigation)
   document.querySelector('.navigation-close').addEventListener('click', closeNavigation)
-  navWrapper.addEventListener('click', function (e) {
-    e.stopPropagation()
-  })
+  navWrapper.addEventListener('click', function (e) { e.stopPropagation() })
   window.addEventListener('click', closeNavigation)
 
   function openNavigation(e) {
@@ -73,7 +71,7 @@
       saveState()
     })
   })
-  if (state.expandedItems == null) {
+  if (!state.expandedItems) {
     state.expandedItems = getExpandedItems()
     saveState()
   }
@@ -85,7 +83,7 @@
 
   state.expandedItems.forEach(function (itemId) {
     var item = document.querySelector('.nav-itm[data-id="' + itemId + '"]')
-    if (item != null) {
+    if (item) {
       item.setAttribute('data-state', 'expanded')
     }
   })
