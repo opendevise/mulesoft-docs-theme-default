@@ -27,7 +27,7 @@
   })
 
   function selectPanel(panelName) {
-    if (panelNames.indexOf(panelName) === -1) {
+    if (panelNames.indexOf(panelName) < 0) {
       panelName = 'domain'
     }
     find('.navigation [data-panel]').forEach(function (element) {
