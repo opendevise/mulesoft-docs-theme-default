@@ -24,25 +24,33 @@
   }
 
   function jumpToAnchor (e) {
-    if (e) e.preventDefault()
+    if (e) {
+      window.location.hash = '#' + this.id
+      e.preventDefault()
+    }
     var stickyHeading = queryStickyHeading(this)
     window.scrollTo(0, this.offsetTop - toolbar.offsetHeight - (stickyHeading ? stickyHeading.offsetHeight : 0))
   }
 
   function jumpToStickyHeading (e) {
-    if (e) e.preventDefault()
+    if (e) {
+      window.location.hash = '#' + this.id
+      e.preventDefault()
+    }
     window.scrollTo(0, document.documentElement.scrollTop = this.parentNode.offsetTop - toolbar.offsetHeight)
   }
 
   window.addEventListener('load', function jumpOnLoad (hash, target) {
-    if ((hash = window.location.hash) && (target = document.querySelector(hash))) {
+    if ((hash = window.location.hash) && (target = document.getElementById(hash.slice(1)))) {
       isStickyHeading(target) ? jumpToStickyHeading.bind(target)() : jumpToAnchor.bind(target)()
     }
     window.removeEventListener('load', jumpOnLoad)
   })
 
   Array.prototype.slice.call(document.querySelectorAll('.doc a[href^="#"]')).forEach(function (a) {
-    var target = document.querySelector(a.hash)
-    a.addEventListener('click', isStickyHeading(target) ? jumpToStickyHeading.bind(target) : jumpToAnchor.bind(target))
+    var target = document.getElementById(a.hash.slice(1))
+    if (target) {
+      a.addEventListener('click', isStickyHeading(target) ? jumpToStickyHeading.bind(target) : jumpToAnchor.bind(target))
+    }
   })
 })()
