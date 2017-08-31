@@ -96,13 +96,6 @@
   })
   saveState()
 
-  if (currentDomain !== state.domain || currentVersion !== state.version) {
-    var currentPageItem = document.querySelector('.nav-itm--currentPage')
-    if (currentPageItem) {
-      scrollItemIntoView(currentPageItem, navPanels)
-    }
-  }
-
   function getExpandedItems() {
     return find('.nav-tree .nav-itm[data-state="expanded"]').map(function (item) {
       return item.dataset.id
@@ -114,9 +107,10 @@
   saveState()
 
   // scroll position of the current panel
-  navPanels.scrollTop = state.scroll || 0
+  var currentPageItem = document.querySelector('.nav-itm--currentPage .nav-lnk')
+  scrollItemIntoView(state.scroll || 0, navPanels, currentPageItem)
   navPanels.addEventListener('scroll', function () {
-    state.scroll = parseInt(navPanels.scrollTop)
+    state.scroll = Math.round(navPanels.scrollTop)
     saveState()
   })
 
@@ -133,10 +127,26 @@
   }
 
   // tries to get item as close to the top of the view as possible
-  function scrollItemIntoView(el, parent) {
-    var amountToScroll = el.offsetTop - parent.offsetTop
-    if (amountToScroll > 0) {
-      parent.scrollTop = amountToScroll
+  function scrollItemIntoView(scrollPosition, parent, el) {
+
+    if (el == null) {
+      return parent.scrollTop = scrollPosition
+    }
+
+    // safe space over or below current item
+    var margin = 10
+
+    const overTheTop = el.offsetTop - scrollPosition < 0
+    const belowTheBottom = el.offsetTop - scrollPosition + el.offsetHeight > parent.offsetHeight
+
+    if (overTheTop) {
+      parent.scrollTop = el.offsetTop - margin
+    }
+    else if (belowTheBottom) {
+      parent.scrollTop = el.offsetTop - (parent.offsetHeight - el.offsetHeight) + margin
+    }
+    else {
+      parent.scrollTop = scrollPosition
     }
   }
 

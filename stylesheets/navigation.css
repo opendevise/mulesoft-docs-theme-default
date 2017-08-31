@@ -146,6 +146,8 @@
 .navigation-panels {
   flex: 1 1 0;
   overflow: auto;
+  /* useful for offsetTop maths in JS */
+  position: relative;
 }
 
 .navigation-panels [data-panel]:not(.navigation--currentPanel) {
