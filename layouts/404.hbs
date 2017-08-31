@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="keywords" content="{{keywords}}">
-<link rel="canonical" href="{{canonicalUrl}}">
-<link rel="stylesheet" href="{{themeRootPath}}/stylesheets/theme.css">
-<title>{{title}}{{#if site.title}} // {{site.title}}{{/if}}</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="{{keywords}}">
+  <link rel="canonical" href="{{canonicalUrl}}">
+  <link rel="stylesheet" href="{{themeRootPath}}/stylesheets/theme.css">
+  <title>{{title}}{{#if site.title}} // {{site.title}}{{/if}}</title>
 {{> head }}
 </head>
 <body class="status-404">
 {{> header }}
-<div class="main__wrapper">
-<main role="main" class="main">
-<article class="doc">
+  <div class="main__wrapper">
+    <main role="main" class="main">
+      <article class="doc">
 {{{contents}}}
-</article>
-</main>
-</div>
+      </article>
+    </main>
+  </div>
 {{> footer }}
 </body>
 </html>

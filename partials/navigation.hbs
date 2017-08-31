@@ -2,27 +2,27 @@
   <nav role="navigation" class="navigation">
     <div class="navigation-toolbar">
       {{#if site.aspect}}
-        <button data-panel="aspect">Tasks</button>
+      <button data-panel="aspect">Tasks</button>
       {{/if}}
       <button data-panel="explore">Explore</button>
       {{#unless domain.siteAspect}}
-        <button data-panel="domain">Product</button>
+      <button data-panel="domain">Product</button>
       {{/unless}}
       {{#if site.swiftypeKey}}
-        <form id="st-open">
-          <input type="text" class="st-default-search-input">
-          <button type="submit" class="st-open-btn"></button>
-        </form>
+      <form id="st-open">
+        <input type="text" class="st-default-search-input">
+        <button type="submit" class="st-open-btn"></button>
+      </form>
       {{/if}}
       <button class="navigation-close"></button>
     </div>
     <div class="navigation-panels">
       {{#if site.aspect}}
-        {{> navigation-aspect }}
+{{> navigation-aspect }}
       {{/if}}
-      {{> navigation-explore }}
+{{> navigation-explore }}
       {{#unless domain.siteAspect}}
-        {{> navigation-domain }}
+{{> navigation-domain }}
       {{/unless}}
     </div>
   </nav>

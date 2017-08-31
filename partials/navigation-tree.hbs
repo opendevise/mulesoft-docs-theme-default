@@ -1,17 +1,17 @@
 {{#if navigation.length}}
 <ul class="nav-lvl">
-{{#each navigation}}
-<li class="nav-itm{{#if ./currentPath}} nav-itm--currentPath{{/if}}{{#if ./currentPage}} nav-itm--currentPage{{/if}}" data-depth="{{#if ../level}}{{../level}}{{else}}0{{/if}}"{{#if ./currentPath}} data-state="expanded"{{/if}}>
-{{#if (and ../level ./items.length)}}
-<button class="nav-ctl"></button>
-{{/if}}
-{{#if ./url}}
-<a class="nav-lnk" href="{{{./url}}}">{{{./title}}}</a>
-{{else}}
-<span class="nav-txt">{{{./title}}}</span>
-{{/if}}
+  {{#each navigation}}
+  <li class="nav-itm{{#if ./currentPath}} nav-itm--currentPath{{/if}}{{#if ./currentPage}} nav-itm--currentPage{{/if}}" data-depth="{{#if ../level}}{{../level}}{{else}}0{{/if}}"{{#if ./currentPath}} data-state="expanded"{{/if}}>
+    {{#if (and ../level ./items.length)}}
+    <button class="nav-ctl"></button>
+    {{/if}}
+    {{#if ./url}}
+    <a class="nav-lnk" href="{{{./url}}}">{{{./title}}}</a>
+    {{else}}
+    <span class="nav-txt">{{{./title}}}</span>
+    {{/if}}
 {{> navigation-tree navigation=./items level=(increment ../level) }}
-</li>
-{{/each}}
+  </li>
+  {{/each}}
 </ul>
 {{/if}}
