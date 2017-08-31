@@ -10,7 +10,7 @@
     currentVersion = navWrapper.dataset.version,
     isSiteAspect = (navWrapper.dataset.isSiteAspect === 'true'),
     isHome = (navWrapper.dataset.isHome === 'true'),
-    state = getState()
+    state = getState() || {}
 
   if (isSiteAspect || isHome) {
     state.panel = 'aspect'
@@ -110,25 +110,17 @@
   saveState()
 
   // scroll position of the current panel
-  navPanels.scrollTop = state.scroll
+  navPanels.scrollTop = state.scroll || 0
   navPanels.addEventListener('scroll', function () {
     state.scroll = parseInt(navPanels.scrollTop)
     saveState()
   })
 
   // state management
-  function getState() {
-    if (sessionStorage.getItem('nav-state') != null) {
-      return JSON.parse(sessionStorage.getItem('nav-state'))
-    }
-    else {
-      return {
-        panel: 'domain',
-        scroll: 0,
-        domain: currentDomain,
-        version: currentVersion,
-        expandedItems: null,
-      }
+  function getState(domain, version) {
+    var data = sessionStorage.getItem('nav-state')
+    if (data) {
+      return JSON.parse(data)
     }
   }
 
