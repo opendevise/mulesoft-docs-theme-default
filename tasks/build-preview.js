@@ -75,7 +75,7 @@ function compileLayouts(src) {
 
     vfs.src('layouts/*.hbs', { base: src, cwd: src })
       .pipe(map((file, next) => {
-        layoutsIndex[file.basename] = handlebars.compile(file.contents.toString())
+        layoutsIndex[file.basename] = handlebars.compile(file.contents.toString(), { preventIndent: true })
         next(null, file)
       }))
       .on('error', reject)
