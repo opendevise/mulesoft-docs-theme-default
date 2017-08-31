@@ -8,6 +8,12 @@
       {{#unless domain.siteAspect}}
         <button data-panel="domain">Product</button>
       {{/unless}}
+      {{#if site.swiftypeKey}}
+        <form>
+          <input type="text" class="st-default-search-input">
+          <button type="submit" class="search-open"></button>
+        </form>
+      {{/if}}
       <button class="navigation-close"></button>
     </div>
     <div class="navigation-panels">
