@@ -12,11 +12,10 @@
     isHome = (navWrapper.dataset.isHome === 'true'),
     state = getState()
 
-  // navigation panels state
   if (isSiteAspect || isHome) {
     state.panel = 'aspect'
   }
-  else if (currentDomain !== state.domain && currentVersion !== state.version) {
+  else {
     state.panel = 'domain'
   }
   selectPanel(state.panel)
