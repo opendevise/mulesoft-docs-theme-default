@@ -26,7 +26,7 @@ const dest = config.get('destination')
 const destTheme = path.join(dest, config.get('theme_destination'))
 
 gulp.task('build', () =>
-  build(src, destTheme)
+  build(src, destTheme, config.get('cache_buster'))
 )
 
 gulp.task('build-preview', ['build'], () =>

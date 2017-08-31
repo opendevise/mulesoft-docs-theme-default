@@ -28,6 +28,12 @@ const conf = convict({
     format: String,
     default: null,
   },
+  cache_buster: {
+    doc: 'Instructs the build to add the specified cache buster query string to asset URLs',
+    format: String,
+    default: undefined,
+    arg: 'cache-buster',
+  },
   github_token: {
     doc: 'Token for Github auth',
     format: String,

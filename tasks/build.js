@@ -15,6 +15,7 @@ const postcssVar = require('postcss-custom-properties')
 const postcssImport = require('postcss-import')
 const postcssUrl = require('postcss-url')
 const cssnano = require('cssnano')
+const replace = require('gulp-replace')
 
 const postcssPlugins = [
   postcssImport(),
@@ -32,7 +33,7 @@ const postcssPlugins = [
   cssnano({ preset: 'default' }),
 ]
 
-module.exports = (src, dest) => {
+module.exports = (src, dest, cacheBuster) => {
 
   const srcOptions = { base: src, cwd: src }
 
@@ -56,8 +57,10 @@ module.exports = (src, dest) => {
       })),
 
     vfs.src('helpers/*.js', srcOptions),
-    vfs.src('layouts/*.hbs', srcOptions),
-    vfs.src('partials/*.hbs', srcOptions),
+    vfs.src('layouts/*.hbs', srcOptions)
+      .pipe(replace(/(\.css)(?=">)/g, cacheBuster ? '$1?' + cacheBuster : '$1')),
+    vfs.src('partials/*.hbs', srcOptions)
+      .pipe(replace(/(\.js)(?=">)/g, cacheBuster ? '$1?' + cacheBuster : '$1')),
   ])
     .pipe(vfs.dest(dest))
 }
