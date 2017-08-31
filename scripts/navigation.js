@@ -95,7 +95,7 @@
   })
   saveState()
 
-  if (currentDomain !== state.domain && currentVersion !== state.version) {
+  if (currentDomain !== state.domain || currentVersion !== state.version) {
     var currentPageItem = document.querySelector('.nav-itm--currentPage')
     if (currentPageItem) {
       scrollItemIntoView(currentPageItem, navPanels)
