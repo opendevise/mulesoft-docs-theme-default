@@ -83,7 +83,8 @@
   }
   if (state.domain !== currentDomain || state.version !== currentVersion) {
     state.expandedItems = state.expandedItems.filter(function (item) {
-      return item.startsWith('aspect-')
+      // startsWith is ES6 :/
+      return item.match(/^aspect-/)
     })
   }
 
