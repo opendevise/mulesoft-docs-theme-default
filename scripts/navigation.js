@@ -15,6 +15,10 @@
   if (isSiteAspect || isHome) {
     state.panel = 'aspect'
   }
+  else if (state.panel === 'explore') {
+    state.scroll = 0
+    state.panel = 'domain'
+  }
   else {
     state.panel = 'domain'
   }
@@ -35,14 +39,16 @@
     if (panelName !== state.panel) {
       navPanels.scrollTop = 0
     }
-    state.panel = (panelName === 'explore') ? 'domain' : panelName
+    state.panel = panelName
     saveState()
   }
 
   // navigation toggle for mobile/tablet view
   document.querySelector('.navigation-open').addEventListener('click', openNavigation)
   document.querySelector('.navigation-close').addEventListener('click', closeNavigation)
-  navWrapper.addEventListener('click', function (e) { e.stopPropagation() })
+  navWrapper.addEventListener('click', function (e) {
+    e.stopPropagation()
+  })
   window.addEventListener('click', closeNavigation)
 
   function openNavigation(e) {
