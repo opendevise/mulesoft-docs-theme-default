@@ -106,6 +106,10 @@
     })
   }
 
+  state.domain = currentDomain
+  state.version = currentVersion
+  saveState()
+
   // scroll position of the current panel
   navPanels.scrollTop = state.scroll
   navPanels.addEventListener('scroll', function () {
