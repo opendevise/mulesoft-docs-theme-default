@@ -79,8 +79,7 @@
   }
   if (state.domain !== currentDomain || state.version !== currentVersion) {
     state.expandedItems = state.expandedItems.filter(function (item) {
-      // Q: can we use startsWith here?
-      return item.match(/^aspect-/)
+      return item.startsWith('aspect-')
     })
   }
 
